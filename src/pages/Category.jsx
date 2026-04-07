@@ -12,35 +12,37 @@ function Category() {
 
   const categoryData = {
     parfums: {
-      title: "PARFUMS GALACTIQUES",
-      color: "text-[#ff00ff]",
-      bg: "bg-[#ff00ff]",
+      title: "PARFUMS EXCLUSIFS",
+      color: "text-[#d4af37]",
+      bg: "bg-[#d4af37]",
       icon: "",
-      desc: "Découvrez notre collection raffinée de parfums galactiques.",
+      desc: "Découvrez notre collection raffinée de parfums prestigieux.",
       items: [
-        { name: "Sueur de Martien", price: "89€", image: "/parfum_dubai_luxury.png", badge: "Premium" },
-        { name: "Void Aura", price: "99€", image: "/parfum_dubai_luxury.png", badge: "Magique" },
-        { name: "Essence Alien", price: "120€", image: "/parfum_dubai_luxury.png", badge: "Exclusif" }
+        { name: "Fakhar Lattafa", price: "30€", image: "/products/parfum_lattafa_fakhar_1775589048268.png", badge: "Premium" },
+        { name: "AïSHA Absolue", price: "30€", image: "/products/parfum_aisha_1775589064630.png", badge: "Magique" },
+        { name: "Maison Alhambra Léonie", price: "30€", image: "/products/parfum_lattafa_fakhar_1775589048268.png", badge: "Exclusif" }
       ]
     },
     puffs: {
-      title: "PUFFS DE L'ESPACE",
-      color: "text-[#ff00ff]",
-      bg: "bg-[#ff00ff]",
-      icon: "",
-      desc: "Une sélection rigoureuse des meilleures saveurs extraterrestres.",
-      items: [
-        { name: "Saveur Titanium", price: "45€", image: "/megashop_alien_puff_1775165184013.png", badge: "Intense" },
-        { name: "Menthe Extraterrestre", price: "29€", image: "/megashop_alien_puff_1775165184013.png", badge: "Frais" },
-        { name: "Air Pur de Jupiter", price: "120€", image: "/megashop_alien_puff_1775165184013.png", badge: "Premium" }
-      ]
-    },
-    tshirts: {
-      title: "T-SHIRTS ANTI-GRAVITÉ",
+      title: "VAPORISATEURS PREMIUM",
       color: "text-[#00f0ff]",
       bg: "bg-[#00f0ff]",
       icon: "",
-      desc: "Des tissus technologiques qui défient les lois de l'univers.",
+      desc: "Une sélection rigoureuse des meilleures saveurs et designs.",
+      items: [
+        { name: "Aerox 32k - Strawberry Kiwi", price: "30€", image: "/products/puff_aerox_strawberry_kiwi_1775589080131.png", badge: "Intense" },
+        { name: "Razz Bar 30k+ - Blueberry", price: "30€", image: "/products/puff_razzbar_blueberry_1775589118962.png", badge: "Frais" },
+        { name: "Crown Bar 30k - Ice Blue", price: "30€", image: "/products/puff_fumot_leopard_1775589133707.png", badge: "Premium" },
+        { name: "Kong Max 30k - Watermelon", price: "30€", image: "/products/puff_aerox_strawberry_kiwi_1775589080131.png", badge: "Intense" },
+        { name: "Razz Bar 30k+ - Strawberry", price: "30€", image: "/products/puff_razzbar_blueberry_1775589118962.png", badge: "Délicieux" }
+      ]
+    },
+    tshirts: {
+      title: "T-SHIRTS HAUTE-COUTURE",
+      color: "text-[#00f0ff]",
+      bg: "bg-[#00f0ff]",
+      icon: "",
+      desc: "Des tissus technologiques au design exceptionnel.",
       items: [
         { name: "T-Shirt Qualité", price: "49€", image: "/fashion_clothes_paris.png", badge: "Classique" },
         { name: "Coton Stellaire", price: "59€", image: "/fashion_clothes_paris.png", badge: "Doux" },
