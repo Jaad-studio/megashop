@@ -18,9 +18,21 @@ function Category() {
       icon: "",
       desc: "Découvrez notre collection raffinée de parfums prestigieux.",
       items: [
-        { name: "Fakhar Lattafa", price: "30€", image: "/products/parfum_lattafa_fakhar_1775589048268.png", badge: "Premium" },
-        { name: "AïSHA Absolue", price: "30€", image: "/products/parfum_aisha_1775589064630.png", badge: "Magique" },
-        { name: "Maison Alhambra Léonie", price: "30€", image: "/products/parfum_lattafa_fakhar_1775589048268.png", badge: "Exclusif" }
+        { name: "Prideful Volaré", price: "35€", image: "/products/parfum_volare_prideful_1775592377311.png", badge: "Élégant" },
+        { name: "Kenzie Marshmallow Dream", price: "35€", image: "/products/parfum_volare_kenzie_1775592394045.png", badge: "Rêve" },
+        { name: "Yara Candy Lattafa", price: "35€", image: "/products/parfum_lattafa_yara_candy_1775592421301.png", badge: "Gourmand" },
+        { name: "Yara Lattafa", price: "35€", image: "/products/parfum_lattafa_yara_1775592406921.png", badge: "Iconique" },
+        { name: "La Vivacité", price: "35€", image: "/products/parfum_alhambra_vivacite_1775592440080.png", badge: "Vibrant" },
+        { name: "Rave Now Women", price: "35€", image: "/products/parfum_rave_now_1775592456747.png", badge: "Moderne" },
+        { name: "Ameerat Al Arab", price: "35€", image: "/products/parfum_ameerat_corrected_1775591719341.png", badge: "Royal" },
+        { name: "Ameerat Al Arab Prive Rose", price: "35€", image: "/products/parfum_ameerat_corrected_1775591719341.png", badge: "Floral" },
+        { name: "Fakhar Lattafa", price: "35€", image: "/products/parfum_fakhar_corrected_1775591618834.png", badge: "Premium" },
+        { name: "Aïsha Absolue Collection Privée", price: "35€", image: "/products/parfum_aisha_1775589064630.png", badge: "Magique" },
+        { name: "Rosso Lychee", price: "35€", image: "/products/parfum_gulf_orchid_rosso_1775591638969.png", badge: "Rare" },
+        { name: "Rose Bonbon", price: "35€", image: "/products/parfum_rose_bonbon_1775591686863.png", badge: "Doux" },
+        { name: "Léonie Intense", price: "35€", image: "/products/parfum_leonie_1775591655798.png", badge: "Exclusif" },
+        { name: "Musk Collection Cotton Candy", price: "35€", image: "/products/parfum_musk_collection_1775591701197.png", badge: "Sucré" },
+        { name: "Musk Collection Blueberry", price: "35€", image: "/products/parfum_musk_collection_1775591701197.png", badge: "Frais" }
       ]
     },
     puffs: {
@@ -30,11 +42,31 @@ function Category() {
       icon: "",
       desc: "Une sélection rigoureuse des meilleures saveurs et designs.",
       items: [
-        { name: "Aerox 32k - Strawberry Kiwi", price: "30€", image: "/products/puff_aerox_strawberry_kiwi_1775589080131.png", badge: "Intense" },
-        { name: "Razz Bar 30k+ - Blueberry", price: "30€", image: "/products/puff_razzbar_blueberry_1775589118962.png", badge: "Frais" },
-        { name: "Crown Bar 30k - Ice Blue", price: "30€", image: "/products/puff_fumot_leopard_1775589133707.png", badge: "Premium" },
-        { name: "Kong Max 30k - Watermelon", price: "30€", image: "/products/puff_aerox_strawberry_kiwi_1775589080131.png", badge: "Intense" },
-        { name: "Razz Bar 30k+ - Strawberry", price: "30€", image: "/products/puff_razzbar_blueberry_1775589118962.png", badge: "Délicieux" }
+        { name: "Aerox 32k Strawberry Kiwi", price: "15€", image: "/products/puff_aerox_strawberry_kiwi_1775589080131.png", badge: "Intense" },
+        { name: "Kong Max 30k Raspberry Watermelon Ice", price: "15€", image: "/products/puff_aerox_strawberry_kiwi_1775589080131.png", badge: "Frais" },
+        { name: "Kong Max 30k Raspberry Watermelon", price: "15€", image: "/products/puff_aerox_strawberry_kiwi_1775589080131.png", badge: "Frais" },
+        { name: "Crown Bar 30k Ice Blue", price: "20€", image: "/products/puff_fumot_leopard_1775589133707.png", badge: "Glacé" },
+        { name: "Crown Bar 30k Magic Love", price: "20€", image: "/products/puff_fumot_leopard_1775589133707.png", badge: "Mystique" },
+        { name: "Crown Bar 30k Lemon Mint", price: "20€", image: "/products/puff_fumot_leopard_1775589133707.png", badge: "Rafraîchissant" },
+        { name: "Crown Bar 30k Cherry Fizz", price: "20€", image: "/products/puff_fumot_leopard_1775589133707.png", badge: "Pétillant" },
+        { name: "Crown Bar 30k Strawberry Punch", price: "20€", image: "/products/puff_fumot_leopard_1775589133707.png", badge: "Puissant" },
+        { name: "Crown Bar 30k Mixed Berry", price: "20€", image: "/products/puff_fumot_leopard_1775589133707.png", badge: "Classique" },
+        { name: "Razz Bar 30k+ Blueberry Sour Raspberry", price: "20€", image: "/products/puff_razzbar_blueberry_1775589118962.png", badge: "Premium" },
+        { name: "Razz Bar 30k+ Strawberry Watermelon", price: "20€", image: "/products/puff_razzbar_blueberry_1775589118962.png", badge: "Intense" },
+        { name: "Razz Bar 30k+ Pineapple Mango", price: "20€", image: "/products/puff_razzbar_blueberry_1775589118962.png", badge: "Tropical" },
+        { name: "Razz Bar 30k+ Strawberry Banana", price: "20€", image: "/products/puff_razzbar_blueberry_1775589118962.png", badge: "Doux" },
+        { name: "Razz Bar 30k+ Strawberry Ice", price: "20€", image: "/products/puff_razzbar_blueberry_1775589118962.png", badge: "Frais" },
+        { name: "Razz Bar 30k+ Blueberry Ice", price: "20€", image: "/products/puff_razzbar_blueberry_1775589118962.png", badge: "Glacé" },
+        { name: "Falcon JNR 30K Strawberry Ice", price: "20€", image: "/products/puff_aerox_strawberry_kiwi_1775589080131.png", badge: "Frais" },
+        { name: "Falcon JNR 30K Watermelon Mango Peach", price: "20€", image: "/products/puff_aerox_strawberry_kiwi_1775589080131.png", badge: "Exotique" },
+        { name: "Falcon JNR 30K Strawberry Watermelon Ice", price: "20€", image: "/products/puff_aerox_strawberry_kiwi_1775589080131.png", badge: "Intense" },
+        { name: "Falcon JNR 30K Blueberry Raspberry Cherry", price: "20€", image: "/products/puff_aerox_strawberry_kiwi_1775589080131.png", badge: "Mixte" },
+        { name: "Falcon JNR 30K Mixed Berries", price: "20€", image: "/products/puff_aerox_strawberry_kiwi_1775589080131.png", badge: "Classique" },
+        { name: "RandM T9000 Summer Peach Ice", price: "10€", image: "/products/puff_fumot_leopard_1775589133707.png", badge: "Doux" },
+        { name: "RandM T9000 Cherry Ice", price: "10€", image: "/products/puff_fumot_leopard_1775589133707.png", badge: "Pétillant" },
+        { name: "RandM T9000 Black Dragon Ice", price: "10€", image: "/products/puff_fumot_leopard_1775589133707.png", badge: "Mystique" },
+        { name: "RandM T9000 Peach Mango Pineapple", price: "10€", image: "/products/puff_fumot_leopard_1775589133707.png", badge: "Tropical" },
+        { name: "Fumot Leopard 40K", price: "20€", image: "/products/puff_fumot_leopard_1775589133707.png", badge: "Maxi" }
       ]
     },
     tshirts: {

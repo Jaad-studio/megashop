@@ -59,7 +59,7 @@ const EntryLoader = () => {
         transition={{ duration: 1.5, ease: "easeInOut" }}
         className="text-[12vw] font-black text-[#ff00ff] tracking-tighter mix-blend-screen drop-shadow-[0_0_50px_rgba(255,0,255,0.8)]"
       >
-        MEGASHOP.
+        MEGASHOP
       </motion.div>
     </motion.div>
   );
@@ -169,7 +169,7 @@ function Home() {
       {/* Navbar */}
       <nav className="fixed top-0 left-0 right-0 z-[60] px-4 py-4 md:px-8 md:py-6">
         <div className="bg-[#121212]/90 backdrop-blur-xl border border-white/10 rounded-3xl px-6 py-4 flex items-center justify-between shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
-          <div className="font-black text-2xl tracking-tighter text-[#00f0ff] rotate-[-2deg]">MEGASHOP<span className="text-[#ff00ff]">.</span></div>
+          <div className="font-black text-2xl tracking-tighter text-[#00f0ff] rotate-[-2deg]">MEGASHOP</div>
           <div className="hidden md:flex gap-8 font-black text-sm tracking-wider uppercase text-white/70">
             <a href="#legend" className="hover:text-[#ff00ff] transition-colors">Notre concept</a>
             <a href="#infos" className="hover:text-[#00f0ff] transition-colors">Informations</a>
@@ -191,15 +191,15 @@ function Home() {
       </div>
 
       {/* Extreme Hero Section with Animated BG & Spline */}
-      <section ref={heroRef} className="relative min-h-[100svh] w-full flex flex-col items-center justify-center overflow-hidden clip-slanted pb-12 pt-24 md:pt-0">
+      <section ref={heroRef} className="relative min-h-[100svh] w-full flex flex-col items-center justify-center overflow-hidden clip-slanted pb-12 pt-24 md:pt-0 bg-[#000000]">
         <motion.div style={{ y: heroY, opacity: heroOpacity }} className="absolute inset-0 z-0">
-          <div className="absolute inset-0 w-full h-full bg-gradient-to-tr from-[#ff00ff]/20 via-[#0c0c0c] to-[#00f0ff]/20 animate-fluid-bg z-0" />
+          <div className="absolute inset-0 w-full h-full bg-gradient-to-tr from-[#ff00ff]/10 via-[#000000] to-[#00f0ff]/10 animate-fluid-bg z-0" />
           <FloatingParticles />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0c0c0c] via-transparent to-[#0c0c0c]/90 z-[20] pointer-events-none"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-[#000000] via-transparent to-[#000000]/90 z-[20] pointer-events-none"></div>
         </motion.div>
 
         {/* UFO Spline - Adjusted tightly and lowered */}
-        <div className="absolute top-[8%] md:top-[15%] z-[35] w-full h-[30vh] md:h-[40vh] pointer-events-none scale-110 md:scale-100 flex items-center justify-center">
+        <div className="absolute top-[2%] md:top-[15%] z-[60] w-full h-[25vh] md:h-[40vh] pointer-events-none scale-110 md:scale-100 flex items-center justify-center">
              <iframe 
                 src="https://my.spline.design/wobblingufo-aVOXKJbUvBO9RGJWe7CDrMWQ/" 
                 frameBorder="0" 
@@ -209,25 +209,25 @@ function Home() {
         </div>
 
         {/* Small floating shark video on the side to fit galactical theme better */}
-        <div className="absolute top-[18%] md:top-[30%] right-[-5%] md:right-[10%] w-[60vw] md:w-[35vw] z-[30] pointer-events-none opacity-95 transition-all duration-1000 hover:scale-110">
-           <video src="/shark_video.mp4" autoPlay muted loop playsInline className="w-full h-auto object-contain drop-shadow-[0_0_50px_rgba(0,0,0,0.5)]"></video>
+        <div className="absolute top-[12%] md:top-[30%] right-[-10%] md:right-[10%] w-[45vw] md:w-[35vw] z-[60] pointer-events-none transition-all duration-1000 hover:scale-110">
+           <video src="/shark_video.mp4" autoPlay muted loop playsInline className="w-full h-auto object-contain contrast-[1.8] brightness-90" style={{ WebkitMaskImage: 'radial-gradient(circle, black 30%, transparent 70%)', maskImage: 'radial-gradient(circle, black 30%, transparent 70%)' }}></video>
         </div>
 
         {/* Title layer: behind UFO but above background */}
-        <div className="relative z-20 w-full flex flex-col items-center justify-center text-center px-4 max-w-6xl pointer-events-none -mt-[4.5rem] md:mt-0">
+        <div className="relative z-[50] w-full flex flex-col items-center justify-center text-center px-4 max-w-6xl pointer-events-none mt-[2rem] md:mt-0">
           <motion.div initial={{ y: 50, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 1.2, type: "spring", bounce: 0.4 }} className="overflow-visible flex items-center justify-center w-full">
-            <h1 className="text-[17vw] md:text-[11vw] font-black leading-[0.85] tracking-tighter uppercase drop-shadow-[0_0_20px_rgba(255,0,255,0.6)] text-[#ff00ff] relative">
+            <h1 className="text-[15vw] md:text-[11vw] font-black leading-[0.85] tracking-tighter uppercase drop-shadow-[0_0_20px_rgba(255,0,255,0.6)] text-[#ff00ff] relative">
               VIENS<br />SHOPPER
             </h1>
           </motion.div>
         </div>
 
-        {/* Main Puffs Image pinned high up on mobile to eliminate gap and leave lower screen clear */}
-        <div className="absolute z-[40] w-full max-w-[130vw] md:w-auto h-[45vh] md:h-[75vh] pointer-events-none flex items-center justify-center top-[30%] md:top-auto md:bottom-[5%] left-1/2 -translate-x-1/2">
+        {/* Single Puff Image positioned to the left of the title */}
+        <div className="absolute z-[40] w-[35vw] md:w-[22vw] pointer-events-none flex items-center justify-center top-[30%] md:top-[30%] left-[-5%] md:left-[12%] rotate-[-10deg] transition-all duration-1000 hover:rotate-0 hover:-translate-y-4">
            <img 
-              src="/pink_vapes.png" 
-              className="w-full h-full object-contain scale-[1.25] md:scale-100 drop-shadow-[0_0_60px_rgba(255,0,255,0.6)] transition-transform duration-1000 ease-in-out hover:scale-[1.3] md:hover:scale-105"
-              alt="Main Product Puffs"
+              src="/single_puff.png" 
+              className="w-full h-auto object-contain drop-shadow-[0_0_40px_rgba(0,240,255,0.4)] transition-transform duration-1000 ease-in-out hover:scale-110"
+              alt="Single Blue Puff"
            />
         </div>
 
@@ -271,10 +271,10 @@ function Home() {
          </div>
 
          <SlicedRevealSection 
-           src="/megashop_vape_neon.png" 
+           src="/parfum_dubai_luxury.png" 
            title="NOS" 
            highlight="PARFUMS" 
-           subtitle="Fragrances Cybernétiques" 
+           subtitle="Fragrances Dubaï" 
          />
 
          <div className="-my-12 z-40">
@@ -282,10 +282,10 @@ function Home() {
          </div>
 
          <SlicedRevealSection 
-           src="/megashop_outfit_neon.png" 
+           src="/fashion_clothes_paris.png" 
            title="COLLECTION" 
-           highlight="VÊTEMENTS" 
-           subtitle="Streetwear Néon" 
+           highlight="PARIS" 
+           subtitle="La ville de la Mode" 
          />
       </div>
 
@@ -380,7 +380,7 @@ function Home() {
       {/* Footer */}
       <footer className="bg-[#0c0c0c] pt-16 pb-12 px-4 md:px-8 border-t border-[#ff00ff]/20">
         <div className="max-w-7xl mx-auto flex flex-col items-center text-center gap-6 md:gap-10 mb-10 md:mb-20">
-          <h2 className="text-5xl md:text-9xl font-black text-[#00f0ff] tracking-tighter">MEGASHOP<span className="text-[#ff00ff]">.</span></h2>
+          <h2 className="text-5xl md:text-9xl font-black text-[#00f0ff] tracking-tighter">MEGASHOP</h2>
           <p className="text-lg md:text-2xl font-black text-white/50 max-w-2xl uppercase tracking-wide">
              L'expérience premium à Romans-sur-Isère. 
           </p>
