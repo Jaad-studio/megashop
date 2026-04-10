@@ -3,11 +3,24 @@
 @theme {
   --font-heading: 'Outfit', 'Inter', sans-serif;
   --font-sans: 'Inter', sans-serif;
-  --color-tc-black: #0c0c0c;
-  --color-tc-dark: #121212;
+  --color-tc-black: #0a0a0a;
+  --color-tc-dark: #111111;
+  --color-tc-card: #141414;
   --color-tc-green: #39ff14;
   --color-tc-purple: #9b30ff;
   --color-tc-cyan: #00f0ff;
+  --color-tc-magenta: #ff00ff;
+  --color-tc-gold: #d4af37;
+  --color-tc-pink: #ff5ca1;
+}
+
+/* ── Reset & Base ─────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -17,47 +30,68 @@ body {
   overscroll-behavior: none;
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
 }
 
-/* Custom scrollbar matching tasty crousty */
+/* ── Scrollbar ────────────────────────────────────── */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 ::-webkit-scrollbar-track {
   background: var(--color-tc-black);
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--color-tc-purple);
+  background: linear-gradient(180deg, var(--color-tc-magenta), var(--color-tc-cyan));
   border-radius: 4px;
 }
 
-.text-stroke-alien {
-  -webkit-text-stroke: 2px var(--color-tc-green);
-  color: transparent;
-}
-.text-stroke-cyan {
-  -webkit-text-stroke: 1.5px var(--color-tc-cyan);
-  color: transparent;
+/* ── Text Utilities ───────────────────────────────── */
+.text-gradient-main {
+  background: linear-gradient(135deg, var(--color-tc-magenta), var(--color-tc-cyan));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
+.text-gradient-gold {
+  background: linear-gradient(135deg, #d4af37, #f5e6a3, #d4af37);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Glass Cards ──────────────────────────────────── */
+.glass-card {
+  background: rgba(18, 18, 18, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card:hover {
+  border-color: rgba(255, 0, 255, 0.2);
+  box-shadow: 0 8px 40px rgba(255, 0, 255, 0.08);
+}
+
+.glass-card-cyan:hover {
+  border-color: rgba(0, 240, 255, 0.2);
+  box-shadow: 0 8px 40px rgba(0, 240, 255, 0.08);
+}
+
+/* ── Clip Paths ───────────────────────────────────── */
 .clip-slanted {
-  clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 92%, 0 100%);
 }
 .clip-slanted-reverse {
-  clip-path: polygon(0 10%, 100% 0, 100% 100%, 0 100%);
+  clip-path: polygon(0 8%, 100% 0, 100% 100%, 0 100%);
 }
 
-.glass-card {
-  background: rgba(20, 20, 20, 0.6);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(155, 48, 255, 0.2);
-}
-
+/* ── Animations ───────────────────────────────────── */
 @keyframes fluid-bg {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
@@ -65,5 +99,103 @@ h1, h2, h3, h4, h5, h6 {
 }
 .animate-fluid-bg {
   background-size: 400% 400%;
-  animation: fluid-bg 15s ease infinite;
+  animation: fluid-bg 20s ease infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.animate-shimmer {
+  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.05) 50%, transparent 100%);
+  background-size: 200% 100%;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(255, 0, 255, 0.3); }
+  50% { box-shadow: 0 0 40px rgba(255, 0, 255, 0.6); }
+}
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+@keyframes grain {
+  0%, 100% { transform: translate(0, 0); }
+  10% { transform: translate(-5%, -10%); }
+  20% { transform: translate(-15%, 5%); }
+  30% { transform: translate(7%, -25%); }
+  40% { transform: translate(-5%, 25%); }
+  50% { transform: translate(-15%, 10%); }
+  60% { transform: translate(15%, 0%); }
+  70% { transform: translate(0%, 15%); }
+  80% { transform: translate(3%, 35%); }
+  90% { transform: translate(-10%, 10%); }
+}
+
+.noise-overlay::after {
+  content: '';
+  position: absolute;
+  inset: -50%;
+  width: 200%;
+  height: 200%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  animation: grain 8s steps(10) infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ── Hamburger Menu ───────────────────────────────── */
+.hamburger-line {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: white;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 2px;
+}
+
+.hamburger-open .hamburger-line:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.hamburger-open .hamburger-line:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.hamburger-open .hamburger-line:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* ── Product Card Shine Effect ────────────────────── */
+.product-card-shine {
+  position: relative;
+  overflow: hidden;
+}
+.product-card-shine::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);
+  transition: left 0.6s ease;
+  z-index: 5;
+}
+.product-card-shine:hover::before {
+  left: 100%;
+}
+
+/* ── Section Divider ──────────────────────────────── */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,0,255,0.3), rgba(0,240,255,0.3), transparent);
 }
