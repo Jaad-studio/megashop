@@ -4,36 +4,47 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ShoppingCart, Filter, Grid3X3, LayoutGrid, Sparkles } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import { useCart } from '../context/CartContext';
 
 function Category() {
   const { type } = useParams();
   const [viewMode, setViewMode] = useState('grid'); // 'grid' or 'compact'
+  const { addToCart } = useCart();
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [type]);
 
   const categoryData = {
-    parfums: {
-      title: 'Parfums',
-      subtitle: 'Fragrances Dubaï exclusives',
+    'parfums-homme': {
+      title: 'Parfums Homme',
+      subtitle: 'Fragrances masculines Dubaï',
       color: '#d4af37',
       colorBg: 'rgba(212, 175, 55, 0.1)',
-      desc: 'Découvrez notre collection raffinée de parfums prestigieux importés directement de Dubaï.',
+      desc: 'Découvrez notre sélection de parfums masculins prestigieux importés directement de Dubaï.',
       items: [
+        { name: 'Fakhar Lattafa', price: '35€', image: '/products/parfum_fakhar_corrected_1775591618834.png', badge: 'Premium' },
+        { name: 'Ameerat Al Arab', price: '35€', image: '/products/parfum_ameerat_corrected_1775591719341.png', badge: 'Royal' },
         { name: 'Prideful Volaré', price: '35€', image: '/products/parfum_volare_prideful_1775592377311.png', badge: 'Élégant' },
+        { name: 'Rosso Lychee', price: '35€', image: '/products/parfum_gulf_orchid_rosso_1775591638969.png', badge: 'Rare' },
+        { name: 'Léonie Intense', price: '35€', image: '/products/parfum_leonie_1775591655798.png', badge: 'Exclusif' },
+      ],
+    },
+    'parfums-femme': {
+      title: 'Parfums Femme',
+      subtitle: 'Fragrances féminines Dubaï',
+      color: '#ff5ca1',
+      colorBg: 'rgba(255, 92, 161, 0.1)',
+      desc: 'Découvrez notre collection raffinée de parfums féminins aux notes envoûtantes de Dubaï.',
+      items: [
         { name: 'Kenzie Marshmallow Dream', price: '35€', image: '/products/parfum_volare_kenzie_1775592394045.png', badge: 'Rêve' },
         { name: 'Yara Candy Lattafa', price: '35€', image: '/products/parfum_lattafa_yara_candy_1775592421301.png', badge: 'Gourmand' },
         { name: 'Yara Lattafa', price: '35€', image: '/products/parfum_lattafa_yara_1775592406921.png', badge: 'Iconique' },
         { name: 'La Vivacité', price: '35€', image: '/products/parfum_alhambra_vivacite_1775592440080.png', badge: 'Vibrant' },
         { name: 'Rave Now Women', price: '35€', image: '/products/parfum_rave_now_1775592456747.png', badge: 'Moderne' },
-        { name: 'Ameerat Al Arab', price: '35€', image: '/products/parfum_ameerat_corrected_1775591719341.png', badge: 'Royal' },
         { name: 'Ameerat Al Arab Prive Rose', price: '35€', image: '/products/parfum_ameerat_corrected_1775591719341.png', badge: 'Floral' },
-        { name: 'Fakhar Lattafa', price: '35€', image: '/products/parfum_fakhar_corrected_1775591618834.png', badge: 'Premium' },
         { name: 'Aïsha Absolue Collection Privée', price: '35€', image: '/products/parfum_aisha_1775589064630.png', badge: 'Magique' },
-        { name: 'Rosso Lychee', price: '35€', image: '/products/parfum_gulf_orchid_rosso_1775591638969.png', badge: 'Rare' },
         { name: 'Rose Bonbon', price: '35€', image: '/products/parfum_rose_bonbon_1775591686863.png', badge: 'Doux' },
-        { name: 'Léonie Intense', price: '35€', image: '/products/parfum_leonie_1775591655798.png', badge: 'Exclusif' },
         { name: 'Musk Collection Cotton Candy', price: '35€', image: '/products/parfum_musk_collection_1775591701197.png', badge: 'Sucré' },
         { name: 'Musk Collection Blueberry', price: '35€', image: '/products/parfum_musk_collection_1775591701197.png', badge: 'Frais' },
       ],
@@ -228,6 +239,10 @@ function Category() {
                     {/* Hover CTA */}
                     <div className="absolute bottom-3 left-3 right-3 opacity-0 group-hover:opacity-100 translate-y-3 group-hover:translate-y-0 transition-all duration-300 hidden md:block">
                       <button
+                        onClick={(e) => {
+                          e.preventDefault();
+                          addToCart(item);
+                        }}
                         className="w-full py-2.5 rounded-lg font-bold text-xs uppercase tracking-wide flex items-center justify-center gap-2 backdrop-blur-md border transition-colors"
                         style={{
                           background: `${data.color}20`,
@@ -236,7 +251,7 @@ function Category() {
                         }}
                       >
                         <ShoppingCart size={14} />
-                        Voir en boutique
+                        Commander
                       </button>
                     </div>
                   </div>
@@ -256,6 +271,10 @@ function Category() {
 
                       {/* Mobile cart button */}
                       <button
+                        onClick={(e) => {
+                          e.preventDefault();
+                          addToCart(item);
+                        }}
                         className="md:hidden w-8 h-8 rounded-lg flex items-center justify-center border transition-colors"
                         style={{
                           background: `${data.color}15`,

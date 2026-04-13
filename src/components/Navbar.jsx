@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ShoppingBag, X } from 'lucide-react';
+import { ShoppingBag, X, ShoppingCart } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
+import { useCart } from '../context/CartContext';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
+  const { cartCount, toggleCart } = useCart();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 40);
@@ -26,7 +28,8 @@ const Navbar = () => {
   }, [menuOpen]);
 
   const navLinks = [
-    { label: 'Parfums', to: '/category/parfums' },
+    { label: 'Parfums Homme', to: '/category/parfums-homme' },
+    { label: 'Parfums Femme', to: '/category/parfums-femme' },
     { label: 'Puffs', to: '/category/puffs' },
     { label: 'T-Shirts', to: '/category/tshirts' },
   ];
@@ -91,24 +94,48 @@ const Navbar = () => {
               07 44 25 32 15
             </a>
             <Link
-              to="/category/parfums"
-              className="flex items-center gap-2 bg-gradient-to-r from-[#ff00ff] to-[#cc00cc] text-white px-5 py-2.5 rounded-xl font-bold text-sm uppercase tracking-wide hover:shadow-[0_0_30px_rgba(255,0,255,0.4)] hover:scale-[1.02] transition-all duration-300"
+              to="/category/parfums-homme"
+              className="flex items-center gap-2 bg-white/[0.05] hover:bg-white/[0.1] text-white px-5 py-2.5 rounded-xl font-bold text-sm uppercase tracking-wide transition-colors border border-white/[0.08]"
             >
               <ShoppingBag size={16} />
               Boutique
             </Link>
+            <button
+              onClick={toggleCart}
+              className="relative p-2.5 bg-gradient-to-r from-[#ff00ff] to-[#cc00cc] rounded-xl hover:scale-105 transition-all duration-300 shadow-[0_0_20px_rgba(255,0,255,0.3)] hover:shadow-[0_0_30px_rgba(255,0,255,0.5)]"
+            >
+              <ShoppingCart size={18} className="text-white" />
+              {cartCount > 0 && (
+                <span className="absolute -top-1.5 -right-1.5 min-w-[20px] h-5 px-1 bg-[#00f0ff] rounded-full text-black text-[10px] font-black flex items-center justify-center border-2 border-[#111111]">
+                  {cartCount}
+                </span>
+              )}
+            </button>
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setMenuOpen(!menuOpen)}
-            className={`md:hidden relative z-[110] flex flex-col gap-1.5 p-2 ${menuOpen ? 'hamburger-open' : ''}`}
-            aria-label="Menu"
-          >
-            <span className="hamburger-line" />
-            <span className="hamburger-line" />
-            <span className="hamburger-line" />
-          </button>
+          {/* Mobile Right Actions */}
+          <div className="flex md:hidden items-center gap-4">
+            <button
+              onClick={toggleCart}
+              className="relative p-2 rounded-lg text-white hover:bg-white/10 transition-colors"
+            >
+              <ShoppingCart size={22} className="text-white" />
+              {cartCount > 0 && (
+                <span className="absolute -top-1 -right-1 min-w-[18px] h-[18px] px-1 bg-[#00f0ff] rounded-full text-black text-[9px] font-black flex items-center justify-center border-[1.5px] border-[#111111]">
+                  {cartCount}
+                </span>
+              )}
+            </button>
+            <button
+              onClick={() => setMenuOpen(!menuOpen)}
+              className={`relative z-[110] flex flex-col gap-1.5 p-2 ${menuOpen ? 'hamburger-open' : ''}`}
+              aria-label="Menu"
+            >
+              <span className="hamburger-line" />
+              <span className="hamburger-line" />
+              <span className="hamburger-line" />
+            </button>
+          </div>
         </div>
       </motion.nav>
 
@@ -156,7 +183,7 @@ const Navbar = () => {
                 07 44 25 32 15
               </a>
               <Link
-                to="/category/parfums"
+                to="/category/parfums-homme"
                 className="flex items-center gap-2 bg-gradient-to-r from-[#ff00ff] to-[#cc00cc] text-white px-8 py-3 rounded-xl font-bold text-base uppercase tracking-wide"
               >
                 <ShoppingBag size={18} />

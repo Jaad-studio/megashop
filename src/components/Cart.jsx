@@ -1,0 +1,136 @@
+import React from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { X, Trash2, Plus, Minus, ShoppingBag } from 'lucide-react';
+import { useCart } from '../context/CartContext';
+
+const Cart = () => {
+  const {
+    cartItems,
+    isCartOpen,
+    setIsCartOpen,
+    updateQuantity,
+    removeFromCart,
+    cartTotal,
+  } = useCart();
+
+  return (
+    <AnimatePresence>
+      {isCartOpen && (
+        <>
+          {/* Overlay */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setIsCartOpen(false)}
+            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[200]"
+          />
+
+          {/* Cart Drawer */}
+          <motion.div
+            initial={{ x: '100%' }}
+            animate={{ x: 0 }}
+            exit={{ x: '100%' }}
+            transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+            className="fixed top-0 right-0 h-full w-full sm:w-[400px] bg-[#0a0a0a] border-l border-white/[0.08] shadow-2xl z-[210] flex flex-col"
+          >
+            {/* Header */}
+            <div className="flex items-center justify-between p-5 md:p-6 border-b border-white/[0.08]">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-xl bg-[#ff00ff]/10 flex items-center justify-center">
+                  <ShoppingBag size={20} className="text-[#ff00ff]" />
+                </div>
+                <h2 className="text-xl font-black uppercase tracking-tight text-white">Mon Panier</h2>
+              </div>
+              <button
+                onClick={() => setIsCartOpen(false)}
+                className="w-10 h-10 flex items-center justify-center rounded-xl bg-white/[0.05] hover:bg-white/[0.1] text-white/70 hover:text-white transition-colors"
+              >
+                <X size={20} />
+              </button>
+            </div>
+
+            {/* Cart Items */}
+            <div className="flex-1 overflow-y-auto p-5 md:p-6 space-y-4">
+              {cartItems.length === 0 ? (
+                <div className="h-full flex flex-col items-center justify-center text-white/40">
+                  <ShoppingBag size={48} className="mb-4 opacity-20" />
+                  <p className="text-lg font-medium text-center">Votre panier est vide</p>
+                  <button
+                    onClick={() => setIsCartOpen(false)}
+                    className="mt-6 px-6 py-2.5 rounded-xl bg-white/[0.05] hover:bg-white/[0.1] text-white transition-colors text-sm font-bold tracking-wide uppercase"
+                  >
+                    Continuer mes achats
+                  </button>
+                </div>
+              ) : (
+                cartItems.map((item) => (
+                  <div key={item.name} className="flex gap-4 p-3 rounded-2xl glass-card">
+                    {/* Item Image */}
+                    <div className="w-20 h-24 rounded-lg overflow-hidden bg-[#0e0e0e] flex-shrink-0 relative">
+                       <img src={item.image} alt={item.name} className="w-full h-full object-cover" />
+                       <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                    </div>
+
+                    {/* Item Details */}
+                    <div className="flex-1 flex flex-col justify-between py-1">
+                      <div>
+                        <h3 className="text-sm font-bold text-white/90 leading-tight mb-1">{item.name}</h3>
+                        <p className="font-black text-[#00f0ff]">{item.price}</p>
+                      </div>
+
+                      <div className="flex items-center justify-between mt-2">
+                        {/* Quantity Controls */}
+                        <div className="flex items-center bg-white/[0.06] rounded-lg border border-white/[0.05]">
+                          <button
+                            onClick={() => updateQuantity(item.name, item.quantity - 1)}
+                            className="p-1.5 text-white/60 hover:text-white hover:bg-white/[0.1] transition-colors rounded-l-lg"
+                          >
+                            <Minus size={14} />
+                          </button>
+                          <span className="w-8 text-center text-sm font-bold">{item.quantity}</span>
+                          <button
+                            onClick={() => updateQuantity(item.name, item.quantity + 1)}
+                            className="p-1.5 text-white/60 hover:text-white hover:bg-white/[0.1] transition-colors rounded-r-lg"
+                          >
+                            <Plus size={14} />
+                          </button>
+                        </div>
+
+                        {/* Remove */}
+                        <button
+                          onClick={() => removeFromCart(item.name)}
+                          className="p-2 text-white/40 hover:text-[#ff00ff] hover:bg-[#ff00ff]/10 rounded-lg transition-colors"
+                        >
+                          <Trash2 size={16} />
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                ))
+              )}
+            </div>
+
+            {/* Footer / Summary */}
+            {cartItems.length > 0 && (
+              <div className="p-5 md:p-6 border-t border-white/[0.08] bg-[#0a0a0a]">
+                <div className="flex items-center justify-between mb-6">
+                  <span className="text-white/60 font-medium">Total</span>
+                  <span className="text-2xl font-black text-gradient-main">{cartTotal.toFixed(2)}€</span>
+                </div>
+                <button
+                  className="w-full py-4 rounded-xl flex items-center justify-center gap-2 bg-gradient-to-r from-[#ff00ff] to-[#cc00cc] text-white font-bold text-base uppercase tracking-wide hover:shadow-[0_0_40px_rgba(255,0,255,0.4)] hover:scale-[1.02] transition-all duration-300"
+                >
+                  <ShoppingBag size={18} />
+                  Passer la commande
+                </button>
+              </div>
+            )}
+          </motion.div>
+        </>
+      )}
+    </AnimatePresence>
+  );
+};
+
+export default Cart;

@@ -251,11 +251,18 @@ function Home() {
 
   const categories = [
     {
-      title: 'Parfums',
-      subtitle: 'Fragrances Dubaï exclusives',
+      title: 'Parfums Homme',
+      subtitle: 'Fragrances masculines Dubaï',
       image: '/parfum_dubai_luxury.png',
-      link: '/category/parfums',
+      link: '/category/parfums-homme',
       color: '#d4af37',
+    },
+    {
+      title: 'Parfums Femme',
+      subtitle: 'Fragrances féminines Dubaï',
+      image: '/parfum_dubai_luxury.png',
+      link: '/category/parfums-femme',
+      color: '#ff5ca1',
     },
     {
       title: 'Puffs',
@@ -295,7 +302,7 @@ function Home() {
         </motion.div>
 
         {/* Spline UFO 3D */}
-        <div className="absolute top-[8%] md:top-[10%] z-[10] w-full h-[22vh] md:h-[35vh] pointer-events-none flex items-center justify-center opacity-80">
+        <div className="absolute top-[18%] md:top-[10%] z-[10] w-full h-[22vh] md:h-[35vh] pointer-events-none flex items-center justify-center opacity-80">
           <iframe
             src="https://my.spline.design/wobblingufo-aVOXKJbUvBO9RGJWe7CDrMWQ/"
             frameBorder="0"
@@ -350,11 +357,11 @@ function Home() {
             className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto"
           >
             <Link
-              to="/category/parfums"
+              to="/category/parfums-homme"
               className="group flex items-center justify-center gap-2.5 bg-gradient-to-r from-[#ff00ff] to-[#cc00cc] text-white px-7 py-3.5 md:px-9 md:py-4 rounded-xl md:rounded-2xl font-bold text-sm md:text-base uppercase tracking-wide hover:shadow-[0_0_40px_rgba(255,0,255,0.4)] hover:scale-[1.02] transition-all duration-300"
             >
               <ShoppingBag size={18} />
-              Voir la boutique
+              Commander
               <ChevronRight size={16} className="transition-transform group-hover:translate-x-1" />
             </Link>
             <a
@@ -441,7 +448,7 @@ function Home() {
           </motion.div>
 
           {/* Category Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-8">
             {categories.map((cat, i) => (
               <CategoryCard key={cat.title} {...cat} delay={i * 0.12} />
             ))}
@@ -628,11 +635,11 @@ function Home() {
               Viens découvrir nos collections exclusives directement en boutique.
             </p>
             <Link
-              to="/category/parfums"
+              to="/category/parfums-homme"
               className="group inline-flex items-center gap-3 bg-gradient-to-r from-[#ff00ff] to-[#cc00cc] text-white px-8 py-4 md:px-10 md:py-5 rounded-xl md:rounded-2xl font-bold text-base md:text-lg uppercase tracking-wide hover:shadow-[0_0_50px_rgba(255,0,255,0.4)] hover:scale-[1.02] transition-all duration-300"
             >
               <ShoppingBag size={20} />
-              Explorer la boutique
+              Commander
               <ChevronRight size={18} className="transition-transform group-hover:translate-x-1" />
             </Link>
           </motion.div>
