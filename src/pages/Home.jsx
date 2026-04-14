@@ -302,7 +302,7 @@ function Home() {
         </motion.div>
 
         {/* Spline UFO 3D */}
-        <div className="absolute top-[18%] md:top-[10%] z-[10] w-full h-[22vh] md:h-[35vh] pointer-events-none flex items-center justify-center opacity-80">
+        <div className="absolute top-[25%] md:top-[10%] z-[10] w-full h-[22vh] md:h-[35vh] pointer-events-none flex items-center justify-center opacity-80">
           <iframe
             src="https://my.spline.design/wobblingufo-aVOXKJbUvBO9RGJWe7CDrMWQ/"
             frameBorder="0"
