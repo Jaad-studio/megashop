@@ -6,6 +6,118 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { useCart } from '../context/CartContext';
 
+const ProductCard = ({ item, i, data, viewMode, addToCart }) => {
+  const [selectedFlavor, setSelectedFlavor] = useState(item.flavors ? item.flavors[0] : null);
+
+  const handleAddToCart = (e) => {
+    e.preventDefault();
+    if (selectedFlavor) {
+      addToCart({ ...item, name: `${item.name} - ${selectedFlavor}` });
+    } else {
+      addToCart(item);
+    }
+  };
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-30px' }}
+      transition={{ duration: 0.4, delay: Math.min(i * 0.04, 0.3) }}
+      className="group h-full"
+    >
+      <div className="glass-card rounded-xl md:rounded-2xl overflow-hidden product-card-shine h-full flex flex-col">
+        {/* Image */}
+        <div className={`relative overflow-hidden bg-[#0e0e0e] ${viewMode === 'grid' ? 'aspect-[3/4]' : 'aspect-square'}`}>
+          <img
+            src={item.image}
+            alt={item.name}
+            loading="lazy"
+            className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+          />
+
+          {/* Gradient overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+          {/* Badge */}
+          {item.badge && (
+            <div
+              className="absolute top-2.5 left-2.5 md:top-3 md:left-3 px-2 py-1 md:px-2.5 md:py-1 rounded-md text-[9px] md:text-[10px] font-bold uppercase tracking-wider backdrop-blur-sm border"
+              style={{
+                background: data.colorBg,
+                borderColor: `${data.color}25`,
+                color: data.color,
+              }}
+            >
+              {item.badge}
+            </div>
+          )}
+
+          {/* Hover CTA */}
+          <div className="absolute bottom-3 left-3 right-3 opacity-0 group-hover:opacity-100 translate-y-3 group-hover:translate-y-0 transition-all duration-300 hidden md:block z-[40]">
+            <button
+              onClick={handleAddToCart}
+              className="w-full py-2.5 rounded-lg font-bold text-xs uppercase tracking-wide flex items-center justify-center gap-2 backdrop-blur-md border transition-colors cursor-pointer"
+              style={{
+                background: `${data.color}20`,
+                borderColor: `${data.color}40`,
+                color: data.color,
+              }}
+            >
+              <ShoppingCart size={14} />
+              Commander
+            </button>
+          </div>
+        </div>
+
+        {/* Content */}
+        <div className="p-3 md:p-4 flex-1 flex flex-col relative z-20">
+          <h3 className={`font-bold text-white/90 leading-tight mb-2 line-clamp-2 ${viewMode === 'grid' ? 'text-sm md:text-base' : 'text-xs md:text-sm'}`}>
+            {item.name}
+          </h3>
+          
+          {item.flavors && (
+            <div className="mb-3 mt-1">
+              <select
+                value={selectedFlavor}
+                onChange={(e) => setSelectedFlavor(e.target.value)}
+                className="w-full bg-black/40 text-white/80 border border-white/10 rounded-md p-2 text-xs outline-none focus:border-white/30 cursor-pointer appearance-none"
+                style={{ backgroundImage: `url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e")`, backgroundRepeat: 'no-repeat', backgroundPosition: 'right 0.5rem center', backgroundSize: '1em' }}
+              >
+                {item.flavors.map(flavor => (
+                  <option key={flavor} value={flavor} className="bg-[#0a0a0a] text-white py-1">{flavor}</option>
+                ))}
+              </select>
+            </div>
+          )}
+
+          <div className="mt-auto flex items-center justify-between">
+            <span
+              className={`font-black ${viewMode === 'grid' ? 'text-lg md:text-xl' : 'text-base md:text-lg'}`}
+              style={{ color: data.color }}
+            >
+              {item.price}
+            </span>
+
+            {/* Mobile cart button */}
+            <button
+              onClick={handleAddToCart}
+              className="md:hidden w-8 h-8 rounded-lg flex items-center justify-center border transition-colors cursor-pointer"
+              style={{
+                background: `${data.color}15`,
+                borderColor: `${data.color}25`,
+                color: data.color,
+              }}
+            >
+              <ShoppingCart size={14} />
+            </button>
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  );
+};
+
 function Category() {
   const { type } = useParams();
   const [viewMode, setViewMode] = useState('grid'); // 'grid' or 'compact'
@@ -115,24 +227,41 @@ function Category() {
       colorBg: 'rgba(0, 240, 255, 0.1)',
       desc: 'Une sélection rigoureuse des meilleures saveurs et designs de puffs premium.',
       items: [
-        { name: 'JNR Falcon 30k Blueberry Raspberry Cherry', price: '15€', image: '/products/puff_jnr_falcon_30k_generated.png', badge: 'Premium' },
-        { name: 'Aerox 32k Strawberry Kiwi', price: '15€', image: '/products/puff_aerox_strawberry_kiwi_1775589080131.png', badge: 'Intense' },
-        { name: 'Aerox 32k Blue Razz Cherry', price: '15€', image: '/products/puff_aerox_strawberry_kiwi_1775589080131.png', badge: 'Fruit Blanc' },
-        { name: 'Aerox 32k Blueberry Pomegranate Ice', price: '15€', image: '/products/puff_aerox_strawberry_kiwi_1775589080131.png', badge: 'Glacé' },
-        { name: 'Aerox 32k Mixed Berries', price: '15€', image: '/products/puff_aerox_strawberry_kiwi_1775589080131.png', badge: 'Frais' },
-        { name: 'Kong Max 30k Raspberry Watermelon Ice', price: '15€', image: '/products/puff_aerox_strawberry_kiwi_1775589080131.png', badge: 'Frais' },
-        { name: 'Kong Max 30k Raspberry Watermelon', price: '15€', image: '/products/puff_aerox_strawberry_kiwi_1775589080131.png', badge: 'Doux' },
-        { name: 'Crown Bar 30k Ice Blue', price: '20€', image: '/products/puff_fumot_leopard_1775589133707.png', badge: 'Glacé' },
-        { name: 'Crown Bar 30k Magic Love', price: '20€', image: '/products/puff_fumot_leopard_1775589133707.png', badge: 'Mystique' },
-        { name: 'Crown Bar 30k Lemon Mint', price: '20€', image: '/products/puff_fumot_leopard_1775589133707.png', badge: 'Rafraîchissant' },
-        { name: 'Crown Bar 30k Cherry Fizz', price: '20€', image: '/products/puff_fumot_leopard_1775589133707.png', badge: 'Pétillant' },
-        { name: 'Crown Bar 30k Strawberry Punch', price: '20€', image: '/products/puff_fumot_leopard_1775589133707.png', badge: 'Puissant' },
-        { name: 'Crown Bar 30k Mixed Berry', price: '20€', image: '/products/puff_fumot_leopard_1775589133707.png', badge: 'Classique' },
-        { name: 'Razz Bar 30k+ Blueberry Sour Raspberry', price: '20€', image: '/products/puff_razzbar_blueberry_1775589118962.png', badge: 'Premium' },
-        { name: 'Razz Bar 30k+ Strawberry Watermelon', price: '20€', image: '/products/puff_razzbar_blueberry_1775589118962.png', badge: 'Intense' },
-        { name: 'Razz Bar 30k+ Pineapple Mango', price: '20€', image: '/products/puff_razzbar_blueberry_1775589118962.png', badge: 'Exotique' },
-        { name: 'Razz Bar 30k+ Strawberry Banana', price: '20€', image: '/products/puff_razzbar_blueberry_1775589118962.png', badge: 'Gourmand' },
-        { name: 'Razz Bar 30k+ Strawberry Ice', price: '20€', image: '/products/puff_razzbar_blueberry_1775589118962.png', badge: 'Frais' },
+        { 
+          name: 'JNR Falcon', 
+          price: '15€', 
+          image: '/products/puff_jnr_falcon_30k_generated.png', 
+          badge: 'Premium',
+          flavors: ['Blueberry Raspberry Cherry']
+        },
+        { 
+          name: 'Aerox 32k', 
+          price: '15€', 
+          image: '/products/puff_aerox_strawberry_kiwi_1775589080131.png', 
+          badge: 'Intense',
+          flavors: ['Strawberry Kiwi', 'Blue Razz Cherry', 'Blueberry Pomegranate Ice', 'Mixed Berries']
+        },
+        { 
+          name: 'Kong Max 30k', 
+          price: '15€', 
+          image: '/products/puff_aerox_strawberry_kiwi_1775589080131.png', 
+          badge: 'Frais',
+          flavors: ['Raspberry Watermelon Ice', 'Raspberry Watermelon']
+        },
+        { 
+          name: 'Crown Bar 30k', 
+          price: '20€', 
+          image: '/products/puff_fumot_leopard_1775589133707.png', 
+          badge: 'Glacé',
+          flavors: ['Ice Blue', 'Magic Love', 'Lemon Mint', 'Lemon Lime Cherry Fizz', 'Strawberry Punch', 'Mixed Berry']
+        },
+        { 
+          name: 'Razz Bar 30k+', 
+          price: '20€', 
+          image: '/products/puff_razzbar_blueberry_1775589118962.png', 
+          badge: 'Premium',
+          flavors: ['Blueberry Sour Raspberry', 'Strawberry Watermelon', 'Pineapple Mango', 'Strawberry Banana', 'Strawberry Ice']
+        }
       ],
     },
     tshirts: {
@@ -255,91 +384,7 @@ function Category() {
             }`}
           >
             {data.items.map((item, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-30px' }}
-                transition={{ duration: 0.4, delay: Math.min(i * 0.04, 0.3) }}
-                className="group"
-              >
-                <div className="glass-card rounded-xl md:rounded-2xl overflow-hidden product-card-shine h-full flex flex-col">
-                  {/* Image */}
-                  <div className={`relative overflow-hidden bg-[#0e0e0e] ${viewMode === 'grid' ? 'aspect-[3/4]' : 'aspect-square'}`}>
-                    <img
-                      src={item.image}
-                      alt={item.name}
-                      loading="lazy"
-                      className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
-                    />
-
-                    {/* Gradient overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-
-                    {/* Badge */}
-                    <div
-                      className="absolute top-2.5 left-2.5 md:top-3 md:left-3 px-2 py-1 md:px-2.5 md:py-1 rounded-md text-[9px] md:text-[10px] font-bold uppercase tracking-wider backdrop-blur-sm border"
-                      style={{
-                        background: data.colorBg,
-                        borderColor: `${data.color}25`,
-                        color: data.color,
-                      }}
-                    >
-                      {item.badge}
-                    </div>
-
-                    {/* Hover CTA */}
-                    <div className="absolute bottom-3 left-3 right-3 opacity-0 group-hover:opacity-100 translate-y-3 group-hover:translate-y-0 transition-all duration-300 hidden md:block">
-                      <button
-                        onClick={(e) => {
-                          e.preventDefault();
-                          addToCart(item);
-                        }}
-                        className="w-full py-2.5 rounded-lg font-bold text-xs uppercase tracking-wide flex items-center justify-center gap-2 backdrop-blur-md border transition-colors"
-                        style={{
-                          background: `${data.color}20`,
-                          borderColor: `${data.color}40`,
-                          color: data.color,
-                        }}
-                      >
-                        <ShoppingCart size={14} />
-                        Commander
-                      </button>
-                    </div>
-                  </div>
-
-                  {/* Content */}
-                  <div className="p-3 md:p-4 flex-1 flex flex-col">
-                    <h3 className={`font-bold text-white/90 leading-tight mb-2 line-clamp-2 ${viewMode === 'grid' ? 'text-sm md:text-base' : 'text-xs md:text-sm'}`}>
-                      {item.name}
-                    </h3>
-                    <div className="mt-auto flex items-center justify-between">
-                      <span
-                        className={`font-black ${viewMode === 'grid' ? 'text-lg md:text-xl' : 'text-base md:text-lg'}`}
-                        style={{ color: data.color }}
-                      >
-                        {item.price}
-                      </span>
-
-                      {/* Mobile cart button */}
-                      <button
-                        onClick={(e) => {
-                          e.preventDefault();
-                          addToCart(item);
-                        }}
-                        className="md:hidden w-8 h-8 rounded-lg flex items-center justify-center border transition-colors"
-                        style={{
-                          background: `${data.color}15`,
-                          borderColor: `${data.color}25`,
-                          color: data.color,
-                        }}
-                      >
-                        <ShoppingCart size={14} />
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
+              <ProductCard key={i} item={item} i={i} data={data} viewMode={viewMode} addToCart={addToCart} />
             ))}
           </div>
         </div>
