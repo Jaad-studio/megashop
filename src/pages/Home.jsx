@@ -291,18 +291,21 @@ function Home() {
         className="relative min-h-[100svh] w-full flex flex-col items-center justify-center overflow-hidden"
       >
         {/* Background Layers */}
-        <motion.div style={{ y: heroY, opacity: heroOpacity }} className="absolute inset-0 z-0">
+        <motion.div style={{ y: heroY, opacity: heroOpacity }} className="absolute inset-0 z-0 bg-black">
           {/* Gradient background */}
-          <div className="absolute inset-0 bg-gradient-to-br from-[#ff00ff]/8 via-[#0a0a0a] to-[#00f0ff]/8 animate-fluid-bg" />
+          <div className="absolute inset-0 bg-gradient-to-br from-[#ff00ff]/8 via-[#000000] to-[#00f0ff]/8 animate-fluid-bg" />
           <FloatingParticles />
           {/* Noise texture */}
           <div className="absolute inset-0 noise-overlay opacity-60" />
           {/* Bottom fade */}
-          <div className="absolute bottom-0 left-0 right-0 h-[40%] bg-gradient-to-t from-[#0a0a0a] to-transparent" />
+          <div className="absolute bottom-0 left-0 right-0 h-[40%] bg-gradient-to-t from-[#000000] to-transparent" />
         </motion.div>
 
         {/* Spline UFO 3D */}
-        <div className="absolute top-[25%] md:top-[10%] z-[10] w-full h-[22vh] md:h-[35vh] pointer-events-none flex items-center justify-center opacity-80">
+        <div 
+          className="absolute top-[25%] md:top-[10%] z-[10] w-full h-[22vh] md:h-[35vh] pointer-events-none flex items-center justify-center opacity-80"
+          style={{ WebkitMaskImage: 'radial-gradient(ellipse at center, black 40%, transparent 70%)', maskImage: 'radial-gradient(ellipse at center, black 40%, transparent 70%)' }}
+        >
           <iframe
             src="https://my.spline.design/wobblingufo-aVOXKJbUvBO9RGJWe7CDrMWQ/"
             frameBorder="0"
@@ -381,7 +384,7 @@ function Home() {
           className="absolute z-[15] bottom-[12%] left-[3%] md:left-[8%] w-[28vw] sm:w-[22vw] md:w-[16vw] lg:w-[12vw] pointer-events-none"
         >
           <img
-            src="/single_puff.webp"
+            src="/megashop_alien_puff_1775165184013.png"
             alt="Puff Premium"
             className="w-full h-auto object-contain drop-shadow-[0_0_30px_rgba(0,240,255,0.3)] animate-float"
           />
