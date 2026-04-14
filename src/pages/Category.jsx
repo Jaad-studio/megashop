@@ -152,7 +152,7 @@ function Category() {
         { 
           name: 'Collection Loui Martin', 
           price: '35€', 
-          image: '/products/imagique___parfum_mixte_loui_martin_100ml_processed.png', 
+          image: '/products/parfum_loui_martin_generated.png', 
           badge: 'Premium',
           flavors: ['Imagique', 'Specific Breez', 'Ombre Rêvante', 'Rêve Infini', 'Vanilla Powdery']
         },
@@ -166,7 +166,7 @@ function Category() {
         { 
           name: 'Collection Paris Corner', 
           price: '35€', 
-          image: '/products/december_vanilla_parfum_mixte_paris_corner_85ml_processed.png', 
+          image: '/products/parfum_december_vanilla_generated.png', 
           badge: 'Doux',
           flavors: ['December Vanilla 85ml', 'Khair Peach Delulu']
         },
@@ -185,14 +185,14 @@ function Category() {
         { 
           name: 'Salvo Maison Alhambra', 
           price: '35€', 
-          image: '/products/salvo_maison_alhambra_processed.png', 
-          badge: 'NEW'
+          image: '/products/parfum_salvo_generated.png', 
+          badge: 'Nouveau'
         },
         { 
           name: 'Collection Gulf Fragrance', 
           price: '35€', 
-          image: '/products/rosso_lychee_parfum_mixte_gulf_fragrance_100ml_processed.png', 
-          badge: 'NEW',
+          image: '/products/parfum_rose_bonbon_generated.png', 
+          badge: 'Nouveau',
           flavors: ['Rosso Lychee Mixte']
         },
         { 
@@ -204,13 +204,13 @@ function Category() {
         { 
           name: 'Barakkat Amber Night', 
           price: '35€', 
-          image: '/products/barakkat_amber_night___parfum_mixte_100ml_processed.png', 
-          badge: 'NEW'
+          image: '/products/parfum_barakkat_generated.png', 
+          badge: 'Nouveau'
         },
         { 
           name: 'Sugar Rush Extrait', 
           price: '35€', 
-          image: '/products/sugar_rush_extrait_de_parfum_processed.png', 
+          image: '/products/parfum_sugar_rush_generated.png', 
           badge: 'Intense'
         }
       ],
@@ -253,28 +253,28 @@ function Category() {
         { 
           name: 'Collection Gulf Fragrance', 
           price: '35€', 
-          image: '/products/rose_bonbon___parfum_femme_gulf_fragrance_100ml_processed.png', 
+          image: '/products/parfum_rose_bonbon_generated.png', 
           badge: 'Doux',
           flavors: ['Rose Bonbon', 'Rosso Lychee Mixte']
         },
         { 
           name: 'Collection Khair Paris Corner', 
           price: '35€', 
-          image: '/products/khair_confection_parfum_femme_paris_corner_100ml_processed.png', 
+          image: '/products/parfum_khair_generated.png', 
           badge: 'Premium',
           flavors: ['Confection', 'Peach Delulu Mixte', 'December Vanilla 85ml']
         },
         { 
           name: 'Collection Lattafa Femme', 
           price: '35€', 
-          image: '/products/mayar___eau_de_parfum_femme_lattafa_100ml_processed.png', 
-          badge: 'NEW',
+          image: '/products/parfum_mayar_generated.png', 
+          badge: 'Nouveau',
           flavors: ['Mayar', 'Fakhar Rose Gold', 'Ajwad 60ml', 'Khamrah', 'Confidential Gold', 'Éclair']
         },
         { 
           name: 'Collection Loui Martin Mixte', 
           price: '35€', 
-          image: '/products/imagique___parfum_mixte_loui_martin_100ml_processed.png', 
+          image: '/products/parfum_loui_martin_generated.png', 
           badge: 'Premium',
           flavors: ['Imagique', 'Specific Breez', 'Ombre Rêvante', 'Rêve Infini', 'Vanilla Powdery']
         },
@@ -287,8 +287,8 @@ function Category() {
         { 
           name: 'Léonie Intense Alhambra', 
           price: '35€', 
-          image: '/products/l_onie_intense___parfum_femme_alhambra_100ml_processed.png', 
-          badge: 'NEW'
+          image: '/products/parfum_leonie_1775591655798.png', 
+          badge: 'Nouveau'
         },
         { 
           name: 'Rave Now Women Lattafa', 
@@ -305,14 +305,14 @@ function Category() {
         { 
           name: 'Prideful Volaré', 
           price: '35€', 
-          image: '/products/prideful___eau_de_parfum_femme_volare_100ml_processed.png', 
-          badge: 'NEW'
+          image: '/products/parfum_volare_prideful_1775592377311.png', 
+          badge: 'Nouveau'
         },
         { 
           name: 'Sweet Heaven Cherry Gulf Orchid', 
           price: '35€', 
-          image: '/products/sweet_heaven_cherry_parfum_gulf_orchid_100ml_processed.png', 
-          badge: 'NEW'
+          image: '/products/parfum_rose_bonbon_generated.png', 
+          badge: 'Nouveau'
         },
         { 
           name: 'Kaharmaneh Mixte Boutique', 
@@ -323,14 +323,14 @@ function Category() {
         { 
           name: 'Barakkat Amber Night', 
           price: '35€', 
-          image: '/products/barakkat_amber_night___parfum_mixte_100ml_processed.png', 
-          badge: 'NEW'
+          image: '/products/parfum_barakkat_generated.png', 
+          badge: 'Nouveau'
         },
         { 
           name: 'Sugar Rush Extrait', 
           price: '35€', 
-          image: '/products/sugar_rush_extrait_de_parfum_processed.png', 
-          badge: 'NEW'
+          image: '/products/parfum_sugar_rush_generated.png', 
+          badge: 'Nouveau'
         }
       ],
     },
