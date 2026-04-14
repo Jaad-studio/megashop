@@ -304,7 +304,6 @@ function Home() {
         {/* Spline UFO 3D */}
         <div 
           className="absolute top-[10%] md:top-[5%] z-[10] w-full h-[50vh] md:h-[60vh] pointer-events-none flex items-center justify-center opacity-90 mix-blend-screen"
-          style={{ WebkitMaskImage: 'radial-gradient(ellipse at center, black 40%, transparent 70%)', maskImage: 'radial-gradient(ellipse at center, black 40%, transparent 70%)' }}
         >
           <iframe
             src="https://my.spline.design/wobblingufo-aVOXKJbUvBO9RGJWe7CDrMWQ/"
