@@ -253,7 +253,7 @@ function Home() {
     {
       title: 'Parfums Homme',
       subtitle: 'Fragrances masculines Dubaï',
-      image: '/products/salvo_maison_alhambra_processed.png',
+      image: '/parfum_homme_hero.png',
       link: '/category/parfums-homme',
       color: '#d4af37',
     },
