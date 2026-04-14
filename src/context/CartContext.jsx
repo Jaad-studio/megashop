@@ -17,6 +17,7 @@ export function CartProvider({ children }) {
   });
 
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const [toastMessage, setToastMessage] = useState(null);
 
   useEffect(() => {
     localStorage.setItem('megashop_cart', JSON.stringify(cartItems));
@@ -32,10 +33,10 @@ export function CartProvider({ children }) {
             : item
         );
       }
-      // Extract numeric price from "35€"
       const numericPrice = parseFloat(product.price.replace('€', '').trim());
       return [...prevItems, { ...product, numericPrice, quantity: 1 }];
     });
+    setToastMessage({ product: product.name, id: Date.now() });
     setIsCartOpen(true);
   };
 
@@ -79,6 +80,8 @@ export function CartProvider({ children }) {
         toggleCart,
         cartTotal,
         cartCount,
+        toastMessage,
+        setToastMessage,
       }}
     >
       {children}

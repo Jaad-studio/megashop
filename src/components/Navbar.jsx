@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ShoppingBag, X, ShoppingCart } from 'lucide-react';
+import { ShoppingBag, X, ShoppingCart, Search } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
+import SearchModal from './SearchModal';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
   const location = useLocation();
   const { cartCount, toggleCart } = useCart();
 
@@ -93,6 +95,14 @@ const Navbar = () => {
             >
               07 44 25 32 15
             </a>
+            <button
+              onClick={() => setSearchOpen(true)}
+              className="p-2.5 rounded-xl bg-white/[0.05] hover:bg-white/[0.15] text-white/80 hover:text-white transition-colors border border-white/[0.08]"
+              aria-label="Rechercher"
+            >
+              <Search size={18} />
+            </button>
+
             <Link
               to="/category/parfums-homme"
               className="flex items-center gap-2 bg-white/[0.05] hover:bg-white/[0.1] text-white px-5 py-2.5 rounded-xl font-bold text-sm uppercase tracking-wide transition-colors border border-white/[0.08]"
@@ -114,7 +124,13 @@ const Navbar = () => {
           </div>
 
           {/* Mobile Right Actions */}
-          <div className="flex md:hidden items-center gap-4">
+          <div className="flex md:hidden items-center gap-2 sm:gap-4">
+            <button
+              onClick={() => setSearchOpen(true)}
+              className="p-2 rounded-lg text-white/80 hover:text-white hover:bg-white/10 transition-colors"
+            >
+              <Search size={22} />
+            </button>
             <button
               onClick={toggleCart}
               className="relative p-2 rounded-lg text-white hover:bg-white/10 transition-colors"
@@ -193,6 +209,8 @@ const Navbar = () => {
           </motion.div>
         )}
       </AnimatePresence>
+      
+      <SearchModal isOpen={searchOpen} onClose={() => setSearchOpen(false)} />
     </>
   );
 };
