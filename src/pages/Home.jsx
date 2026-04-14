@@ -303,7 +303,7 @@ function Home() {
 
         {/* Spline UFO 3D */}
         <div 
-          className="absolute top-[25%] md:top-[10%] z-[10] w-full h-[22vh] md:h-[35vh] pointer-events-none flex items-center justify-center opacity-80"
+          className="absolute top-[10%] md:top-[5%] z-[10] w-full h-[50vh] md:h-[60vh] pointer-events-none flex items-center justify-center opacity-90 mix-blend-screen"
           style={{ WebkitMaskImage: 'radial-gradient(ellipse at center, black 40%, transparent 70%)', maskImage: 'radial-gradient(ellipse at center, black 40%, transparent 70%)' }}
         >
           <iframe
@@ -337,9 +337,9 @@ function Home() {
             transition={{ delay: 0.5, duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
             className="text-[13vw] sm:text-[11vw] md:text-[8vw] lg:text-[7vw] font-black leading-[0.88] tracking-[-0.05em] uppercase mb-4 md:mb-6"
           >
-            <span className="text-white">Viens</span>
+            <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.4)]">Viens</span>
             <br />
-            <span className="text-gradient-main">Shopper</span>
+            <span className="text-gradient-main drop-shadow-[0_0_30px_rgba(255,0,255,0.5)]">Shopper</span>
           </motion.h1>
 
           {/* Subtitle */}
@@ -381,12 +381,12 @@ function Home() {
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 1.2, duration: 0.8 }}
-          className="absolute z-[15] bottom-[12%] left-[3%] md:left-[8%] w-[28vw] sm:w-[22vw] md:w-[16vw] lg:w-[12vw] pointer-events-none"
+          className="absolute z-[15] top-[15%] md:top-[20%] left-[2%] md:left-[5%] w-[35vw] sm:w-[25vw] md:w-[16vw] lg:w-[12vw] pointer-events-none"
         >
           <img
-            src="/megashop_alien_puff_1775165184013.png"
+            src="/puff_jnr.png"
             alt="Puff Premium"
-            className="w-full h-auto object-contain drop-shadow-[0_0_30px_rgba(0,240,255,0.3)] animate-float"
+            className="w-full h-auto object-contain drop-shadow-[0_0_40px_rgba(0,240,255,0.6)] animate-float"
           />
         </motion.div>
 
