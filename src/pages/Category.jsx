@@ -135,34 +135,84 @@ function Category() {
       colorBg: 'rgba(212, 175, 55, 0.1)',
       desc: 'Découvrez notre sélection de parfums masculins prestigieux importés directement de Dubaï.',
       items: [
-        { name: 'Fakhar Lattafa', price: '35€', image: '/products/parfum_fakhar_corrected_1775591618834.png', badge: 'Premium' },
-        { name: 'Ameerat Al Arab', price: '35€', image: '/products/parfum_ameerat_corrected_1775591719341.png', badge: 'Royal' },
-        { name: 'Prideful Volaré', price: '35€', image: '/products/parfum_volare_prideful_1775592377311.png', badge: 'Élégant' },
-        { name: 'Rosso Lychee', price: '35€', image: '/products/parfum_gulf_orchid_rosso_1775591638969.png', badge: 'Rare' },
-        { name: 'Léonie Intense', price: '35€', image: '/products/parfum_leonie_1775591655798.png', badge: 'Exclusif' },
-        { name: 'Closer With You - Parfum Homme Volaré 100ml', price: '35€', image: '/products/closer_with_you___parfum_homme_volar__100ml_processed.png', badge: 'NEW' },
-        { name: 'Salvo maison alhambra', price: '35€', image: '/products/salvo_maison_alhambra_processed.png', badge: 'NEW' },
-        { name: 'Rosso Lychee Parfum Mixte Gulf Fragrance 100ml', price: '35€', image: '/products/rosso_lychee_parfum_mixte_gulf_fragrance_100ml_processed.png', badge: 'NEW' },
-        { name: 'Cotton Candy Musk Parfum Mixte Gulf Orchid 60ml', price: '35€', image: '/products/cotton_candy_musk_parfum_mixte_gulf_orchid_60ml_processed.png', badge: 'NEW' },
-        { name: 'Blueberry Musk - Parfum Mixte Gulf Orchid 60ml', price: '35€', image: '/products/blueberry_musk___parfum_mixte_gulf_orchid_60ml_processed.png', badge: 'NEW' },
-        { name: 'December Vanilla Parfum Mixte Paris Corner 85ml', price: '35€', image: '/products/december_vanilla_parfum_mixte_paris_corner_85ml_processed.png', badge: 'NEW' },
-        { name: 'Ajwad - Parfum Mixte Lattafa 60ml', price: '35€', image: '/products/ajwad___parfum_mixte_lattafa_60ml_processed.png', badge: 'NEW' },
-        { name: 'Kaharmaneh New - Parfum Mixte Boutique 100ml', price: '35€', image: '/products/kaharmaneh_new___parfum_mixte_boutique_100ml_processed.png', badge: 'NEW' },
-        { name: 'Khair Peach Delulu Parfum Mixte Paris Corner 100ml', price: '35€', image: '/products/khair_peach_delulu_parfum_mixte_paris_corner_100ml_processed.png', badge: 'NEW' },
-        { name: 'Vanilla Latte - Parfum Mixte Gulf Orchid 100ml', price: '35€', image: '/products/vanilla_latte___parfum_mixte_gulf_orchid_100ml_processed.png', badge: 'NEW' },
-        { name: 'Fakhar Gold - Parfum Mixte Lattafa 100ml', price: '35€', image: '/products/fakhar_gold___parfum_mixte_lattafa_100ml_processed.png', badge: 'NEW' },
-        { name: 'Vanilla Powdery Parfum Mixte Louis Martin 100ml', price: '35€', image: '/products/vanilla_powdery_parfum_mixte_louis_martin_100ml_processed.png', badge: 'NEW' },
-        { name: 'Khamrah - Parfum Mixte Lattafa 100ml', price: '35€', image: '/products/khamrah___parfum_mixte_lattafa_100ml_processed.png', badge: 'badge' },
-        { name: 'Confidential Gold - Parfum Mixte Lattafa 100ml', price: '35€', image: '/products/confidential_gold___parfum_mixte_lattafa_100ml_processed.png', badge: 'NEW' },
-        { name: 'Éclair - Parfum Mixte Lattafa 100ml', price: '35€', image: '/products/_clair___parfum_mixte_lattafa_100ml_processed.png', badge: 'NEW' },
-        { name: 'Barakkat Amber Night - Parfum Mixte 100ml', price: '35€', image: '/products/barakkat_amber_night___parfum_mixte_100ml_processed.png', badge: 'NEW' },
-        { name: 'Esta Puro - Parfum Mixte Volaré 100ml', price: '35€', image: '/products/esta_puro___parfum_mixte_volar__100ml_processed.png', badge: 'NEW' },
-        { name: 'Sweet Heaven Cherry Parfum Gulf Orchid 100ml', price: '35€', image: '/products/sweet_heaven_cherry_parfum_gulf_orchid_100ml_processed.png', badge: 'NEW' },
-        { name: 'Imagique - Parfum Mixte Loui Martin 100ml', price: '35€', image: '/products/imagique___parfum_mixte_loui_martin_100ml_processed.png', badge: 'NEW' },
-        { name: 'Specific Breez - Parfum Mixte Loui Martin 100ml', price: '35€', image: '/products/specific_breez___parfum_mixte_loui_martin_100ml_processed.png', badge: 'NEW' },
-        { name: 'Ombre Rêvante - Parfum Mixte Loui Martin 100ml', price: '35€', image: '/products/ombre_r_vante___parfum_mixte_loui_martin_100ml_processed.png', badge: 'NEW' },
-        { name: 'Rêve Infini - Parfum Mixte Loui Martin 100ml', price: '35€', image: '/products/r_ve_infini___parfum_mixte_loui_martin_100ml_processed.png', badge: 'NEW' },
-        { name: 'Sugar rush extrait de parfum', price: '35€', image: '/products/sugar_rush_extrait_de_parfum_processed.png', badge: 'NEW' },
+        { 
+          name: 'Collection Lattafa', 
+          price: '35€', 
+          image: '/products/parfum_fakhar_corrected_1775591618834.png', 
+          badge: 'Iconique',
+          flavors: ['Fakhar', 'Fakhar Gold', 'Khamrah', 'Confidential Gold', 'Éclair', 'Ajwad 60ml']
+        },
+        { 
+          name: 'Collection Volaré Homme', 
+          price: '35€', 
+          image: '/products/parfum_volare_prideful_1775592377311.png', 
+          badge: 'Élégant',
+          flavors: ['Prideful', 'Closer With You', 'Esta Puro']
+        },
+        { 
+          name: 'Collection Loui Martin', 
+          price: '35€', 
+          image: '/products/imagique___parfum_mixte_loui_martin_100ml_processed.png', 
+          badge: 'Premium',
+          flavors: ['Imagique', 'Specific Breez', 'Ombre Rêvante', 'Rêve Infini', 'Vanilla Powdery']
+        },
+        { 
+          name: 'Collection Gulf Orchid', 
+          price: '35€', 
+          image: '/products/parfum_gulf_orchid_rosso_1775591638969.png', 
+          badge: 'Rare',
+          flavors: ['Rosso Lychee', 'Cotton Candy Musk 60ml', 'Blueberry Musk 60ml', 'Vanilla Latte', 'Sweet Heaven Cherry']
+        },
+        { 
+          name: 'Collection Paris Corner', 
+          price: '35€', 
+          image: '/products/december_vanilla_parfum_mixte_paris_corner_85ml_processed.png', 
+          badge: 'Doux',
+          flavors: ['December Vanilla 85ml', 'Khair Peach Delulu']
+        },
+        { 
+          name: 'Ameerat Al Arab', 
+          price: '35€', 
+          image: '/products/parfum_ameerat_corrected_1775591719341.png', 
+          badge: 'Royal'
+        },
+        { 
+          name: 'Léonie Intense', 
+          price: '35€', 
+          image: '/products/parfum_leonie_1775591655798.png', 
+          badge: 'Exclusif'
+        },
+        { 
+          name: 'Salvo Maison Alhambra', 
+          price: '35€', 
+          image: '/products/salvo_maison_alhambra_processed.png', 
+          badge: 'NEW'
+        },
+        { 
+          name: 'Collection Gulf Fragrance', 
+          price: '35€', 
+          image: '/products/rosso_lychee_parfum_mixte_gulf_fragrance_100ml_processed.png', 
+          badge: 'NEW',
+          flavors: ['Rosso Lychee Mixte']
+        },
+        { 
+          name: 'Kaharmaneh Boutique', 
+          price: '35€', 
+          image: '/products/kaharmaneh_new___parfum_mixte_boutique_100ml_processed.png', 
+          badge: 'NEW'
+        },
+        { 
+          name: 'Barakkat Amber Night', 
+          price: '35€', 
+          image: '/products/barakkat_amber_night___parfum_mixte_100ml_processed.png', 
+          badge: 'NEW'
+        },
+        { 
+          name: 'Sugar Rush Extrait', 
+          price: '35€', 
+          image: '/products/sugar_rush_extrait_de_parfum_processed.png', 
+          badge: 'Intense'
+        }
       ],
     },
     'parfums-femme': {
@@ -172,52 +222,116 @@ function Category() {
       colorBg: 'rgba(255, 92, 161, 0.1)',
       desc: 'Découvrez notre collection raffinée de parfums féminins aux notes envoûtantes de Dubaï.',
       items: [
-        { name: 'Kenzie Marshmallow Dream', price: '35€', image: '/products/parfum_volare_kenzie_1775592394045.png', badge: 'Rêve' },
-        { name: 'Yara Candy Lattafa', price: '35€', image: '/products/parfum_lattafa_yara_candy_1775592421301.png', badge: 'Gourmand' },
-        { name: 'Yara Lattafa', price: '35€', image: '/products/parfum_lattafa_yara_1775592406921.png', badge: 'Iconique' },
-        { name: 'La Vivacité', price: '35€', image: '/products/parfum_alhambra_vivacite_1775592440080.png', badge: 'Vibrant' },
-        { name: 'Rave Now Women', price: '35€', image: '/products/parfum_rave_now_1775592456747.png', badge: 'Moderne' },
-        { name: 'Ameerat Al Arab Prive Rose', price: '35€', image: '/products/parfum_ameerat_corrected_1775591719341.png', badge: 'Floral' },
-        { name: 'Aïsha Absolue Collection Privée', price: '35€', image: '/products/parfum_aisha_1775589064630.png', badge: 'Magique' },
-        { name: 'Rose Bonbon', price: '35€', image: '/products/parfum_rose_bonbon_1775591686863.png', badge: 'Doux' },
-        { name: 'Musk Collection Cotton Candy', price: '35€', image: '/products/parfum_musk_collection_1775591701197.png', badge: 'Sucré' },
-        { name: 'Musk Collection Blueberry', price: '35€', image: '/products/parfum_musk_collection_1775591701197.png', badge: 'Frais' },
-        { name: 'Yara Candy - Eau de Parfum Femme Lattafa 100ml', price: '35€', image: '/products/yara_candy___eau_de_parfum_femme_lattafa_100ml_processed.png', badge: 'NEW' },
-        { name: 'Yara Rose - Eau de Parfum Femme Lattafa 100ml', price: '35€', image: '/products/yara_rose___eau_de_parfum_femme_lattafa_100ml_processed.png', badge: 'NEW' },
-        { name: 'Ameerat El Arab Sugar Crown Parfum Asdaaf 100ml', price: '35€', image: '/products/ameerat_el_arab_sugar_crown_parfum_asdaaf_100ml_processed.png', badge: 'NEW' },
-        { name: 'Prideful - Eau de Parfum Femme Volare 100ml', price: '35€', image: '/products/prideful___eau_de_parfum_femme_volare_100ml_processed.png', badge: 'NEW' },
-        { name: 'Kenzie Exotic Apple Crush - Parfum Volaré 100ml', price: '35€', image: '/products/kenzie_exotic_apple_crush___parfum_volar__100ml_processed.png', badge: 'NEW' },
-        { name: 'Kenzie Marshmallow Dream 100ml Parfum Femme Volaré', price: '35€', image: '/products/kenzie_marshmallow_dream_100ml_parfum_femme_volar__processed.png', badge: 'NEW' },
-        { name: 'Kenzie Candid Vanilla Parfum Femme Volaré 100ml', price: '35€', image: '/products/kenzie_candid_vanilla_parfum_femme_volar__100ml_processed.png', badge: 'NEW' },
-        { name: 'Mayar - Eau de Parfum Femme Lattafa 100ml', price: '35€', image: '/products/mayar___eau_de_parfum_femme_lattafa_100ml_processed.png', badge: 'NEW' },
-        { name: 'Now Women - Parfum Femme Rave Lattafa 100ml', price: '35€', image: '/products/now_women___parfum_femme_rave_lattafa_100ml_processed.png', badge: 'NEW' },
-        { name: 'Ameerat Al Arab Prive Rose Parfum Femme 100ml', price: '35€', image: '/products/ameerat_al_arab_prive_rose_parfum_femme_100ml_processed.png', badge: 'NEW' },
-        { name: 'Ameerat Al Arab Rouge Parfum Femme Asdaaf 100ml', price: '35€', image: '/products/ameerat_al_arab_rouge_parfum_femme_asdaaf_100ml_processed.png', badge: 'NEW' },
-        { name: 'Fakhar Lattafa Rose Gold - Parfum Femme 100ml', price: '35€', image: '/products/fakhar_lattafa_rose_gold___parfum_femme_100ml_processed.png', badge: 'NEW' },
-        { name: 'Rose Bonbon - Parfum Femme Gulf Fragrance 100ml', price: '35€', image: '/products/rose_bonbon___parfum_femme_gulf_fragrance_100ml_processed.png', badge: 'NEW' },
-        { name: 'Léonie Intense - Parfum Femme Alhambra 100ml', price: '35€', image: '/products/l_onie_intense___parfum_femme_alhambra_100ml_processed.png', badge: 'NEW' },
-        { name: 'Khair Confection Parfum Femme Paris Corner 100ml', price: '35€', image: '/products/khair_confection_parfum_femme_paris_corner_100ml_processed.png', badge: 'NEW' },
-        { name: 'Rosso Lychee Parfum Mixte Gulf Fragrance 100ml', price: '35€', image: '/products/rosso_lychee_parfum_mixte_gulf_fragrance_100ml_processed.png', badge: 'NEW' },
-        { name: 'Cotton Candy Musk Parfum Mixte Gulf Orchid 60ml', price: '35€', image: '/products/cotton_candy_musk_parfum_mixte_gulf_orchid_60ml_processed.png', badge: 'NEW' },
-        { name: 'Blueberry Musk - Parfum Mixte Gulf Orchid 60ml', price: '35€', image: '/products/blueberry_musk___parfum_mixte_gulf_orchid_60ml_processed.png', badge: 'NEW' },
-        { name: 'December Vanilla Parfum Mixte Paris Corner 85ml', price: '35€', image: '/products/december_vanilla_parfum_mixte_paris_corner_85ml_processed.png', badge: 'NEW' },
-        { name: 'Ajwad - Parfum Mixte Lattafa 60ml', price: '35€', image: '/products/ajwad___parfum_mixte_lattafa_60ml_processed.png', badge: 'NEW' },
-        { name: 'Kaharmaneh New - Parfum Mixte Boutique 100ml', price: '35€', image: '/products/kaharmaneh_new___parfum_mixte_boutique_100ml_processed.png', badge: 'NEW' },
-        { name: 'Khair Peach Delulu Parfum Mixte Paris Corner 100ml', price: '35€', image: '/products/khair_peach_delulu_parfum_mixte_paris_corner_100ml_processed.png', badge: 'NEW' },
-        { name: 'Vanilla Latte - Parfum Mixte Gulf Orchid 100ml', price: '35€', image: '/products/vanilla_latte___parfum_mixte_gulf_orchid_100ml_processed.png', badge: 'NEW' },
-        { name: 'Fakhar Gold - Parfum Mixte Lattafa 100ml', price: '35€', image: '/products/fakhar_gold___parfum_mixte_lattafa_100ml_processed.png', badge: 'NEW' },
-        { name: 'Vanilla Powdery Parfum Mixte Louis Martin 100ml', price: '35€', image: '/products/vanilla_powdery_parfum_mixte_louis_martin_100ml_processed.png', badge: 'NEW' },
-        { name: 'Khamrah - Parfum Mixte Lattafa 100ml', price: '35€', image: '/products/khamrah___parfum_mixte_lattafa_100ml_processed.png', badge: 'badge' },
-        { name: 'Confidential Gold - Parfum Mixte Lattafa 100ml', price: '35€', image: '/products/confidential_gold___parfum_mixte_lattafa_100ml_processed.png', badge: 'NEW' },
-        { name: 'Éclair - Parfum Mixte Lattafa 100ml', price: '35€', image: '/products/_clair___parfum_mixte_lattafa_100ml_processed.png', badge: 'NEW' },
-        { name: 'Barakkat Amber Night - Parfum Mixte 100ml', price: '35€', image: '/products/barakkat_amber_night___parfum_mixte_100ml_processed.png', badge: 'NEW' },
-        { name: 'Esta Puro - Parfum Mixte Volaré 100ml', price: '35€', image: '/products/esta_puro___parfum_mixte_volar__100ml_processed.png', badge: 'NEW' },
-        { name: 'Sweet Heaven Cherry Parfum Gulf Orchid 100ml', price: '35€', image: '/products/sweet_heaven_cherry_parfum_gulf_orchid_100ml_processed.png', badge: 'NEW' },
-        { name: 'Imagique - Parfum Mixte Loui Martin 100ml', price: '35€', image: '/products/imagique___parfum_mixte_loui_martin_100ml_processed.png', badge: 'NEW' },
-        { name: 'Specific Breez - Parfum Mixte Loui Martin 100ml', price: '35€', image: '/products/specific_breez___parfum_mixte_loui_martin_100ml_processed.png', badge: 'NEW' },
-        { name: 'Ombre Rêvante - Parfum Mixte Loui Martin 100ml', price: '35€', image: '/products/ombre_r_vante___parfum_mixte_loui_martin_100ml_processed.png', badge: 'NEW' },
-        { name: 'Rêve Infini - Parfum Mixte Loui Martin 100ml', price: '35€', image: '/products/r_ve_infini___parfum_mixte_loui_martin_100ml_processed.png', badge: 'NEW' },
-        { name: 'Sugar rush extrait de parfum', price: '35€', image: '/products/sugar_rush_extrait_de_parfum_processed.png', badge: 'NEW' },
+        { 
+          name: 'Collection Yara Lattafa', 
+          price: '35€', 
+          image: '/products/parfum_lattafa_yara_candy_1775592421301.png', 
+          badge: 'Gourmand',
+          flavors: ['Candy', 'Rose', 'Classique']
+        },
+        { 
+          name: 'Collection Kenzie Volaré', 
+          price: '35€', 
+          image: '/products/parfum_volare_kenzie_1775592394045.png', 
+          badge: 'Rêve',
+          flavors: ['Marshmallow Dream', 'Exotic Apple Crush', 'Candid Vanilla']
+        },
+        { 
+          name: 'Collection Ameerat Al Arab', 
+          price: '35€', 
+          image: '/products/parfum_ameerat_corrected_1775591719341.png', 
+          badge: 'Floral',
+          flavors: ['Prive Rose', 'Rouge Asdaaf', 'Sugar Crown Asdaaf']
+        },
+        { 
+          name: 'Collection Musk', 
+          price: '35€', 
+          image: '/products/parfum_musk_collection_1775591701197.png', 
+          badge: 'Frais',
+          flavors: ['Cotton Candy 60ml', 'Blueberry 60ml']
+        },
+        { 
+          name: 'Collection Gulf Fragrance', 
+          price: '35€', 
+          image: '/products/rose_bonbon___parfum_femme_gulf_fragrance_100ml_processed.png', 
+          badge: 'Doux',
+          flavors: ['Rose Bonbon', 'Rosso Lychee Mixte']
+        },
+        { 
+          name: 'Collection Khair Paris Corner', 
+          price: '35€', 
+          image: '/products/khair_confection_parfum_femme_paris_corner_100ml_processed.png', 
+          badge: 'Premium',
+          flavors: ['Confection', 'Peach Delulu Mixte', 'December Vanilla 85ml']
+        },
+        { 
+          name: 'Collection Lattafa Femme', 
+          price: '35€', 
+          image: '/products/mayar___eau_de_parfum_femme_lattafa_100ml_processed.png', 
+          badge: 'NEW',
+          flavors: ['Mayar', 'Fakhar Rose Gold', 'Ajwad 60ml', 'Khamrah', 'Confidential Gold', 'Éclair']
+        },
+        { 
+          name: 'Collection Loui Martin Mixte', 
+          price: '35€', 
+          image: '/products/imagique___parfum_mixte_loui_martin_100ml_processed.png', 
+          badge: 'Premium',
+          flavors: ['Imagique', 'Specific Breez', 'Ombre Rêvante', 'Rêve Infini', 'Vanilla Powdery']
+        },
+        { 
+          name: 'La Vivacité Maison Alhambra', 
+          price: '35€', 
+          image: '/products/parfum_alhambra_vivacite_1775592440080.png', 
+          badge: 'Vibrant'
+        },
+        { 
+          name: 'Léonie Intense Alhambra', 
+          price: '35€', 
+          image: '/products/l_onie_intense___parfum_femme_alhambra_100ml_processed.png', 
+          badge: 'NEW'
+        },
+        { 
+          name: 'Rave Now Women Lattafa', 
+          price: '35€', 
+          image: '/products/parfum_rave_now_1775592456747.png', 
+          badge: 'Moderne'
+        },
+        { 
+          name: 'Aïsha Absolue Collection Privée', 
+          price: '35€', 
+          image: '/products/parfum_aisha_1775589064630.png', 
+          badge: 'Magique'
+        },
+        { 
+          name: 'Prideful Volaré', 
+          price: '35€', 
+          image: '/products/prideful___eau_de_parfum_femme_volare_100ml_processed.png', 
+          badge: 'NEW'
+        },
+        { 
+          name: 'Sweet Heaven Cherry Gulf Orchid', 
+          price: '35€', 
+          image: '/products/sweet_heaven_cherry_parfum_gulf_orchid_100ml_processed.png', 
+          badge: 'NEW'
+        },
+        { 
+          name: 'Kaharmaneh Mixte Boutique', 
+          price: '35€', 
+          image: '/products/kaharmaneh_new___parfum_mixte_boutique_100ml_processed.png', 
+          badge: 'NEW'
+        },
+        { 
+          name: 'Barakkat Amber Night', 
+          price: '35€', 
+          image: '/products/barakkat_amber_night___parfum_mixte_100ml_processed.png', 
+          badge: 'NEW'
+        },
+        { 
+          name: 'Sugar Rush Extrait', 
+          price: '35€', 
+          image: '/products/sugar_rush_extrait_de_parfum_processed.png', 
+          badge: 'NEW'
+        }
       ],
     },
     puffs: {
