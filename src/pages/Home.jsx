@@ -423,7 +423,7 @@ function Home() {
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 1.2, duration: 0.8 }}
-          className="absolute z-[5] bottom-[10%] md:bottom-[15%] left-[2%] md:left-[8%] w-[28vw] sm:w-[20vw] md:w-[14vw] lg:w-[11vw] pointer-events-none opacity-80 md:opacity-100"
+          className="absolute z-[5] bottom-[5%] md:bottom-[10%] left-[2%] md:left-[5%] w-[45vw] sm:w-[35vw] md:w-[25vw] lg:w-[20vw] pointer-events-none opacity-80 md:opacity-100"
         >
           <img
             src="/puff_jnr.png"
