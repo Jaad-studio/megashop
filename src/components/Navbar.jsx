@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ShoppingBag, X, ShoppingCart, Search } from 'lucide-react';
+import { ShoppingBag, X, ShoppingCart, Search, Phone } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import SearchModal from './SearchModal';
@@ -88,9 +88,14 @@ const Navbar = () => {
           <div className="hidden md:flex items-center gap-3">
             <a
               href="tel:0744253215"
-              className="text-sm font-semibold text-white/40 hover:text-white/70 transition-colors"
+              className="flex items-center gap-2 group px-3 md:px-4 py-2 rounded-xl bg-transparent hover:bg-white/[0.03] transition-all duration-300 border border-transparent hover:border-white/[0.05]"
             >
-              07 44 25 32 15
+              <div className="w-6 h-6 rounded-full bg-[#00f0ff]/10 flex items-center justify-center group-hover:bg-[#00f0ff]/20 transition-colors shadow-[0_0_15px_rgba(0,240,255,0)] group-hover:shadow-[0_0_15px_rgba(0,240,255,0.4)]">
+                <Phone size={12} className="text-[#00f0ff]" />
+              </div>
+              <span className="text-xs md:text-sm font-bold font-mono tracking-widest text-white/60 group-hover:text-white transition-colors">
+                07 44 25 32 15
+              </span>
             </a>
             <button
               onClick={() => setSearchOpen(true)}
