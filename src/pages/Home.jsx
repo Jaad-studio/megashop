@@ -234,6 +234,61 @@ const FaqItem = ({ question, answer, index }) => {
   );
 };
 
+/* ─── Hero Buttons Component ─── */
+const HeroButtons = () => {
+  const [parfumsOpen, setParfumsOpen] = useState(false);
+  
+  return (
+    <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto items-center justify-center relative">
+      {/* Parfums Dropdown Container */}
+      <div className="relative w-full sm:w-auto">
+        <button 
+          onClick={() => setParfumsOpen(!parfumsOpen)}
+          className="group w-full sm:w-auto flex items-center justify-center gap-2.5 bg-gradient-to-r from-[#d4af37] to-[#aa8c2c] text-white px-7 py-3.5 md:px-8 md:py-4 rounded-xl md:rounded-2xl font-bold text-sm md:text-base uppercase tracking-wide hover:shadow-[0_0_40px_rgba(212,175,55,0.4)] hover:-translate-y-1 transition-all duration-300"
+        >
+          <Sparkles size={18} />
+          Parfums
+        </button>
+        <AnimatePresence>
+          {parfumsOpen && (
+            <motion.div 
+              initial={{ opacity: 0, y: -10, scale: 0.9 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -10, scale: 0.9 }}
+              className="absolute top-[110%] sm:top-[120%] left-1/2 -translate-x-1/2 sm:left-0 sm:translate-x-0 w-[90%] sm:w-48 bg-[#111111]/90 backdrop-blur-xl border border-white/10 rounded-xl p-2 flex flex-col gap-2 shadow-[0_10px_40px_rgba(0,0,0,0.5)] z-50"
+            >
+              <Link to="/category/parfums-homme" className="px-4 py-3 rounded-lg bg-[#d4af37]/10 hover:bg-[#d4af37]/20 text-[#d4af37] text-sm font-black uppercase tracking-wider text-center transition-colors shadow-sm">
+                👨 Homme
+              </Link>
+              <Link to="/category/parfums-femme" className="px-4 py-3 rounded-lg bg-[#ff5ca1]/10 hover:bg-[#ff5ca1]/20 text-[#ff5ca1] text-sm font-black uppercase tracking-wider text-center transition-colors shadow-sm">
+                👩 Femme
+              </Link>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+
+      {/* Puffs */}
+      <Link 
+        to="/category/puffs"
+        className="group w-full sm:w-auto flex items-center justify-center gap-2.5 bg-gradient-to-r from-[#00f0ff] to-[#0099cc] text-white px-7 py-3.5 md:px-8 md:py-4 rounded-xl md:rounded-2xl font-bold text-sm md:text-base uppercase tracking-wide hover:shadow-[0_0_40px_rgba(0,240,255,0.4)] hover:-translate-y-1 transition-all duration-300"
+      >
+        <Zap size={18} />
+        Puffs
+      </Link>
+
+      {/* Habits */}
+      <Link 
+        to="/category/tshirts"
+        className="group w-full sm:w-auto flex items-center justify-center gap-2.5 bg-gradient-to-r from-[#ff00ff] to-[#cc00cc] text-white px-7 py-3.5 md:px-8 md:py-4 rounded-xl md:rounded-2xl font-bold text-sm md:text-base uppercase tracking-wide hover:shadow-[0_0_40px_rgba(255,0,255,0.4)] hover:-translate-y-1 transition-all duration-300"
+      >
+        <ShoppingBag size={18} />
+        Habits
+      </Link>
+    </div>
+  );
+};
+
 /* ═══════════════════════════════════════════════════
    HOME PAGE
    ═══════════════════════════════════════════════════ */
@@ -357,22 +412,9 @@ function Home() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.9, duration: 0.6 }}
-            className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto"
+            className="w-full sm:w-auto mt-2"
           >
-            <Link
-              to="/category/parfums-homme"
-              className="group flex items-center justify-center gap-2.5 bg-gradient-to-r from-[#ff00ff] to-[#cc00cc] text-white px-7 py-3.5 md:px-9 md:py-4 rounded-xl md:rounded-2xl font-bold text-sm md:text-base uppercase tracking-wide hover:shadow-[0_0_40px_rgba(255,0,255,0.4)] hover:scale-[1.02] transition-all duration-300"
-            >
-              <ShoppingBag size={18} />
-              Commander
-              <ChevronRight size={16} className="transition-transform group-hover:translate-x-1" />
-            </Link>
-            <a
-              href="#concept"
-              className="flex items-center justify-center gap-2 bg-white/[0.06] backdrop-blur-sm border border-white/[0.08] text-white/70 px-7 py-3.5 md:px-9 md:py-4 rounded-xl md:rounded-2xl font-bold text-sm md:text-base uppercase tracking-wide hover:bg-white/[0.1] hover:text-white transition-all duration-300"
-            >
-              Notre concept
-            </a>
+            <HeroButtons />
           </motion.div>
         </div>
 

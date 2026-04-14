@@ -58,9 +58,6 @@ const Navbar = () => {
             <span className="text-xl md:text-2xl font-black tracking-[-0.05em] text-gradient-main">
               MEGASHOP
             </span>
-            <span className="hidden sm:inline text-[10px] font-bold uppercase tracking-[0.2em] text-white/30 border border-white/10 rounded px-1.5 py-0.5">
-              Premium
-            </span>
           </Link>
 
           {/* Desktop Navigation */}
