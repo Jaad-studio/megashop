@@ -4,6 +4,7 @@ import { ShoppingBag, Sparkles, MapPin, Phone, Star, ChevronRight, ArrowRight, Z
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import BestSellersCarousel from '../components/BestSellersCarousel';
 
 /* ─── Floating Particles (Lighter, performance-optimized) ─── */
 const FloatingParticles = () => {
@@ -427,7 +428,10 @@ function Home() {
       </section>
 
       {/* ═══ MARQUEE ═══ */}
-      <MarqueeBanner text="Qualité Premium — Megashop Romans-sur-Isère" />
+      <MarqueeBanner text="🔥 NOUVELLE COLLECTION DUBAÏ • BEST-SELLER PUFFS JNR EN STOCK 🔥 LIVRAISON 48H" />
+
+      {/* ═══ BEST-SELLERS CAROUSEL ═══ */}
+      <BestSellersCarousel />
 
       {/* ═══ CATEGORIES SECTION ═══ */}
       <section id="concept" className="py-16 md:py-28 px-5 md:px-12">

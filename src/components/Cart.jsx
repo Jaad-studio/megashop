@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Trash2, Plus, Minus, ShoppingBag } from 'lucide-react';
+import { X, Trash2, Plus, Minus, ShoppingBag, MessageCircle } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 
 const Cart = () => {
@@ -12,6 +12,20 @@ const Cart = () => {
     removeFromCart,
     cartTotal,
   } = useCart();
+  } = useCart();
+
+  const formatWhatsAppMessage = () => {
+    let text = "*📦 NOUVELLE COMMANDE MEGASHOP*\n\n";
+    cartItems.forEach((item) => {
+      text += `• ${item.quantity}x ${item.name} (${item.price})\n`;
+    });
+    text += `\n*TOTAL : ${cartTotal.toFixed(2)}€*\n\nBonjour, je souhaite valider ma commande.`;
+    return encodeURIComponent(text);
+  };
+
+  const handleCheckout = () => {
+    window.open(`https://wa.me/33744253215?text=${formatWhatsAppMessage()}`, '_blank');
+  };
 
   return (
     <AnimatePresence>
@@ -32,7 +46,7 @@ const Cart = () => {
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
             transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-            className="fixed top-0 right-0 h-full w-full sm:w-[400px] bg-[#0a0a0a] border-l border-white/[0.08] shadow-2xl z-[210] flex flex-col"
+            className="fixed top-0 right-0 h-full w-full sm:w-[420px] bg-[#0a0a0a]/80 backdrop-blur-2xl border-l border-white/[0.08] shadow-[0_0_50px_rgba(0,0,0,0.8)] z-[210] flex flex-col"
           >
             {/* Header */}
             <div className="flex items-center justify-between p-5 md:p-6 border-b border-white/[0.08]">
@@ -113,16 +127,17 @@ const Cart = () => {
 
             {/* Footer / Summary */}
             {cartItems.length > 0 && (
-              <div className="p-5 md:p-6 border-t border-white/[0.08] bg-[#0a0a0a]">
+              <div className="p-5 md:p-6 border-t border-white/[0.08] bg-black/40">
                 <div className="flex items-center justify-between mb-6">
                   <span className="text-white/60 font-medium">Total</span>
                   <span className="text-2xl font-black text-gradient-main">{cartTotal.toFixed(2)}€</span>
                 </div>
                 <button
-                  className="w-full py-4 rounded-xl flex items-center justify-center gap-2 bg-gradient-to-r from-[#ff00ff] to-[#cc00cc] text-white font-bold text-base uppercase tracking-wide hover:shadow-[0_0_40px_rgba(255,0,255,0.4)] hover:scale-[1.02] transition-all duration-300"
+                  onClick={handleCheckout}
+                  className="w-full py-4 rounded-xl flex items-center justify-center gap-2 bg-[#25D366] text-white font-black text-base uppercase tracking-wide hover:shadow-[0_0_40px_rgba(37,211,102,0.4)] hover:-translate-y-1 transition-all duration-300"
                 >
-                  <ShoppingBag size={18} />
-                  Passer la commande
+                  <MessageCircle size={20} className="filter drop-shadow-md" />
+                  Commander via WhatsApp
                 </button>
               </div>
             )}
