@@ -12,7 +12,6 @@ const Cart = () => {
     removeFromCart,
     cartTotal,
   } = useCart();
-  } = useCart();
 
   const formatWhatsAppMessage = () => {
     let text = "*📦 NOUVELLE COMMANDE MEGASHOP*\n\n";
