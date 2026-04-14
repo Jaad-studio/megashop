@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ShoppingBag, X, ShoppingCart, Search, Phone } from 'lucide-react';
+import { ShoppingBag, X, ShoppingCart, Search, Phone, ChevronDown } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import SearchModal from './SearchModal';
@@ -9,6 +9,9 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
+  const [desktopParfumsOpen, setDesktopParfumsOpen] = useState(false);
+  const [mobileParfumsOpen, setMobileParfumsOpen] = useState(false);
+  
   const location = useLocation();
   const { cartCount, toggleCart } = useCart();
 
@@ -18,23 +21,16 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close menu on route change
   useEffect(() => {
     setMenuOpen(false);
+    setDesktopParfumsOpen(false);
+    setMobileParfumsOpen(false);
   }, [location]);
 
-  // Lock body scroll when menu is open
   useEffect(() => {
     document.body.style.overflow = menuOpen ? 'hidden' : '';
     return () => { document.body.style.overflow = ''; };
   }, [menuOpen]);
-
-  const navLinks = [
-    { label: 'Parfums Homme', to: '/category/parfums-homme' },
-    { label: 'Parfums Femme', to: '/category/parfums-femme' },
-    { label: 'Puffs', to: '/category/puffs' },
-    { label: 'T-Shirts', to: '/category/tshirts' },
-  ];
 
   return (
     <>
@@ -61,27 +57,40 @@ const Navbar = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-1">
-            {navLinks.map((link) => (
-              <Link
-                key={link.to}
-                to={link.to}
-                className={`relative px-5 py-2.5 rounded-xl text-sm font-semibold tracking-wide uppercase transition-all duration-300 group ${
-                  location.pathname === link.to
-                    ? 'text-white bg-white/[0.08]'
-                    : 'text-white/50 hover:text-white hover:bg-white/[0.04]'
-                }`}
-              >
-                {link.label}
-                {location.pathname === link.to && (
-                  <motion.div
-                    layoutId="nav-active"
-                    className="absolute bottom-0 left-1/2 -translate-x-1/2 w-6 h-0.5 rounded-full bg-gradient-to-r from-[#ff00ff] to-[#00f0ff]"
-                    transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-                  />
-                )}
-              </Link>
-            ))}
+          <div className="hidden md:flex items-center gap-2">
+             <div 
+               className="relative"
+               onMouseEnter={() => setDesktopParfumsOpen(true)}
+               onMouseLeave={() => setDesktopParfumsOpen(false)}
+             >
+                <button className={`relative px-5 py-2.5 rounded-xl text-sm font-semibold tracking-wide uppercase transition-all duration-300 flex items-center gap-2 ${location.pathname.includes('parfums') ? 'text-white' : 'text-white/50 hover:text-white'}`}>
+                  Parfums <ChevronDown size={14} className={`transition-transform ${desktopParfumsOpen ? 'rotate-180':''}`}/>
+                  {location.pathname.includes('parfums') && (
+                    <motion.div layoutId="nav-active" className="absolute bottom-0 left-1/2 -translate-x-1/2 w-6 h-0.5 rounded-full bg-gradient-to-r from-[#ff00ff] to-[#00f0ff]"/>
+                  )}
+                </button>
+                <AnimatePresence>
+                  {desktopParfumsOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 10 }}
+                      className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-48 bg-[#111111] border border-white/10 rounded-xl p-2 shadow-2xl flex flex-col gap-1 z-50 backdrop-blur-2xl"
+                    >
+                      <Link to="/category/parfums-homme" className="px-4 py-3 rounded-lg bg-white/5 hover:bg-white/10 text-[#d4af37] text-sm font-bold uppercase tracking-wider text-center transition-colors">👨 Homme</Link>
+                      <Link to="/category/parfums-femme" className="px-4 py-3 rounded-lg bg-white/5 hover:bg-white/10 text-[#ff5ca1] text-sm font-bold uppercase tracking-wider text-center transition-colors">👩 Femme</Link>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+             </div>
+             <Link to="/category/puffs" className={`relative px-5 py-2.5 rounded-xl text-sm font-semibold tracking-wide uppercase transition-all duration-300 ${location.pathname === '/category/puffs' ? 'text-white' : 'text-white/50 hover:text-white'}`}>
+                Puffs
+                {location.pathname === '/category/puffs' && <motion.div layoutId="nav-active" className="absolute bottom-0 left-1/2 -translate-x-1/2 w-6 h-0.5 rounded-full bg-gradient-to-r from-[#ff00ff] to-[#00f0ff]"/>}
+             </Link>
+             <Link to="/category/tshirts" className={`relative px-5 py-2.5 rounded-xl text-sm font-semibold tracking-wide uppercase transition-all duration-300 ${location.pathname === '/category/tshirts' ? 'text-white' : 'text-white/50 hover:text-white'}`}>
+                Habits
+                {location.pathname === '/category/tshirts' && <motion.div layoutId="nav-active" className="absolute bottom-0 left-1/2 -translate-x-1/2 w-6 h-0.5 rounded-full bg-gradient-to-r from-[#ff00ff] to-[#00f0ff]"/>}
+             </Link>
           </div>
 
           {/* Desktop CTA & Contact */}
@@ -105,13 +114,6 @@ const Navbar = () => {
               <Search size={18} />
             </button>
 
-            <Link
-              to="/category/parfums-homme"
-              className="flex items-center gap-2 bg-white/[0.05] hover:bg-white/[0.1] text-white px-5 py-2.5 rounded-xl font-bold text-sm uppercase tracking-wide transition-colors border border-white/[0.08]"
-            >
-              <ShoppingBag size={16} />
-              Boutique
-            </Link>
             <button
               onClick={toggleCart}
               className="relative p-2.5 bg-gradient-to-r from-[#ff00ff] to-[#cc00cc] rounded-xl hover:scale-105 transition-all duration-300 shadow-[0_0_20px_rgba(255,0,255,0.3)] hover:shadow-[0_0_30px_rgba(255,0,255,0.5)]"
@@ -165,28 +167,34 @@ const Navbar = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-[95] bg-[#0a0a0a]/98 backdrop-blur-3xl flex flex-col items-center justify-center gap-2"
+            className="fixed inset-0 z-[95] bg-[#0a0a0a]/98 backdrop-blur-3xl flex flex-col items-center justify-center gap-6"
           >
-            {/* Decorative glow */}
             <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[300px] h-[300px] bg-[#ff00ff]/10 rounded-full blur-[120px] pointer-events-none" />
-            <div className="absolute bottom-1/4 left-1/2 -translate-x-1/2 w-[200px] h-[200px] bg-[#00f0ff]/10 rounded-full blur-[100px] pointer-events-none" />
+            
+            <div className="flex flex-col gap-4 text-center items-center w-full px-8">
+               <button 
+                 onClick={() => setMobileParfumsOpen(!mobileParfumsOpen)} 
+                 className="flex flex-col items-center gap-2 text-4xl font-black uppercase tracking-tight text-white/80 hover:text-white py-2"
+               >
+                 <span className="flex items-center gap-2">Parfums <ChevronDown size={28} className={`transition-transform ${mobileParfumsOpen ? 'rotate-180':''}`}/></span>
+               </button>
+               <AnimatePresence>
+                 {mobileParfumsOpen && (
+                   <motion.div
+                     initial={{ height: 0, opacity: 0 }}
+                     animate={{ height: 'auto', opacity: 1 }}
+                     exit={{ height: 0, opacity: 0 }}
+                     className="flex flex-col gap-3 w-full max-w-[200px]"
+                   >
+                     <Link to="/category/parfums-homme" className="bg-[#d4af37]/20 border border-[#d4af37]/30 text-[#d4af37] py-3 rounded-2xl font-bold uppercase tracking-wider text-sm transition-transform active:scale-95">👨 Homme</Link>
+                     <Link to="/category/parfums-femme" className="bg-[#ff5ca1]/20 border border-[#ff5ca1]/30 text-[#ff5ca1] py-3 rounded-2xl font-bold uppercase tracking-wider text-sm transition-transform active:scale-95">👩 Femme</Link>
+                   </motion.div>
+                 )}
+               </AnimatePresence>
 
-            {navLinks.map((link, i) => (
-              <motion.div
-                key={link.to}
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ delay: i * 0.1 }}
-              >
-                <Link
-                  to={link.to}
-                  className="block text-4xl font-black uppercase tracking-tight text-white/80 hover:text-white py-4 px-8 rounded-2xl hover:bg-white/5 transition-all text-center"
-                >
-                  {link.label}
-                </Link>
-              </motion.div>
-            ))}
+               <Link to="/category/puffs" className="block text-4xl font-black uppercase tracking-tight text-white/80 hover:text-white py-2">Puffs</Link>
+               <Link to="/category/tshirts" className="block text-4xl font-black uppercase tracking-tight text-white/80 hover:text-white py-2">Habits</Link>
+            </div>
 
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -194,20 +202,11 @@ const Navbar = () => {
               transition={{ delay: 0.3 }}
               className="mt-8 flex flex-col items-center gap-4"
             >
-              <a
-                href="tel:0744253215"
-                className="text-lg font-semibold text-[#00f0ff]"
-              >
-                07 44 25 32 15
+              <a href="tel:0744253215" className="flex items-center gap-2 px-6 py-3 rounded-2xl bg-[#00f0ff]/10 border border-[#00f0ff]/20 text-[#00f0ff] font-bold tracking-widest text-lg">
+                 <Phone size={18} /> 07 44 25 32 15
               </a>
-              <Link
-                to="/category/parfums-homme"
-                className="flex items-center gap-2 bg-gradient-to-r from-[#ff00ff] to-[#cc00cc] text-white px-8 py-3 rounded-xl font-bold text-base uppercase tracking-wide"
-              >
-                <ShoppingBag size={18} />
-                Boutique
-              </Link>
             </motion.div>
+
           </motion.div>
         )}
       </AnimatePresence>
