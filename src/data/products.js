@@ -79,11 +79,9 @@ export const categoryData = {
       { 
         name: 'Ensemble Vêtements Gris (Veste + Pantalon)', 
         price: '60€', 
-        image: '/products/streetwear_gris_1.jpg', 
+        image: '/products/ensemble_streetwear_gris.png', 
         gallery: [
-          '/products/streetwear_gris_1.jpg',
-          '/products/streetwear_gris_2.jpg',
-          '/products/streetwear_gris_3.jpg'
+          '/products/ensemble_streetwear_gris.png'
         ],
         badge: 'Premium',
         sizes: ['S', 'M', 'L', 'XL']
@@ -91,11 +89,9 @@ export const categoryData = {
       { 
         name: 'Ensemble Vêtements Noir (Veste + Pantalon)', 
         price: '60€', 
-        image: '/products/streetwear_noir_1.jpg', 
+        image: '/products/ensemble_streetwear_gris.png', 
         gallery: [
-          '/products/streetwear_noir_1.jpg',
-          '/products/streetwear_noir_2.jpg',
-          '/products/streetwear_noir_3.jpg'
+          '/products/ensemble_streetwear_gris.png'
         ],
         badge: 'Nouveau',
         sizes: ['S', 'M', 'L', 'XL']
@@ -103,11 +99,9 @@ export const categoryData = {
       { 
         name: 'Polo Côtelé Premium Noir (Haut)', 
         price: '40€', 
-        image: '/products/streetwear_polo_noir_1.jpg', 
+        image: '/products/ensemble_streetwear_gris.png', 
         gallery: [
-          '/products/streetwear_polo_noir_1.jpg',
-          '/products/streetwear_polo_noir_2.jpg',
-          '/products/streetwear_polo_noir_3.jpg'
+          '/products/ensemble_streetwear_gris.png'
         ],
         badge: 'Bientôt en stock',
         sizes: ['S', 'M', 'L', 'XL']
@@ -115,11 +109,9 @@ export const categoryData = {
       { 
         name: 'Polo Côtelé Premium Blanc (Haut)', 
         price: '40€', 
-        image: '/products/streetwear_polo_blanc_1.jpg', 
+        image: '/products/ensemble_streetwear_gris.png', 
         gallery: [
-          '/products/streetwear_polo_blanc_1.jpg',
-          '/products/streetwear_polo_blanc_2.jpg',
-          '/products/streetwear_polo_blanc_3.jpg'
+          '/products/ensemble_streetwear_gris.png'
         ],
         badge: 'Bientôt en stock',
         sizes: ['S', 'M', 'L', 'XL']
@@ -127,11 +119,9 @@ export const categoryData = {
       { 
         name: 'Polo Knit Zippé Bleu Ciel (Haut)', 
         price: '40€', 
-        image: '/products/streetwear_polo_bleu_1.jpg', 
+        image: '/products/ensemble_streetwear_gris.png', 
         gallery: [
-          '/products/streetwear_polo_bleu_1.jpg',
-          '/products/streetwear_polo_bleu_2.jpg',
-          '/products/streetwear_polo_bleu_3.jpg'
+          '/products/ensemble_streetwear_gris.png'
         ],
         badge: 'Bientôt en stock',
         sizes: ['S', 'M', 'L', 'XL']
@@ -139,9 +129,9 @@ export const categoryData = {
       { 
         name: 'Polo Knit Zippé Noir (Haut)', 
         price: '40€', 
-        image: '/products/streetwear_polo_zip_noir_1.jpg', 
+        image: '/products/ensemble_streetwear_gris.png', 
         gallery: [
-          '/products/streetwear_polo_zip_noir_1.jpg'
+          '/products/ensemble_streetwear_gris.png'
         ],
         badge: 'Bientôt en stock',
         sizes: ['S', 'M', 'L', 'XL']
@@ -149,11 +139,9 @@ export const categoryData = {
       { 
         name: 'T-Shirt Marin à Rayures (Haut)', 
         price: '40€', 
-        image: '/products/streetwear_tshirt_marin_1.jpg', 
+        image: '/products/ensemble_streetwear_gris.png', 
         gallery: [
-          '/products/streetwear_tshirt_marin_1.jpg',
-          '/products/streetwear_tshirt_marin_2.jpg',
-          '/products/streetwear_tshirt_marin_3.jpg'
+          '/products/ensemble_streetwear_gris.png'
         ],
         badge: 'Bientôt en stock',
         sizes: ['S', 'M', 'L', 'XL']
@@ -161,12 +149,9 @@ export const categoryData = {
       { 
         name: 'Ensemble Chemise & Pantalon Texturé Noir', 
         price: '60€', 
-        image: '/products/streetwear_ensemble_texture_1.jpg', 
+        image: '/products/ensemble_streetwear_gris.png', 
         gallery: [
-          '/products/streetwear_ensemble_texture_1.jpg',
-          '/products/streetwear_ensemble_texture_2.jpg',
-          '/products/streetwear_ensemble_texture_3.jpg',
-          '/products/streetwear_ensemble_texture_4.jpg'
+          '/products/ensemble_streetwear_gris.png'
         ],
         badge: 'Bientôt en stock',
         sizes: ['S', 'M', 'L', 'XL']
@@ -174,12 +159,9 @@ export const categoryData = {
       { 
         name: 'Ensemble Chemisette & Short Texturé Blanc', 
         price: '60€', 
-        image: '/products/streetwear_ensemble_blanc_1.jpg', 
+        image: '/products/ensemble_streetwear_gris.png', 
         gallery: [
-          '/products/streetwear_ensemble_blanc_1.jpg',
-          '/products/streetwear_ensemble_blanc_2.jpg',
-          '/products/streetwear_ensemble_blanc_3.jpg',
-          '/products/streetwear_ensemble_blanc_4.jpg'
+          '/products/ensemble_streetwear_gris.png'
         ],
         badge: 'Bientôt en stock',
         sizes: ['S', 'M', 'L', 'XL']
@@ -187,12 +169,9 @@ export const categoryData = {
       { 
         name: 'Ensemble Chemisette & Short Texturé Rose', 
         price: '60€', 
-        image: '/products/streetwear_ensemble_rose_1.jpg', 
+        image: '/products/ensemble_streetwear_gris.png', 
         gallery: [
-          '/products/streetwear_ensemble_rose_1.jpg',
-          '/products/streetwear_ensemble_rose_2.jpg',
-          '/products/streetwear_ensemble_rose_3.jpg',
-          '/products/streetwear_ensemble_rose_4.jpg'
+          '/products/ensemble_streetwear_gris.png'
         ],
         badge: 'Bientôt en stock',
         sizes: ['S', 'M', 'L', 'XL']
