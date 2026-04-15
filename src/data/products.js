@@ -162,6 +162,18 @@ export const categoryData = {
           '/products/streetwear_ensemble_texture_4.jpg'
         ],
         badge: 'Bientôt en stock' 
+      },
+      { 
+        name: 'Ensemble Chemisette & Short Texturé Blanc', 
+        price: '60€', 
+        image: '/products/streetwear_ensemble_blanc_1.jpg', 
+        gallery: [
+          '/products/streetwear_ensemble_blanc_1.jpg',
+          '/products/streetwear_ensemble_blanc_2.jpg',
+          '/products/streetwear_ensemble_blanc_3.jpg',
+          '/products/streetwear_ensemble_blanc_4.jpg'
+        ],
+        badge: 'Bientôt en stock' 
       }
     ],
   }
