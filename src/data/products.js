@@ -97,6 +97,17 @@ export const categoryData = {
           '/products/streetwear_noir_3.jpg'
         ],
         badge: 'Nouveau' 
+      },
+      { 
+        name: 'Polo Côtelé Premium Noir (Haut)', 
+        price: '40€', 
+        image: '/products/streetwear_polo_noir_1.jpg', 
+        gallery: [
+          '/products/streetwear_polo_noir_1.jpg',
+          '/products/streetwear_polo_noir_2.jpg',
+          '/products/streetwear_polo_noir_3.jpg'
+        ],
+        badge: 'Bientôt en stock' 
       }
     ],
   }
