@@ -30,8 +30,7 @@ const Cart = () => {
   const RECOMMENDATIONS = [
     { name: 'Puff JNR Falcon 30000', price: '30€', image: '/products/puff_user_uploaded.png', categoryColor: '#00f0ff' },
     { name: 'Salvo Maison Alhambra', price: '30€', image: '/products/salvo_maison_alhambra_processed.png', categoryColor: '#d4af37' },
-    { name: 'Yara Rose Lattafa', price: '30€', image: '/products/yara_rose___eau_de_parfum_femme_lattafa_100ml_processed.png', categoryColor: '#ff5ca1' },
-    { name: 'Ensemble Streetwear Gris', price: '30€', image: '/products/ensemble_streetwear_gris.png', categoryColor: '#ff00ff' }
+    { name: 'Yara Rose Lattafa', price: '30€', image: '/products/yara_rose___eau_de_parfum_femme_lattafa_100ml_processed.png', categoryColor: '#ff5ca1' }
   ];
 
   const availableRecommendations = RECOMMENDATIONS.filter(rec => !cartItems.some(item => item.name === rec.name));

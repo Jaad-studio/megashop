@@ -271,14 +271,7 @@ function Home() {
       image: '/products/puff_fumot_leopard_1775589133707.png',
       link: '/category/puffs',
       color: '#00f0ff' 
-    },
-    {
-      title: 'Streetwear',
-      subtitle: 'Collection urbaine limitée',
-      image: '/products/ensemble_streetwear_gris.png',
-      link: '/category/streetwear',
-      color: '#ff00ff',
-    },
+    }
   ];
 
   // Set fixed scroll progress for the animation since it's no longer mapped to scroll
