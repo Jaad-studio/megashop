@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { MapPin, Phone, Clock, Star, Camera, ExternalLink } from 'lucide-react';
 
 const Footer = () => {
@@ -101,15 +102,15 @@ const Footer = () => {
             <div>
               <h4 className="text-lg font-bold uppercase tracking-wider text-white/90 mb-4">Catégories</h4>
               <div className="flex flex-col gap-2">
-                {['Parfums', 'Puffs', 'Streetwear'].map((cat) => (
-                  <a
-                    key={cat}
-                    href={`/category/${cat.toLowerCase().replace('-', '')}`}
-                    className="text-sm text-white/40 hover:text-white/80 transition-colors font-medium"
-                  >
-                    {cat}
-                  </a>
-                ))}
+                <Link to="/category/parfums-homme" className="text-sm text-white/40 hover:text-[#d4af37] transition-colors font-medium">
+                  Parfums Homme
+                </Link>
+                <Link to="/category/parfums-femme" className="text-sm text-white/40 hover:text-[#ff5ca1] transition-colors font-medium">
+                  Parfums Femme
+                </Link>
+                <Link to="/category/puffs" className="text-sm text-white/40 hover:text-[#00f0ff] transition-colors font-medium">
+                  Puffs Premium
+                </Link>
               </div>
             </div>
           </div>
