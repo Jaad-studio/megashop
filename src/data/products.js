@@ -108,6 +108,17 @@ export const categoryData = {
           '/products/streetwear_polo_noir_3.jpg'
         ],
         badge: 'Bientôt en stock' 
+      },
+      { 
+        name: 'Polo Côtelé Premium Blanc (Haut)', 
+        price: '40€', 
+        image: '/products/streetwear_polo_blanc_1.jpg', 
+        gallery: [
+          '/products/streetwear_polo_blanc_1.jpg',
+          '/products/streetwear_polo_blanc_2.jpg',
+          '/products/streetwear_polo_blanc_3.jpg'
+        ],
+        badge: 'Bientôt en stock' 
       }
     ],
   }
