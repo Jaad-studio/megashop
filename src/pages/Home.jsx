@@ -384,7 +384,7 @@ function Home() {
           className="absolute z-[15] top-[22%] right-[5%] md:top-auto md:bottom-[12%] md:left-[8%] md:right-auto w-[28vw] sm:w-[20vw] md:w-[16vw] lg:w-[12vw] pointer-events-none"
         >
           <img
-            src="/products/puff_aerox_strawberry_kiwi_1775589080131.png"
+            src="/products/puff_jnr_falcon_30k_generated.png"
             alt="Puff Premium"
             className="w-full h-auto object-contain drop-shadow-[0_0_30px_rgba(0,240,255,0.3)] animate-float"
           />
