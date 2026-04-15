@@ -76,7 +76,28 @@ export const categoryData = {
     colorBg: 'rgba(255, 0, 255, 0.1)',
     desc: 'Des pièces exclusives et des ensembles complets pour un style urbain de haute volée.',
     items: [
-      { name: 'Ensemble Streetwear Gris (Veste + Pantalon)', price: '60€', image: '/products/ensemble_streetwear_gris.png', badge: 'Nouveau' }
+      { 
+        name: 'Ensemble Streetwear Gris (Veste + Pantalon)', 
+        price: '60€', 
+        image: '/products/streetwear_gris_1.jpg', 
+        gallery: [
+          '/products/streetwear_gris_1.jpg',
+          '/products/streetwear_gris_2.jpg',
+          '/products/streetwear_gris_3.jpg'
+        ],
+        badge: 'Premium' 
+      },
+      { 
+        name: 'Ensemble Streetwear Noir (Veste + Pantalon)', 
+        price: '60€', 
+        image: '/products/streetwear_noir_1.jpg', 
+        gallery: [
+          '/products/streetwear_noir_1.jpg',
+          '/products/streetwear_noir_2.jpg',
+          '/products/streetwear_noir_3.jpg'
+        ],
+        badge: 'Nouveau' 
+      }
     ],
   }
 };

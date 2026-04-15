@@ -1,10 +1,15 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ShoppingCart } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 
 const QuickViewModal = ({ isOpen, onClose, product, categoryColor = '#00f0ff' }) => {
   const { addToCart } = useCart();
+  const [mainImage, setMainImage] = useState(null);
+
+  useEffect(() => {
+    if (product) setMainImage(product.image);
+  }, [product]);
 
   if (!product) return null;
 
@@ -29,11 +34,25 @@ const QuickViewModal = ({ isOpen, onClose, product, categoryColor = '#00f0ff' })
             <button onClick={onClose} className="absolute top-4 right-4 z-10 w-10 h-10 bg-black/50 hover:bg-black text-white rounded-full flex items-center justify-center backdrop-blur-md transition-all border border-white/10">
               <X size={20} />
             </button>
-            <div className="w-full md:w-1/2 aspect-square md:aspect-auto bg-[#0e0e0e] relative flex items-center justify-center">
-              <img src={product.image} alt={product.name} className="w-[80%] h-[80%] object-contain drop-shadow-2xl" />
+            <div className="w-full md:w-1/2 aspect-square md:aspect-auto bg-[#0e0e0e] relative flex flex-col items-center justify-center pt-8 pb-4">
+              <img src={mainImage || product.image} alt={product.name} className="w-[80%] h-[70%] lg:h-[80%] object-contain drop-shadow-2xl transition-all duration-300" />
               {product.badge && (
                 <div className="absolute top-5 left-5 px-3 py-1.5 rounded-md text-xs font-black uppercase tracking-wider backdrop-blur-md border bg-black/40 border-white/20 text-white shadow-[0_0_15px_rgba(255,255,255,0.1)]">
                   {product.badge}
+                </div>
+              )}
+              {product.gallery && product.gallery.length > 0 && (
+                <div className="mt-auto flex items-center justify-center gap-3 w-full px-4 no-scrollbar">
+                  {product.gallery.map((img, idx) => (
+                    <button 
+                      key={idx} 
+                      onClick={() => setMainImage(img)}
+                      className={`flex-shrink-0 w-14 h-14 md:w-16 md:h-16 rounded-lg overflow-hidden border-2 transition-all duration-300 ${mainImage === img ? 'opacity-100 scale-105' : 'border-transparent opacity-40 hover:opacity-100'} bg-black/40 cursor-pointer`}
+                      style={mainImage === img ? { borderColor: categoryColor } : {}}
+                    >
+                      <img src={img} className="w-full h-full object-cover" alt="thumbnail" />
+                    </button>
+                  ))}
                 </div>
               )}
             </div>
