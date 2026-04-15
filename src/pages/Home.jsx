@@ -373,12 +373,12 @@ function Home() {
           </motion.div>
         </div>
 
-        {/* Floating Product Image – Left */}
+        {/* Floating Product Image */}
         <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 1.2, duration: 0.8 }}
-          className="hidden md:block absolute z-[15] bottom-[12%] left-[8%] w-[16vw] lg:w-[12vw] pointer-events-none"
+          className="absolute z-[15] top-[22%] right-[5%] md:top-auto md:bottom-[12%] md:left-[8%] md:right-auto w-[28vw] sm:w-[20vw] md:w-[16vw] lg:w-[12vw] pointer-events-none"
         >
           <img
             src="/single_puff.webp"
