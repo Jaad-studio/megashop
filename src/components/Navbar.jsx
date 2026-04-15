@@ -167,7 +167,7 @@ const Navbar = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-[200] bg-[#000000]/98 backdrop-blur-xl flex flex-col items-center justify-center gap-6"
+            className="fixed inset-0 z-[200] bg-[#000000]/98 backdrop-blur-xl flex flex-col items-center justify-start pt-[12vh] pb-10 gap-6 overflow-y-auto"
           >
             <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[300px] h-[300px] bg-[#ff00ff]/10 rounded-full blur-[120px] pointer-events-none" />
             
