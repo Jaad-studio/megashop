@@ -20,21 +20,25 @@ const QuickViewModal = ({ isOpen, onClose, product, categoryColor = '#00f0ff' })
            initial={{ opacity: 0 }}
            animate={{ opacity: 1 }}
            exit={{ opacity: 0 }}
-           className="fixed inset-0 z-[300] bg-black/80 backdrop-blur-xl flex items-center justify-center p-4"
+           className="fixed inset-0 z-[300] bg-black/80 backdrop-blur-xl flex md:items-center justify-center items-end p-0 md:p-4"
            onClick={onClose}
         >
           <motion.div
-            initial={{ scale: 0.9, opacity: 0, y: 20 }}
-            animate={{ scale: 1, opacity: 1, y: 0 }}
-            exit={{ scale: 0.9, opacity: 0, y: 20 }}
-            className="w-full max-w-4xl bg-[#0a0a0a] rounded-3xl overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.8)] border border-white/10 flex flex-col md:flex-row relative"
+            initial={{ y: "100%", opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: "100%", opacity: 0 }}
+            transition={{ type: "spring", damping: 25, stiffness: 200 }}
+            className="w-full max-w-4xl bg-[#0a0a0a] rounded-t-3xl md:rounded-3xl overflow-y-auto no-scrollbar shadow-[0_-15px_50px_rgba(0,0,0,0.8)] md:shadow-[0_0_50px_rgba(0,0,0,0.8)] border border-white/10 flex flex-col md:flex-row relative max-h-[90vh]"
             onClick={e => e.stopPropagation()}
             style={{ boxShadow: `0 0 40px ${categoryColor}20` }}
           >
+            {/* Grab Handle for Bottom Sheet (Mobile Only) */}
+            <div className="absolute top-2 left-1/2 -translate-x-1/2 w-12 h-1.5 bg-white/20 rounded-full md:hidden z-20"></div>
+
             <button onClick={onClose} className="absolute top-4 right-4 z-10 w-10 h-10 bg-black/50 hover:bg-black text-white rounded-full flex items-center justify-center backdrop-blur-md transition-all border border-white/10">
               <X size={20} />
             </button>
-            <div className="w-full md:w-1/2 aspect-square md:aspect-auto bg-[#0e0e0e] relative flex flex-col items-center justify-center pt-8 pb-4">
+            <div className="w-full md:w-1/2 h-[50vh] md:h-auto bg-[#0e0e0e] relative flex flex-col items-center justify-center pt-8 pb-4">
               <img src={mainImage || product.image} alt={product.name} className="w-[80%] h-[70%] lg:h-[80%] object-contain drop-shadow-2xl transition-all duration-300" />
               {product.badge && (
                 <div className="absolute top-5 left-5 px-3 py-1.5 rounded-md text-xs font-black uppercase tracking-wider backdrop-blur-md border bg-black/40 border-white/20 text-white shadow-[0_0_15px_rgba(255,255,255,0.1)]">

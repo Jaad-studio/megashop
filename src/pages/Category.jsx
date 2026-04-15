@@ -89,14 +89,14 @@ const ProductCard = ({ item, i, data, viewMode, addToCart }) => {
             {/* Mobile cart button */}
             <button
               onClick={handleAddToCart}
-              className="md:hidden w-8 h-8 rounded-lg flex items-center justify-center border transition-colors cursor-pointer"
+              className="md:hidden w-10 h-10 rounded-xl flex shrink-0 items-center justify-center border transition-all active:scale-95 cursor-pointer shadow-lg"
               style={{
                 background: `${data.color}15`,
                 borderColor: `${data.color}25`,
                 color: data.color,
               }}
             >
-              <ShoppingCart size={14} />
+              <ShoppingCart size={18} />
             </button>
           </div>
         </div>
@@ -199,13 +199,13 @@ function Category() {
               <span className="font-bold text-white/60">{data.items.length}</span> produits
             </p>
 
-            <div className="flex items-center justify-between w-full md:w-auto">
+            <div className="flex flex-col md:flex-row items-start md:items-center justify-between w-full md:w-auto gap-4 md:gap-0">
               {/* Badge Filters */}
               {availableBadges.length > 0 && (
-                <div className="hidden md:flex items-center gap-2 mr-4 overflow-x-auto pb-2 scrollbar-hide">
+                <div className="flex w-full md:w-auto items-center gap-2 overflow-x-auto pb-2 scrollbar-hide snap-x">
                   <button
                     onClick={() => setFilterBadge('all')}
-                    className={`px-3 py-1.5 text-xs font-bold uppercase rounded-lg border transition-all whitespace-nowrap ${filterBadge === 'all' ? 'bg-white/20 border-white/40 text-white' : 'border-white/10 text-white/40 hover:text-white/80'} `}
+                    className={`snap-start shrink-0 px-3 py-1.5 text-xs font-bold uppercase rounded-lg border transition-all whitespace-nowrap ${filterBadge === 'all' ? 'bg-white/20 border-white/40 text-white' : 'border-white/10 text-white/40 hover:text-white/80'} `}
                   >
                     Tout
                   </button>
@@ -213,7 +213,7 @@ function Category() {
                     <button
                       key={badge}
                       onClick={() => setFilterBadge(badge)}
-                      className={`px-3 py-1.5 text-xs font-bold uppercase tracking-wider rounded-lg border transition-all whitespace-nowrap ${filterBadge === badge ? 'bg-white/10 text-white' : 'border-white/10 text-white/40 hover:text-white/80'}`}
+                      className={`snap-start shrink-0 px-3 py-1.5 text-xs font-bold uppercase tracking-wider rounded-lg border transition-all whitespace-nowrap ${filterBadge === badge ? 'bg-white/10 text-white' : 'border-white/10 text-white/40 hover:text-white/80'}`}
                       style={filterBadge === badge ? { borderColor: data.color, color: data.color } : {}}
                     >
                       {badge}
