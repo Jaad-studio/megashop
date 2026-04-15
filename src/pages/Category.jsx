@@ -6,8 +6,12 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { useCart } from '../context/CartContext';
 import { categoryData } from '../data/products';
+import QuickViewModal from '../components/QuickViewModal';
 
 const ProductCard = ({ item, i, data, viewMode, addToCart }) => {
+  const [selectedFlavor, setSelectedFlavor] = useState(item.flavors ? item.flavors[0] : null);
+  const [isQuickViewOpen, setIsQuickViewOpen] = useState(false);
+
   const handleAddToCart = (e) => {
     e.preventDefault();
     addToCart(item);
@@ -23,7 +27,10 @@ const ProductCard = ({ item, i, data, viewMode, addToCart }) => {
     >
       <div className="glass-card rounded-xl md:rounded-2xl overflow-hidden product-card-shine h-full flex flex-col">
         {/* Image */}
-        <div className={`relative overflow-hidden bg-[#0e0e0e] ${viewMode === 'grid' ? 'aspect-[3/4]' : 'aspect-square'}`}>
+        <div
+          className={`relative overflow-hidden bg-[#0e0e0e] cursor-pointer ${viewMode === 'grid' ? 'aspect-[3/4]' : 'aspect-square'}`}
+          onClick={() => setIsQuickViewOpen(true)}
+        >
           <img
             src={item.image}
             alt={item.name}
@@ -94,6 +101,14 @@ const ProductCard = ({ item, i, data, viewMode, addToCart }) => {
           </div>
         </div>
       </div>
+
+      {/* Quick View Modal */}
+      <QuickViewModal
+        isOpen={isQuickViewOpen}
+        onClose={() => setIsQuickViewOpen(false)}
+        product={selectedFlavor ? { ...item, name: `${item.name} - ${selectedFlavor}` } : item}
+        categoryColor={data.color}
+      />
     </motion.div>
   );
 };
@@ -101,6 +116,7 @@ const ProductCard = ({ item, i, data, viewMode, addToCart }) => {
 function Category() {
   const { type } = useParams();
   const [viewMode, setViewMode] = useState('grid'); // 'grid' or 'compact'
+  const [filterBadge, setFilterBadge] = useState('all');
   const { addToCart } = useCart();
 
   useEffect(() => {
@@ -110,6 +126,14 @@ function Category() {
 
 
   const data = categoryData[type] || categoryData.puffs;
+
+  // Extract unique badges for filtering
+  const availableBadges = [...new Set(data.items.map(item => item.badge).filter(Boolean))];
+
+  // Filter items
+  const filteredItems = filterBadge === 'all'
+    ? data.items
+    : data.items.filter(item => item.badge === filterBadge);
 
   return (
     <div className="bg-[#0a0a0a] min-h-screen text-white font-sans selection:bg-[#ff00ff] selection:text-white">
@@ -175,27 +199,49 @@ function Category() {
               <span className="font-bold text-white/60">{data.items.length}</span> produits
             </p>
 
-            <div className="flex items-center gap-2">
-              <button
-                onClick={() => setViewMode('grid')}
-                className={`p-2.5 rounded-lg transition-all duration-200 ${
-                  viewMode === 'grid'
-                    ? 'bg-white/10 text-white'
-                    : 'text-white/30 hover:text-white/60 hover:bg-white/[0.04]'
-                }`}
-              >
-                <LayoutGrid size={18} />
-              </button>
-              <button
-                onClick={() => setViewMode('compact')}
-                className={`p-2.5 rounded-lg transition-all duration-200 ${
-                  viewMode === 'compact'
-                    ? 'bg-white/10 text-white'
-                    : 'text-white/30 hover:text-white/60 hover:bg-white/[0.04]'
-                }`}
-              >
-                <Grid3X3 size={18} />
-              </button>
+            <div className="flex items-center justify-between w-full md:w-auto">
+              {/* Badge Filters */}
+              {availableBadges.length > 0 && (
+                <div className="hidden md:flex items-center gap-2 mr-4 overflow-x-auto pb-2 scrollbar-hide">
+                  <button
+                    onClick={() => setFilterBadge('all')}
+                    className={`px-3 py-1.5 text-xs font-bold uppercase rounded-lg border transition-all whitespace-nowrap ${filterBadge === 'all' ? 'bg-white/20 border-white/40 text-white' : 'border-white/10 text-white/40 hover:text-white/80'} `}
+                  >
+                    Tout
+                  </button>
+                  {availableBadges.map(badge => (
+                    <button
+                      key={badge}
+                      onClick={() => setFilterBadge(badge)}
+                      className={`px-3 py-1.5 text-xs font-bold uppercase tracking-wider rounded-lg border transition-all whitespace-nowrap ${filterBadge === badge ? 'bg-white/10 text-white' : 'border-white/10 text-white/40 hover:text-white/80'}`}
+                      style={filterBadge === badge ? { borderColor: data.color, color: data.color } : {}}
+                    >
+                      {badge}
+                    </button>
+                  ))}
+                </div>
+              )}
+
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={() => setViewMode('grid')}
+                  className={`p-2.5 rounded-lg transition-all duration-200 ${viewMode === 'grid'
+                      ? 'bg-white/10 text-white'
+                      : 'text-white/30 hover:text-white/60 hover:bg-white/[0.04]'
+                    }`}
+                >
+                  <LayoutGrid size={18} />
+                </button>
+                <button
+                  onClick={() => setViewMode('compact')}
+                  className={`p-2.5 rounded-lg transition-all duration-200 ${viewMode === 'compact'
+                      ? 'bg-white/10 text-white'
+                      : 'text-white/30 hover:text-white/60 hover:bg-white/[0.04]'
+                    }`}
+                >
+                  <Grid3X3 size={18} />
+                </button>
+              </div>
             </div>
           </motion.div>
         </div>
@@ -208,14 +254,13 @@ function Category() {
       <section className="py-10 md:py-16 px-5 md:px-12">
         <div className="max-w-7xl mx-auto">
           <div
-            className={`grid gap-4 md:gap-6 ${
-              viewMode === 'grid'
+            className={`grid gap-4 md:gap-6 ${viewMode === 'grid'
                 ? 'grid-cols-2 md:grid-cols-3 lg:grid-cols-4'
                 : 'grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5'
-            }`}
+              }`}
           >
-            {data.items.map((item, i) => (
-              <ProductCard key={i} item={item} i={i} data={data} viewMode={viewMode} addToCart={addToCart} />
+            {filteredItems.map((item, i) => (
+              <ProductCard key={`${item.name}-${i}`} item={item} i={i} data={data} viewMode={viewMode} addToCart={addToCart} />
             ))}
           </div>
         </div>
