@@ -119,6 +119,17 @@ export const categoryData = {
           '/products/streetwear_polo_blanc_3.jpg'
         ],
         badge: 'Bientôt en stock' 
+      },
+      { 
+        name: 'Polo Knit Zippé Bleu Ciel (Haut)', 
+        price: '40€', 
+        image: '/products/streetwear_polo_bleu_1.jpg', 
+        gallery: [
+          '/products/streetwear_polo_bleu_1.jpg',
+          '/products/streetwear_polo_bleu_2.jpg',
+          '/products/streetwear_polo_bleu_3.jpg'
+        ],
+        badge: 'Bientôt en stock' 
       }
     ],
   }
