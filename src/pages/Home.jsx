@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
-import { ShoppingBag, Sparkles, MapPin, Phone, Star, ChevronRight, ArrowRight, Zap } from 'lucide-react';
+import { ShoppingBag, Sparkles, MapPin, Phone, Star, ChevronRight, ArrowRight, Zap, ShieldCheck, Truck, RotateCcw } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -376,6 +376,26 @@ function Home() {
               <MapPin size={18} />
               Nous trouver
             </a>
+          </motion.div>
+
+          {/* Trust Reassurance Bar */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.2, duration: 1 }}
+            className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mt-8 md:mt-10 pt-6 border-t border-white/[0.05] relative z-20 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-500"
+          >
+            <div className="flex items-center gap-2 text-xs md:text-sm font-bold text-white tracking-widest uppercase">
+              <ShieldCheck size={16} className="text-[#00f0ff] drop-shadow-[0_0_8px_rgba(0,240,255,0.8)] sm:drop-shadow-none sm:text-white" /> 100% Sécurisé
+            </div>
+            <div className="hidden sm:block w-1 h-1 rounded-full bg-white/20" />
+            <div className="flex items-center gap-2 text-xs md:text-sm font-bold text-white tracking-widest uppercase">
+              <Truck size={16} className="text-[#ff00ff] drop-shadow-[0_0_8px_rgba(255,0,255,0.8)] sm:drop-shadow-none sm:text-white" /> Expédition 24h
+            </div>
+            <div className="hidden sm:block w-1 h-1 rounded-full bg-white/20" />
+            <div className="flex items-center gap-2 text-xs md:text-sm font-bold text-white tracking-widest uppercase">
+              <RotateCcw size={16} className="text-[#d4af37] drop-shadow-[0_0_8px_rgba(212,175,55,0.8)] sm:drop-shadow-none sm:text-white" /> Retours 30j
+            </div>
           </motion.div>
         </div>
 

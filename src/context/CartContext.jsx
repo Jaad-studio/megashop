@@ -37,7 +37,6 @@ export function CartProvider({ children }) {
       return [...prevItems, { ...product, numericPrice, quantity: 1 }];
     });
     setToastMessage({ product: product.name, id: Date.now() });
-    setIsCartOpen(true);
   };
 
   const removeFromCart = (productName) => {
