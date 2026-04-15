@@ -85,13 +85,15 @@ const Footer = () => {
               <h4 className="text-lg font-bold uppercase tracking-wider text-white/90 mb-5">Suivez-nous</h4>
               <div className="flex gap-3">
                 <a
-                  href="#"
+                  href="https://instagram.com"
+                  target="_blank" rel="noopener noreferrer"
                   className="w-11 h-11 rounded-xl bg-white/[0.04] border border-white/[0.06] flex items-center justify-center hover:bg-[#ff00ff]/20 hover:border-[#ff00ff]/30 transition-all duration-300 group"
                 >
                   <Camera size={18} className="text-white/50 group-hover:text-white transition-colors" />
                 </a>
                 <a
-                  href="#"
+                  href="https://snapchat.com"
+                  target="_blank" rel="noopener noreferrer"
                   className="w-11 h-11 rounded-xl bg-white/[0.04] border border-white/[0.06] flex items-center justify-center hover:bg-[#00f0ff]/20 hover:border-[#00f0ff]/30 transition-all duration-300 group"
                 >
                   <ExternalLink size={18} className="text-white/50 group-hover:text-white transition-colors" />

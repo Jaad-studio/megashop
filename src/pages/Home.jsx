@@ -340,9 +340,9 @@ function Home() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.7, duration: 0.6 }}
-            className="text-base sm:text-lg md:text-xl text-white/40 font-medium max-w-xl leading-relaxed mb-8 md:mb-10"
+            className="text-base sm:text-lg md:text-xl text-white/40 font-medium max-w-xl leading-relaxed mx-auto mb-8 md:mb-10 text-center"
           >
-            Parfums de Dubaï, puffs premium et streetwear exclusif. L'expérience shopping galactique.
+            Parfums de Dubaï et puffs premium. L'expérience shopping galactique.
           </motion.p>
 
           {/* CTA Buttons */}
