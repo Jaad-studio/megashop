@@ -305,11 +305,11 @@ function Home() {
         </motion.div>
 
         {/* Spline UFO 3D */}
-        <div className="absolute top-[18%] md:top-[10%] z-[10] w-full h-[22vh] md:h-[35vh] pointer-events-none flex items-center justify-center opacity-80">
+        <div className="absolute top-[8%] md:top-[-5%] z-[10] w-full h-[45vh] md:h-[65vh] pointer-events-none flex items-center justify-center opacity-80">
           <iframe
             src="https://my.spline.design/wobblingufo-aVOXKJbUvBO9RGJWe7CDrMWQ/"
             frameBorder="0"
-            className="w-[140vw] md:w-[90vw] lg:w-[70vw] h-full mix-blend-screen"
+            className="w-[160vw] sm:w-[130vw] md:w-[100vw] lg:w-[80vw] h-full mix-blend-screen"
             title="Spline UFO"
             loading="lazy"
           />
