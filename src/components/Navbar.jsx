@@ -87,9 +87,9 @@ const Navbar = () => {
                 Puffs
                 {location.pathname === '/category/puffs' && <motion.div layoutId="nav-active" className="absolute bottom-0 left-1/2 -translate-x-1/2 w-6 h-0.5 rounded-full bg-gradient-to-r from-[#ff00ff] to-[#00f0ff]"/>}
              </Link>
-             <Link to="/category/tshirts" className={`relative px-5 py-2.5 rounded-xl text-sm font-semibold tracking-wide uppercase transition-all duration-300 ${location.pathname === '/category/tshirts' ? 'text-white' : 'text-white/50 hover:text-white'}`}>
+             <Link to="/category/streetwear" className={`relative px-5 py-2.5 rounded-xl text-sm font-semibold tracking-wide uppercase transition-all duration-300 ${location.pathname === '/category/streetwear' ? 'text-white' : 'text-white/50 hover:text-white'}`}>
                 Habits
-                {location.pathname === '/category/tshirts' && <motion.div layoutId="nav-active" className="absolute bottom-0 left-1/2 -translate-x-1/2 w-6 h-0.5 rounded-full bg-gradient-to-r from-[#ff00ff] to-[#00f0ff]"/>}
+                {location.pathname === '/category/streetwear' && <motion.div layoutId="nav-active" className="absolute bottom-0 left-1/2 -translate-x-1/2 w-6 h-0.5 rounded-full bg-gradient-to-r from-[#ff00ff] to-[#00f0ff]"/>}
              </Link>
           </div>
 
@@ -193,7 +193,7 @@ const Navbar = () => {
                </AnimatePresence>
 
                <Link to="/category/puffs" className="block text-4xl font-black uppercase tracking-tight text-white/80 hover:text-white py-2">Puffs</Link>
-               <Link to="/category/tshirts" className="block text-4xl font-black uppercase tracking-tight text-white/80 hover:text-white py-2">Habits</Link>
+               <Link to="/category/streetwear" className="block text-4xl font-black uppercase tracking-tight text-white/80 hover:text-white py-2">Habits</Link>
             </div>
 
             <motion.div

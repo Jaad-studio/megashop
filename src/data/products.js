@@ -68,5 +68,15 @@ export const categoryData = {
       { name: 'Crown Bar 30k', price: '20€', image: '/products/puff_fumot_leopard_1775589133707.png', badge: 'Glacé', flavors: ['Ice Blue', 'Magic Love', 'Lemon Mint', 'Lemon Lime Cherry Fizz', 'Strawberry Punch', 'Mixed Berry'] },
       { name: 'Razz Bar 30k+', price: '20€', image: '/products/puff_razzbar_blueberry_1775589118962.png', badge: 'Premium', flavors: ['Blueberry Sour Raspberry', 'Strawberry Watermelon', 'Pineapple Mango', 'Strawberry Banana', 'Strawberry Ice'] }
     ],
+  },
+  streetwear: {
+    title: 'Streetwear',
+    subtitle: 'Collection urbaine premium',
+    color: '#ff00ff',
+    colorBg: 'rgba(255, 0, 255, 0.1)',
+    desc: 'Des pièces exclusives et des ensembles complets pour un style urbain de haute volée.',
+    items: [
+      { name: 'Ensemble Streetwear Gris (Veste + Pantalon)', price: '60€', image: '/products/ensemble_streetwear_gris.png', badge: 'Nouveau' }
+    ],
   }
 };

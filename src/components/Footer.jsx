@@ -101,7 +101,7 @@ const Footer = () => {
             <div>
               <h4 className="text-lg font-bold uppercase tracking-wider text-white/90 mb-4">Catégories</h4>
               <div className="flex flex-col gap-2">
-                {['Parfums', 'Puffs', 'T-Shirts'].map((cat) => (
+                {['Parfums', 'Puffs', 'Streetwear'].map((cat) => (
                   <a
                     key={cat}
                     href={`/category/${cat.toLowerCase().replace('-', '')}`}
