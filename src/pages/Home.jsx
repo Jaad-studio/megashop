@@ -378,7 +378,7 @@ function Home() {
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 1.2, duration: 0.8 }}
-          className="absolute z-[15] bottom-[12%] left-[3%] md:left-[8%] w-[28vw] sm:w-[22vw] md:w-[16vw] lg:w-[12vw] pointer-events-none"
+          className="hidden md:block absolute z-[15] bottom-[12%] left-[8%] w-[16vw] lg:w-[12vw] pointer-events-none"
         >
           <img
             src="/single_puff.webp"
