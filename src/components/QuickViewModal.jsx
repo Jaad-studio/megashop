@@ -7,6 +7,7 @@ const QuickViewModal = ({ isOpen, onClose, product, categoryColor = '#00f0ff' })
   const { addToCart } = useCart();
   const [mainImage, setMainImage] = useState(null);
   const [selectedSize, setSelectedSize] = useState(null);
+  const [selectedFlavor, setSelectedFlavor] = useState(null);
   const [showSizeError, setShowSizeError] = useState(false);
   const imageRef = React.useRef(null);
 
@@ -14,6 +15,7 @@ const QuickViewModal = ({ isOpen, onClose, product, categoryColor = '#00f0ff' })
     if (product) {
       setMainImage(product.image);
       setSelectedSize(null);
+      setSelectedFlavor(product.flavors ? product.flavors[0] : null);
       setShowSizeError(false);
     }
   }, [product]);
@@ -27,6 +29,8 @@ const QuickViewModal = ({ isOpen, onClose, product, categoryColor = '#00f0ff' })
     
     if (selectedSize) {
       addToCart({ ...product, name: `${product.name} (Taille: ${selectedSize})` });
+    } else if (selectedFlavor) {
+      addToCart({ ...product, name: `${product.name} - ${selectedFlavor}` });
     } else {
       addToCart(product);
     }
@@ -121,6 +125,22 @@ const QuickViewModal = ({ isOpen, onClose, product, categoryColor = '#00f0ff' })
                      ))}
                    </div>
                  </motion.div>
+              )}
+
+              {product.flavors && (
+                 <div className="mb-8">
+                   <p className="text-xs font-bold text-white/50 uppercase tracking-widest mb-3 px-1">Sélectionnez un parfum</p>
+                   <select
+                     value={selectedFlavor}
+                     onChange={(e) => setSelectedFlavor(e.target.value)}
+                     className="w-full bg-[#111] border border-white/10 rounded-xl py-4 px-4 text-sm font-black text-white outline-none focus:border-[#00f0ff]/50 transition-colors cursor-pointer appearance-none"
+                     style={{ backgroundImage: 'url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23FFFFFF%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E")', backgroundRepeat: 'no-repeat', backgroundPosition: 'right 1em top 50%', backgroundSize: '.85em auto' }}
+                   >
+                     {product.flavors.map(flavor => (
+                       <option key={flavor} value={flavor} className="bg-[#111]">{flavor}</option>
+                     ))}
+                   </select>
+                 </div>
               )}
 
               <div className="flex gap-3">
