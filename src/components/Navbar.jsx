@@ -38,7 +38,7 @@ const Navbar = () => {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ type: 'spring', stiffness: 100, damping: 20 }}
-        className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ${
+        className={`fixed top-0 left-0 right-0 z-[250] transition-all duration-500 ${
           scrolled ? 'py-2 px-3 md:px-6' : 'py-3 px-4 md:px-8'
         }`}
       >
@@ -88,7 +88,7 @@ const Navbar = () => {
                 {location.pathname === '/category/puffs' && <motion.div layoutId="nav-active" className="absolute bottom-0 left-1/2 -translate-x-1/2 w-6 h-0.5 rounded-full bg-gradient-to-r from-[#ff00ff] to-[#00f0ff]"/>}
              </Link>
              <Link to="/category/streetwear" className={`relative px-5 py-2.5 rounded-xl text-sm font-semibold tracking-wide uppercase transition-all duration-300 ${location.pathname === '/category/streetwear' ? 'text-white' : 'text-white/50 hover:text-white'}`}>
-                Habits
+                T-Shirts & Ensembles
                 {location.pathname === '/category/streetwear' && <motion.div layoutId="nav-active" className="absolute bottom-0 left-1/2 -translate-x-1/2 w-6 h-0.5 rounded-full bg-gradient-to-r from-[#ff00ff] to-[#00f0ff]"/>}
              </Link>
           </div>
@@ -167,7 +167,7 @@ const Navbar = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-[95] bg-[#0a0a0a]/98 backdrop-blur-3xl flex flex-col items-center justify-center gap-6"
+            className="fixed inset-0 z-[200] bg-[#0a0a0a]/98 backdrop-blur-xl flex flex-col items-center justify-center gap-6"
           >
             <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[300px] h-[300px] bg-[#ff00ff]/10 rounded-full blur-[120px] pointer-events-none" />
             
@@ -192,8 +192,8 @@ const Navbar = () => {
                  )}
                </AnimatePresence>
 
-               <Link to="/category/puffs" className="block text-4xl font-black uppercase tracking-tight text-white/80 hover:text-white py-2">Puffs</Link>
-               <Link to="/category/streetwear" className="block text-4xl font-black uppercase tracking-tight text-white/80 hover:text-white py-2">Habits</Link>
+               <Link to="/category/puffs" className="block text-4xl font-black uppercase tracking-tight text-white py-2 drop-shadow-md">Puffs</Link>
+               <Link to="/category/streetwear" className="block text-4xl font-black uppercase tracking-tight text-white py-2 drop-shadow-md text-center">T-Shirts & Streetwear</Link>
             </div>
 
             <motion.div
