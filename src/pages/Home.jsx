@@ -4,7 +4,6 @@ import { ShoppingBag, Sparkles, MapPin, Phone, Star, ChevronRight, ArrowRight, Z
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import BestSellersCarousel from '../components/BestSellersCarousel';
 
 /* ─── Floating Particles (Lighter, performance-optimized) ─── */
 const FloatingParticles = () => {
@@ -234,61 +233,6 @@ const FaqItem = ({ question, answer, index }) => {
   );
 };
 
-/* ─── Hero Buttons Component ─── */
-const HeroButtons = () => {
-  const [parfumsOpen, setParfumsOpen] = useState(false);
-  
-  return (
-    <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto items-center justify-center relative">
-      {/* Parfums Dropdown Container */}
-      <div className="relative w-full sm:w-auto">
-        <button 
-          onClick={() => setParfumsOpen(!parfumsOpen)}
-          className="group w-full sm:w-auto flex items-center justify-center gap-2.5 bg-gradient-to-r from-[#d4af37] to-[#aa8c2c] text-white px-7 py-3.5 md:px-8 md:py-4 rounded-xl md:rounded-2xl font-bold text-sm md:text-base uppercase tracking-wide hover:shadow-[0_0_40px_rgba(212,175,55,0.4)] hover:-translate-y-1 transition-all duration-300"
-        >
-          <Sparkles size={18} />
-          Parfums
-        </button>
-        <AnimatePresence>
-          {parfumsOpen && (
-            <motion.div 
-              initial={{ opacity: 0, y: -10, scale: 0.9 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: -10, scale: 0.9 }}
-              className="absolute top-[110%] sm:top-[120%] left-1/2 -translate-x-1/2 sm:left-0 sm:translate-x-0 w-[90%] sm:w-48 bg-[#111111]/90 backdrop-blur-xl border border-white/10 rounded-xl p-2 flex flex-col gap-2 shadow-[0_10px_40px_rgba(0,0,0,0.5)] z-50"
-            >
-              <Link to="/category/parfums-homme" className="px-4 py-3 rounded-lg bg-[#d4af37]/10 hover:bg-[#d4af37]/20 text-[#d4af37] text-sm font-black uppercase tracking-wider text-center transition-colors shadow-sm">
-                👨 Homme
-              </Link>
-              <Link to="/category/parfums-femme" className="px-4 py-3 rounded-lg bg-[#ff5ca1]/10 hover:bg-[#ff5ca1]/20 text-[#ff5ca1] text-sm font-black uppercase tracking-wider text-center transition-colors shadow-sm">
-                👩 Femme
-              </Link>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </div>
-
-      {/* Puffs */}
-      <Link 
-        to="/category/puffs"
-        className="group w-full sm:w-auto flex items-center justify-center gap-2.5 bg-gradient-to-r from-[#00f0ff] to-[#0099cc] text-white px-7 py-3.5 md:px-8 md:py-4 rounded-xl md:rounded-2xl font-bold text-sm md:text-base uppercase tracking-wide hover:shadow-[0_0_40px_rgba(0,240,255,0.4)] hover:-translate-y-1 transition-all duration-300"
-      >
-        <Zap size={18} />
-        Puffs
-      </Link>
-
-      {/* Habits */}
-      <Link 
-        to="/category/tshirts"
-        className="group w-full sm:w-auto flex items-center justify-center gap-2.5 bg-gradient-to-r from-[#ff00ff] to-[#cc00cc] text-white px-7 py-3.5 md:px-8 md:py-4 rounded-xl md:rounded-2xl font-bold text-sm md:text-base uppercase tracking-wide hover:shadow-[0_0_40px_rgba(255,0,255,0.4)] hover:-translate-y-1 transition-all duration-300"
-      >
-        <ShoppingBag size={18} />
-        Habits
-      </Link>
-    </div>
-  );
-};
-
 /* ═══════════════════════════════════════════════════
    HOME PAGE
    ═══════════════════════════════════════════════════ */
@@ -309,21 +253,21 @@ function Home() {
     {
       title: 'Parfums Homme',
       subtitle: 'Fragrances masculines Dubaï',
-      image: '/parfum_homme_hero.png',
+      image: '/parfum_dubai_luxury.png',
       link: '/category/parfums-homme',
       color: '#d4af37',
     },
     {
       title: 'Parfums Femme',
       subtitle: 'Fragrances féminines Dubaï',
-      image: '/products/parfum_lattafa_yara_candy_1775592421301.png',
+      image: '/parfum_dubai_luxury.png',
       link: '/category/parfums-femme',
       color: '#ff5ca1',
     },
     {
       title: 'Puffs',
       subtitle: 'Vapotage nouvelle génération',
-      image: '/puff_jnr.png',
+      image: '/single_puff.webp',
       link: '/category/puffs',
       color: '#00f0ff',
     },
@@ -347,20 +291,18 @@ function Home() {
         className="relative min-h-[100svh] w-full flex flex-col items-center justify-center overflow-hidden"
       >
         {/* Background Layers */}
-        <motion.div style={{ y: heroY, opacity: heroOpacity }} className="absolute inset-0 z-0 bg-black">
+        <motion.div style={{ y: heroY, opacity: heroOpacity }} className="absolute inset-0 z-0">
           {/* Gradient background */}
-          <div className="absolute inset-0 bg-gradient-to-br from-[#ff00ff]/8 via-[#000000] to-[#00f0ff]/8 animate-fluid-bg" />
+          <div className="absolute inset-0 bg-gradient-to-br from-[#ff00ff]/8 via-[#0a0a0a] to-[#00f0ff]/8 animate-fluid-bg" />
           <FloatingParticles />
           {/* Noise texture */}
           <div className="absolute inset-0 noise-overlay opacity-60" />
           {/* Bottom fade */}
-          <div className="absolute bottom-0 left-0 right-0 h-[40%] bg-gradient-to-t from-[#000000] to-transparent" />
+          <div className="absolute bottom-0 left-0 right-0 h-[40%] bg-gradient-to-t from-[#0a0a0a] to-transparent" />
         </motion.div>
 
         {/* Spline UFO 3D */}
-        <div 
-          className="absolute top-[10%] md:top-[5%] z-[10] w-full h-[50vh] md:h-[60vh] pointer-events-none flex items-center justify-center opacity-90 mix-blend-screen"
-        >
+        <div className="absolute top-[18%] md:top-[10%] z-[10] w-full h-[22vh] md:h-[35vh] pointer-events-none flex items-center justify-center opacity-80">
           <iframe
             src="https://my.spline.design/wobblingufo-aVOXKJbUvBO9RGJWe7CDrMWQ/"
             frameBorder="0"
@@ -392,9 +334,9 @@ function Home() {
             transition={{ delay: 0.5, duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
             className="text-[13vw] sm:text-[11vw] md:text-[8vw] lg:text-[7vw] font-black leading-[0.88] tracking-[-0.05em] uppercase mb-4 md:mb-6"
           >
-            <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.4)]">Viens</span>
+            <span className="text-white">Viens</span>
             <br />
-            <span className="text-gradient-main drop-shadow-[0_0_30px_rgba(255,0,255,0.5)]">Shopper</span>
+            <span className="text-gradient-main">Shopper</span>
           </motion.h1>
 
           {/* Subtitle */}
@@ -412,9 +354,22 @@ function Home() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.9, duration: 0.6 }}
-            className="w-full sm:w-auto mt-2"
+            className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto"
           >
-            <HeroButtons />
+            <Link
+              to="/category/parfums-homme"
+              className="group flex items-center justify-center gap-2.5 bg-gradient-to-r from-[#ff00ff] to-[#cc00cc] text-white px-7 py-3.5 md:px-9 md:py-4 rounded-xl md:rounded-2xl font-bold text-sm md:text-base uppercase tracking-wide hover:shadow-[0_0_40px_rgba(255,0,255,0.4)] hover:scale-[1.02] transition-all duration-300"
+            >
+              <ShoppingBag size={18} />
+              Commander
+              <ChevronRight size={16} className="transition-transform group-hover:translate-x-1" />
+            </Link>
+            <a
+              href="#concept"
+              className="flex items-center justify-center gap-2 bg-white/[0.06] backdrop-blur-sm border border-white/[0.08] text-white/70 px-7 py-3.5 md:px-9 md:py-4 rounded-xl md:rounded-2xl font-bold text-sm md:text-base uppercase tracking-wide hover:bg-white/[0.1] hover:text-white transition-all duration-300"
+            >
+              Notre concept
+            </a>
           </motion.div>
         </div>
 
@@ -423,12 +378,12 @@ function Home() {
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 1.2, duration: 0.8 }}
-          className="absolute z-[5] bottom-[5%] md:bottom-[10%] left-[2%] md:left-[5%] w-[45vw] sm:w-[35vw] md:w-[25vw] lg:w-[20vw] pointer-events-none opacity-80 md:opacity-100"
+          className="absolute z-[15] bottom-[12%] left-[3%] md:left-[8%] w-[28vw] sm:w-[22vw] md:w-[16vw] lg:w-[12vw] pointer-events-none"
         >
           <img
-            src="/puff_jnr.png"
+            src="/single_puff.webp"
             alt="Puff Premium"
-            className="w-full h-auto object-contain drop-shadow-[0_0_40px_rgba(0,240,255,0.6)] animate-float"
+            className="w-full h-auto object-contain drop-shadow-[0_0_30px_rgba(0,240,255,0.3)] animate-float"
           />
         </motion.div>
 
@@ -470,10 +425,7 @@ function Home() {
       </section>
 
       {/* ═══ MARQUEE ═══ */}
-      <MarqueeBanner text="🔥 NOUVELLE COLLECTION DUBAÏ • BEST-SELLER PUFFS JNR EN STOCK 🔥 LIVRAISON 48H" />
-
-      {/* ═══ BEST-SELLERS CAROUSEL ═══ */}
-      <BestSellersCarousel />
+      <MarqueeBanner text="Qualité Premium — Megashop Romans-sur-Isère" />
 
       {/* ═══ CATEGORIES SECTION ═══ */}
       <section id="concept" className="py-16 md:py-28 px-5 md:px-12">
@@ -496,7 +448,7 @@ function Home() {
           </motion.div>
 
           {/* Category Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-8">
             {categories.map((cat, i) => (
               <CategoryCard key={cat.title} {...cat} delay={i * 0.12} />
             ))}

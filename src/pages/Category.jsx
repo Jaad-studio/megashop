@@ -8,15 +8,9 @@ import { useCart } from '../context/CartContext';
 import { categoryData } from '../data/products';
 
 const ProductCard = ({ item, i, data, viewMode, addToCart }) => {
-  const [selectedFlavor, setSelectedFlavor] = useState(item.flavors ? item.flavors[0] : null);
-
   const handleAddToCart = (e) => {
     e.preventDefault();
-    if (selectedFlavor) {
-      addToCart({ ...item, name: `${item.name} - ${selectedFlavor}` });
-    } else {
-      addToCart(item);
-    }
+    addToCart(item);
   };
 
   return (
@@ -76,21 +70,6 @@ const ProductCard = ({ item, i, data, viewMode, addToCart }) => {
           <h3 className={`font-bold text-white/90 leading-tight mb-2 line-clamp-2 ${viewMode === 'grid' ? 'text-sm md:text-base' : 'text-xs md:text-sm'}`}>
             {item.name}
           </h3>
-          
-          {item.flavors && (
-            <div className="mb-3 mt-1">
-              <select
-                value={selectedFlavor}
-                onChange={(e) => setSelectedFlavor(e.target.value)}
-                className="w-full bg-black/40 text-white/80 border border-white/10 rounded-md p-2 text-xs outline-none focus:border-white/30 cursor-pointer appearance-none"
-                style={{ backgroundImage: `url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e")`, backgroundRepeat: 'no-repeat', backgroundPosition: 'right 0.5rem center', backgroundSize: '1em' }}
-              >
-                {item.flavors.map(flavor => (
-                  <option key={flavor} value={flavor} className="bg-[#0a0a0a] text-white py-1">{flavor}</option>
-                ))}
-              </select>
-            </div>
-          )}
 
           <div className="mt-auto flex items-center justify-between">
             <span
