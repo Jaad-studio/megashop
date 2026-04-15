@@ -2,6 +2,7 @@ import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Trash2, Plus, Minus, ShoppingBag, MessageCircle, ShieldCheck } from 'lucide-react';
 import { useCart } from '../context/CartContext';
+import { useNavigate } from 'react-router-dom';
 
 const Cart = () => {
   const {
@@ -23,8 +24,11 @@ const Cart = () => {
     return encodeURIComponent(text);
   };
 
+  const navigate = useNavigate();
+
   const handleCheckout = () => {
-    window.open(`https://wa.me/33744253215?text=${formatWhatsAppMessage()}`, '_blank');
+    setIsCartOpen(false);
+    navigate('/checkout');
   };
 
   const RECOMMENDATIONS = [
