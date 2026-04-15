@@ -182,13 +182,13 @@ const Navbar = () => {
                      exit={{ height: 0, opacity: 0 }}
                      className="flex flex-col gap-3 w-full max-w-[200px]"
                    >
-                     <Link to="/category/parfums-homme" className="bg-[#d4af37]/20 border border-[#d4af37]/30 text-[#d4af37] py-3 rounded-2xl font-bold uppercase tracking-wider text-sm transition-transform active:scale-95">👨 Homme</Link>
-                     <Link to="/category/parfums-femme" className="bg-[#ff5ca1]/20 border border-[#ff5ca1]/30 text-[#ff5ca1] py-3 rounded-2xl font-bold uppercase tracking-wider text-sm transition-transform active:scale-95">👩 Femme</Link>
+                     <Link onClick={() => setMenuOpen(false)} to="/category/parfums-homme" className="bg-[#d4af37]/20 border border-[#d4af37]/30 text-[#d4af37] py-3 rounded-2xl font-bold uppercase tracking-wider text-sm transition-transform active:scale-95">👨 Homme</Link>
+                     <Link onClick={() => setMenuOpen(false)} to="/category/parfums-femme" className="bg-[#ff5ca1]/20 border border-[#ff5ca1]/30 text-[#ff5ca1] py-3 rounded-2xl font-bold uppercase tracking-wider text-sm transition-transform active:scale-95">👩 Femme</Link>
                    </motion.div>
                  )}
                </AnimatePresence>
 
-               <Link to="/category/puffs" className="block text-4xl font-black uppercase tracking-tight text-white py-2 drop-shadow-md">Puffs</Link>
+               <Link onClick={() => setMenuOpen(false)} to="/category/puffs" className="block text-4xl font-black uppercase tracking-tight text-white py-2 drop-shadow-md">Puffs</Link>
             </div>
 
             <motion.div
