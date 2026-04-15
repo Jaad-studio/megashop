@@ -264,12 +264,13 @@ function Home() {
       link: '/category/parfums-femme',
       color: '#ff5ca1',
     },
-    {
-      title: 'Puffs',
-      subtitle: 'Vapotage nouvelle génération',
-      image: '/single_puff.webp',
+    { 
+      id: 'puffs', 
+      title: 'Puffs', 
+      subtitle: 'Vapotage Premium',
+      image: '/products/puff_aerox_strawberry_kiwi_1775589080131.png',
       link: '/category/puffs',
-      color: '#00f0ff',
+      color: '#00f0ff' 
     },
     {
       title: 'Streetwear',
@@ -280,9 +281,11 @@ function Home() {
     },
   ];
 
+  // Set fixed scroll progress for the animation since it's no longer mapped to scroll
+  const smoothProgress = 1;
+
   return (
-    <div className="bg-[#0a0a0a] min-h-screen text-white font-sans overflow-x-hidden selection:bg-[#ff00ff] selection:text-white">
-      <EntryLoader />
+    <div className="bg-[#0a0a0a] min-h-screen font-sans selection:bg-[#ff00ff] selection:text-white">
       <Navbar />
 
       {/* ═══ HERO ═══ */}
@@ -381,7 +384,7 @@ function Home() {
           className="absolute z-[15] top-[22%] right-[5%] md:top-auto md:bottom-[12%] md:left-[8%] md:right-auto w-[28vw] sm:w-[20vw] md:w-[16vw] lg:w-[12vw] pointer-events-none"
         >
           <img
-            src="/single_puff.webp"
+            src="/products/puff_aerox_strawberry_kiwi_1775589080131.png"
             alt="Puff Premium"
             className="w-full h-auto object-contain drop-shadow-[0_0_30px_rgba(0,240,255,0.3)] animate-float"
           />
