@@ -150,6 +150,18 @@ export const categoryData = {
           '/products/streetwear_tshirt_marin_3.jpg'
         ],
         badge: 'Bientôt en stock' 
+      },
+      { 
+        name: 'Ensemble Chemise & Pantalon Texturé Noir', 
+        price: '60€', 
+        image: '/products/streetwear_ensemble_texture_1.jpg', 
+        gallery: [
+          '/products/streetwear_ensemble_texture_1.jpg',
+          '/products/streetwear_ensemble_texture_2.jpg',
+          '/products/streetwear_ensemble_texture_3.jpg',
+          '/products/streetwear_ensemble_texture_4.jpg'
+        ],
+        badge: 'Bientôt en stock' 
       }
     ],
   }
