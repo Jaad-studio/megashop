@@ -368,9 +368,12 @@ function Home() {
               <ChevronRight size={16} className="transition-transform group-hover:translate-x-1" />
             </a>
             <a
-              href="#infos"
+              href="https://maps.google.com/?q=58+Pl+Jacquemart+26100+Romans-sur-Isère"
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex items-center justify-center gap-2 bg-white/[0.06] backdrop-blur-sm border border-white/[0.08] text-white/70 px-7 py-3.5 md:px-9 md:py-4 rounded-xl md:rounded-2xl font-bold text-sm md:text-base uppercase tracking-wide hover:bg-white/[0.1] hover:text-white transition-all duration-300"
             >
+              <MapPin size={18} />
               Nous trouver
             </a>
           </motion.div>
