@@ -61,7 +61,7 @@ const EntryLoader = () => {
 
   return (
     <motion.div
-      className="fixed inset-0 z-[200] bg-[#0a0a0a] flex items-center justify-center"
+      className="fixed inset-0 z-[200] bg-[#000000] flex items-center justify-center"
       initial={{ opacity: 1 }}
       animate={{ opacity: 0 }}
       transition={{ duration: 0.6, delay: 1.2, ease: 'easeInOut' }}
@@ -84,7 +84,7 @@ const EntryLoader = () => {
 /* ─── Marquee Banner ─── */
 const MarqueeBanner = ({ text, reverse = false }) => {
   return (
-    <div className="relative overflow-hidden py-3 md:py-4 border-y border-white/[0.04] bg-[#0a0a0a]">
+    <div className="relative overflow-hidden py-3 md:py-4 border-y border-white/[0.04] bg-[#000000]">
       <motion.div
         animate={{ x: reverse ? ['-50%', '0%'] : ['0%', '-50%'] }}
         transition={{ ease: 'linear', duration: 25, repeat: Infinity }}
@@ -120,7 +120,7 @@ const CategoryCard = ({ title, subtitle, image, link, color, delay = 0 }) => {
               className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
             />
             {/* Gradient Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/30 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#000000] via-[#000000]/30 to-transparent" />
 
             {/* Badge */}
             <div
@@ -168,8 +168,8 @@ const GallerySection = ({ src, title, highlight, subtitle }) => {
       {/* Background Image */}
       <motion.div style={{ scale, opacity: imgOpacity }} className="absolute inset-0 will-change-transform">
         <img src={src} alt={title} className="w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-[#0a0a0a]/60" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-[#0a0a0a]/80" />
+        <div className="absolute inset-0 bg-[#000000]/60" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#000000] via-transparent to-[#000000]/80" />
       </motion.div>
 
       {/* Text */}
@@ -253,14 +253,14 @@ function Home() {
     {
       title: 'Parfums Homme',
       subtitle: 'Fragrances masculines Dubaï',
-      image: '/parfum_dubai_luxury.png',
+      image: '/products/salvo_maison_alhambra_processed.png',
       link: '/category/parfums-homme',
       color: '#d4af37',
     },
     {
       title: 'Parfums Femme',
       subtitle: 'Fragrances féminines Dubaï',
-      image: '/parfum_dubai_luxury.png',
+      image: '/products/yara_rose___eau_de_parfum_femme_lattafa_100ml_processed.png',
       link: '/category/parfums-femme',
       color: '#ff5ca1',
     },
@@ -268,14 +268,14 @@ function Home() {
       id: 'puffs', 
       title: 'Puffs', 
       subtitle: 'Vapotage Premium',
-      image: '/products/puff_aerox_strawberry_kiwi_1775589080131.png',
+      image: '/products/puff_fumot_leopard_1775589133707.png',
       link: '/category/puffs',
       color: '#00f0ff' 
     },
     {
       title: 'Streetwear',
       subtitle: 'Collection urbaine limitée',
-      image: '/products/streetwear_ensemble_rose_1.jpg',
+      image: '/products/ensemble_streetwear_gris.png',
       link: '/category/streetwear',
       color: '#ff00ff',
     },
@@ -285,7 +285,7 @@ function Home() {
   const smoothProgress = 1;
 
   return (
-    <div className="bg-[#0a0a0a] min-h-screen font-sans selection:bg-[#ff00ff] selection:text-white">
+    <div className="bg-[#000000] min-h-screen font-sans selection:bg-[#ff00ff] selection:text-white">
       <Navbar />
 
       {/* ═══ HERO ═══ */}
@@ -296,12 +296,12 @@ function Home() {
         {/* Background Layers */}
         <motion.div style={{ y: heroY, opacity: heroOpacity }} className="absolute inset-0 z-0">
           {/* Gradient background */}
-          <div className="absolute inset-0 bg-gradient-to-br from-[#ff00ff]/8 via-[#0a0a0a] to-[#00f0ff]/8 animate-fluid-bg" />
+          <div className="absolute inset-0 bg-gradient-to-br from-[#ff00ff]/8 via-[#000000] to-[#00f0ff]/8 animate-fluid-bg" />
           <FloatingParticles />
           {/* Noise texture */}
           <div className="absolute inset-0 noise-overlay opacity-60" />
           {/* Bottom fade */}
-          <div className="absolute bottom-0 left-0 right-0 h-[40%] bg-gradient-to-t from-[#0a0a0a] to-transparent" />
+          <div className="absolute bottom-0 left-0 right-0 h-[40%] bg-gradient-to-t from-[#000000] to-transparent" />
         </motion.div>
 
         {/* Spline UFO 3D */}
@@ -359,19 +359,19 @@ function Home() {
             transition={{ delay: 0.9, duration: 0.6 }}
             className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto"
           >
-            <Link
-              to="/category/parfums-homme"
+            <a
+              href="#concept"
               className="group flex items-center justify-center gap-2.5 bg-gradient-to-r from-[#ff00ff] to-[#cc00cc] text-white px-7 py-3.5 md:px-9 md:py-4 rounded-xl md:rounded-2xl font-bold text-sm md:text-base uppercase tracking-wide hover:shadow-[0_0_40px_rgba(255,0,255,0.4)] hover:scale-[1.02] transition-all duration-300"
             >
               <ShoppingBag size={18} />
               Commander
               <ChevronRight size={16} className="transition-transform group-hover:translate-x-1" />
-            </Link>
+            </a>
             <a
-              href="#concept"
+              href="#infos"
               className="flex items-center justify-center gap-2 bg-white/[0.06] backdrop-blur-sm border border-white/[0.08] text-white/70 px-7 py-3.5 md:px-9 md:py-4 rounded-xl md:rounded-2xl font-bold text-sm md:text-base uppercase tracking-wide hover:bg-white/[0.1] hover:text-white transition-all duration-300"
             >
-              Notre concept
+              Nous trouver
             </a>
           </motion.div>
         </div>
@@ -460,34 +460,6 @@ function Home() {
       </section>
 
       <MarqueeBanner text="Nouvelles Saveurs — Collection Néon Limitée" reverse />
-
-      {/* ═══ GALLERY SECTIONS ═══ */}
-      <div className="relative z-10">
-        <GallerySection
-          src="/casa_de_papel_megashop.png"
-          title="Top"
-          highlight="Puffs"
-          subtitle="Le braquage de la vape"
-        />
-
-        <div className="section-divider" />
-
-        <GallerySection
-          src="/parfum_dubai_luxury.png"
-          title="Nos"
-          highlight="Parfums"
-          subtitle="Fragrances de Dubaï"
-        />
-
-        <div className="section-divider" />
-
-        <GallerySection
-          src="/products/streetwear_ensemble_texture_2.jpg"
-          title="Mode"
-          highlight="Urbaine"
-          subtitle="Ensembles & Surchemises"
-        />
-      </div>
 
       {/* ═══ INFO + FAQ SECTION ═══ */}
       <section id="infos" className="py-16 md:py-28 px-5 md:px-12 relative overflow-hidden">
@@ -637,14 +609,14 @@ function Home() {
             <p className="text-base md:text-lg text-white/40 font-medium mb-8 md:mb-10 max-w-lg mx-auto">
               Viens découvrir nos collections exclusives directement en boutique.
             </p>
-            <Link
-              to="/category/parfums-homme"
+            <a
+              href="#concept"
               className="group inline-flex items-center gap-3 bg-gradient-to-r from-[#ff00ff] to-[#cc00cc] text-white px-8 py-4 md:px-10 md:py-5 rounded-xl md:rounded-2xl font-bold text-base md:text-lg uppercase tracking-wide hover:shadow-[0_0_50px_rgba(255,0,255,0.4)] hover:scale-[1.02] transition-all duration-300"
             >
               <ShoppingBag size={20} />
               Commander
               <ChevronRight size={18} className="transition-transform group-hover:translate-x-1" />
-            </Link>
+            </a>
           </motion.div>
         </div>
       </section>

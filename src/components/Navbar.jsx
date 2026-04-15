@@ -45,7 +45,7 @@ const Navbar = () => {
         <div
           className={`max-w-7xl mx-auto rounded-2xl md:rounded-3xl px-5 py-3 md:px-8 md:py-4 flex items-center justify-between transition-all duration-500 ${
             scrolled
-              ? 'bg-[#0a0a0a]/95 backdrop-blur-2xl shadow-[0_8px_32px_rgba(0,0,0,0.6)] border border-white/[0.06]'
+              ? 'bg-[#000000]/95 backdrop-blur-2xl shadow-[0_8px_32px_rgba(0,0,0,0.6)] border border-white/[0.06]'
               : 'bg-[#111111]/80 backdrop-blur-xl border border-white/[0.04]'
           }`}
         >
@@ -167,7 +167,7 @@ const Navbar = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-[200] bg-[#0a0a0a]/98 backdrop-blur-xl flex flex-col items-center justify-center gap-6"
+            className="fixed inset-0 z-[200] bg-[#000000]/98 backdrop-blur-xl flex flex-col items-center justify-center gap-6"
           >
             <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[300px] h-[300px] bg-[#ff00ff]/10 rounded-full blur-[120px] pointer-events-none" />
             
