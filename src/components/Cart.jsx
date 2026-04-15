@@ -63,6 +63,27 @@ const Cart = () => {
               </button>
             </div>
 
+            {/* Free Shipping Progress */}
+            {cartItems.length > 0 && (
+              <div className="px-5 md:px-6 pt-5 pb-2">
+                <div className="flex justify-between items-center mb-2">
+                  <span className="text-sm font-medium text-white/70">
+                    {cartTotal >= 50 
+                      ? "🎉 Livraison gratuite débloquée !" 
+                      : `Plus que ${(50 - cartTotal).toFixed(2)}€ pour la livraison offerte`}
+                  </span>
+                </div>
+                <div className="h-2 w-full bg-white/10 rounded-full overflow-hidden">
+                  <motion.div 
+                    initial={{ width: 0 }}
+                    animate={{ width: `${Math.min((cartTotal / 50) * 100, 100)}%` }}
+                    transition={{ duration: 0.5, ease: "easeOut" }}
+                    className="h-full bg-gradient-to-r from-[#ff00ff] to-[#00f0ff] shadow-[0_0_10px_rgba(255,0,255,0.5)]"
+                  />
+                </div>
+              </div>
+            )}
+
             {/* Cart Items */}
             <div className="flex-1 overflow-y-auto p-5 md:p-6 space-y-4">
               {cartItems.length === 0 ? (
