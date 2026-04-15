@@ -87,6 +87,10 @@ const Navbar = () => {
                 Puffs
                 {location.pathname === '/category/puffs' && <motion.div layoutId="nav-active" className="absolute bottom-0 left-1/2 -translate-x-1/2 w-6 h-0.5 rounded-full bg-gradient-to-r from-[#ff00ff] to-[#00f0ff]"/>}
              </Link>
+             <Link to="/category/vetements" className={`relative px-5 py-2.5 rounded-xl text-sm font-semibold tracking-wide uppercase transition-all duration-300 ${location.pathname === '/category/vetements' ? 'text-white' : 'text-white/50 hover:text-white'}`}>
+                Vêtements
+                {location.pathname === '/category/vetements' && <motion.div layoutId="nav-active" className="absolute bottom-0 left-1/2 -translate-x-1/2 w-6 h-0.5 rounded-full bg-gradient-to-r from-[#ff00ff] to-[#00f0ff]"/>}
+             </Link>
           </div>
 
           {/* Desktop CTA & Contact */}
@@ -144,7 +148,7 @@ const Navbar = () => {
             </button>
             <button
               onClick={() => setMenuOpen(!menuOpen)}
-              className={`relative z-[110] flex flex-col gap-1.5 p-2 ${menuOpen ? 'hamburger-open' : ''}`}
+              className={`relative z-[210] flex flex-col gap-1.5 p-2 ${menuOpen ? 'hamburger-open' : ''}`}
               aria-label="Menu"
             >
               <span className="hamburger-line" />
@@ -189,6 +193,7 @@ const Navbar = () => {
                </AnimatePresence>
 
                <Link onClick={() => setMenuOpen(false)} to="/category/puffs" className="block text-4xl font-black uppercase tracking-tight text-white py-2 drop-shadow-md">Puffs</Link>
+               <Link onClick={() => setMenuOpen(false)} to="/category/vetements" className="block text-4xl font-black uppercase tracking-tight text-white py-2 drop-shadow-md text-center">Vêtements</Link>
             </div>
 
             <motion.div

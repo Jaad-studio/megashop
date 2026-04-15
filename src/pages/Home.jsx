@@ -271,6 +271,13 @@ function Home() {
       image: '/products/puff_fumot_leopard_1775589133707.png',
       link: '/category/puffs',
       color: '#00f0ff' 
+    },
+    {
+      title: 'Vêtements',
+      subtitle: 'Collection urbaine premium',
+      image: '/products/ensemble_streetwear_gris.png',
+      link: '/category/vetements',
+      color: '#ff00ff'
     }
   ];
 
