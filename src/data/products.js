@@ -139,6 +139,17 @@ export const categoryData = {
           '/products/streetwear_polo_zip_noir_1.jpg'
         ],
         badge: 'Bientôt en stock' 
+      },
+      { 
+        name: 'T-Shirt Marin à Rayures (Haut)', 
+        price: '40€', 
+        image: '/products/streetwear_tshirt_marin_1.jpg', 
+        gallery: [
+          '/products/streetwear_tshirt_marin_1.jpg',
+          '/products/streetwear_tshirt_marin_2.jpg',
+          '/products/streetwear_tshirt_marin_3.jpg'
+        ],
+        badge: 'Bientôt en stock' 
       }
     ],
   }
