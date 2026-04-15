@@ -3,10 +3,10 @@ import { ShoppingCart, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 
 const bestSellers = [
-  { name: 'JNR Falcon', price: '15€', image: '/products/puff_jnr_falcon_30k_generated.png', badge: 'N°1 Puffs', category: 'puffs', flavors: ['Blueberry Raspberry Cherry'] },
+  { name: 'JNR Falcon', price: '15€', image: '/products/puff_jnr_falcon_30k_generated.png', badge: 'N°1 Puffs', category: 'puffs' },
   { name: 'Yara Candy Lattafa', price: '35€', image: '/products/parfum_lattafa_yara_candy_1775592421301.png', badge: 'Top Femme', category: 'parfum-femme' },
   { name: 'Nocturne Eau de Parfum', price: '35€', image: '/parfum_homme_hero.png', badge: 'Top Homme', category: 'parfum-homme' },
-  { name: 'Aerox 32k', price: '15€', image: '/products/puff_aerox_strawberry_kiwi_1775589080131.png', badge: 'Populaire', category: 'puffs', flavors: ['Strawberry Kiwi'] },
+  { name: 'Aerox 32k', price: '15€', image: '/products/puff_aerox_strawberry_kiwi_1775589080131.png', badge: 'Populaire', category: 'puffs' },
   { name: 'Khair Paris Corner', price: '35€', image: '/products/parfum_khair_generated.png', badge: 'Tendance', category: 'parfum-femme' },
 ];
 

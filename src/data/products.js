@@ -62,11 +62,11 @@ export const categoryData = {
     colorBg: 'rgba(0, 240, 255, 0.1)',
     desc: 'Une sélection rigoureuse des meilleures saveurs et designs de puffs premium.',
     items: [
-      { name: 'JNR Falcon', price: '15€', image: '/products/puff_jnr_falcon_30k_generated.png', badge: 'Premium', flavors: ['Blueberry Raspberry Cherry'] },
-      { name: 'Aerox 32k', price: '15€', image: '/products/puff_aerox_strawberry_kiwi_1775589080131.png', badge: 'Intense', flavors: ['Strawberry Kiwi', 'Blue Razz Cherry', 'Blueberry Pomegranate Ice', 'Mixed Berries'] },
-      { name: 'Kong Max 30k', price: '15€', image: '/products/puff_aerox_strawberry_kiwi_1775589080131.png', badge: 'Frais', flavors: ['Raspberry Watermelon Ice', 'Raspberry Watermelon'] },
-      { name: 'Crown Bar 30k', price: '20€', image: '/products/puff_fumot_leopard_1775589133707.png', badge: 'Glacé', flavors: ['Ice Blue', 'Magic Love', 'Lemon Mint', 'Lemon Lime Cherry Fizz', 'Strawberry Punch', 'Mixed Berry'] },
-      { name: 'Razz Bar 30k+', price: '20€', image: '/products/puff_razzbar_blueberry_1775589118962.png', badge: 'Premium', flavors: ['Blueberry Sour Raspberry', 'Strawberry Watermelon', 'Pineapple Mango', 'Strawberry Banana', 'Strawberry Ice'] }
+      { name: 'JNR Falcon', price: '15€', image: '/products/puff_jnr_falcon_30k_generated.png', badge: 'Premium' },
+      { name: 'Aerox 32k', price: '15€', image: '/products/puff_aerox_strawberry_kiwi_1775589080131.png', badge: 'Intense' },
+      { name: 'Kong Max 30k', price: '15€', image: '/products/puff_aerox_strawberry_kiwi_1775589080131.png', badge: 'Frais' },
+      { name: 'Crown Bar 30k', price: '20€', image: '/products/puff_fumot_leopard_1775589133707.png', badge: 'Glacé' },
+      { name: 'Razz Bar 30k+', price: '20€', image: '/products/puff_razzbar_blueberry_1775589118962.png', badge: 'Premium' }
     ],
   },
   streetwear: {
