@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Trash2, Plus, Minus, ShoppingBag, MessageCircle } from 'lucide-react';
+import { X, Trash2, Plus, Minus, ShoppingBag, MessageCircle, ShieldCheck } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 
 const Cart = () => {
@@ -159,6 +159,24 @@ const Cart = () => {
                   <MessageCircle size={20} className="filter drop-shadow-md" />
                   Commander via WhatsApp
                 </button>
+
+                {/* Trust Badges */}
+                <div className="mt-5 flex flex-col items-center justify-center space-y-3 opacity-80">
+                   <div className="flex items-center gap-2 text-[10px] sm:text-xs font-black text-white/90 uppercase tracking-widest">
+                     <ShieldCheck size={16} className="text-[#00f0ff] drop-shadow-[0_0_8px_rgba(0,240,255,0.8)]" /> Réservez via WhatsApp, Payez en Boutique
+                   </div>
+                   <div className="flex gap-2 items-center grayscale hover:grayscale-0 transition-all duration-500 opacity-60 hover:opacity-100">
+                      {/* Apple Pay */}
+                      <div className="h-7 px-3 bg-white rounded flex items-center justify-center text-[11px] font-black text-black"> Pay</div>
+                      {/* Visa */}
+                      <div className="h-7 px-3 bg-white rounded flex items-center justify-center text-[13px] font-black italic text-[#1a1f71]">VISA</div>
+                      {/* Mastercard CSS Mockup */}
+                      <div className="h-7 w-12 bg-[#222] rounded flex items-center justify-center relative overflow-hidden">
+                        <div className="absolute left-1.5 w-5 h-5 bg-[#eb001b] rounded-full z-10 mix-blend-screen opacity-90"></div>
+                        <div className="absolute right-1.5 w-5 h-5 bg-[#f79e1b] rounded-full z-10 mix-blend-screen opacity-90"></div>
+                      </div>
+                   </div>
+                </div>
               </div>
             )}
           </motion.div>

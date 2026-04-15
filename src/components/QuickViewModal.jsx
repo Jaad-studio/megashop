@@ -6,10 +6,40 @@ import { useCart } from '../context/CartContext';
 const QuickViewModal = ({ isOpen, onClose, product, categoryColor = '#00f0ff' }) => {
   const { addToCart } = useCart();
   const [mainImage, setMainImage] = useState(null);
+  const [selectedSize, setSelectedSize] = useState(null);
+  const [showSizeError, setShowSizeError] = useState(false);
+  const imageRef = React.useRef(null);
 
   useEffect(() => {
-    if (product) setMainImage(product.image);
+    if (product) {
+      setMainImage(product.image);
+      setSelectedSize(null);
+      setShowSizeError(false);
+    }
   }, [product]);
+
+  const handleAddToCart = () => {
+    if (product.sizes && !selectedSize) {
+      setShowSizeError(true);
+      setTimeout(() => setShowSizeError(false), 600);
+      return;
+    }
+    
+    if (selectedSize) {
+      addToCart({ ...product, name: `${product.name} (Taille: ${selectedSize})` });
+    } else {
+      addToCart(product);
+    }
+    onClose();
+  };
+
+  const handleMouseMove = (e) => {
+    if (!imageRef.current || window.innerWidth < 768) return;
+    const { left, top, width, height } = e.currentTarget.getBoundingClientRect();
+    const x = ((e.clientX - left) / width) * 100;
+    const y = ((e.clientY - top) / height) * 100;
+    imageRef.current.style.transformOrigin = `${x}% ${y}%`;
+  };
 
   if (!product) return null;
 
@@ -35,11 +65,15 @@ const QuickViewModal = ({ isOpen, onClose, product, categoryColor = '#00f0ff' })
             {/* Grab Handle for Bottom Sheet (Mobile Only) */}
             <div className="absolute top-2 left-1/2 -translate-x-1/2 w-12 h-1.5 bg-white/20 rounded-full md:hidden z-20"></div>
 
-            <button onClick={onClose} className="absolute top-4 right-4 z-10 w-10 h-10 bg-black/50 hover:bg-black text-white rounded-full flex items-center justify-center backdrop-blur-md transition-all border border-white/10">
+            <button onClick={onClose} className="absolute top-4 right-4 z-[99] w-10 h-10 bg-black/50 hover:bg-black text-white rounded-full flex items-center justify-center backdrop-blur-md transition-all border border-white/10">
               <X size={20} />
             </button>
-            <div className="w-full md:w-1/2 h-[50vh] md:h-auto bg-[#0e0e0e] relative flex flex-col items-center justify-center pt-8 pb-4">
-              <img src={mainImage || product.image} alt={product.name} className="w-[80%] h-[70%] lg:h-[80%] object-contain drop-shadow-2xl transition-all duration-300" />
+            <div 
+              className="w-full md:w-1/2 h-[50vh] md:h-auto bg-[#0e0e0e] relative flex flex-col items-center justify-center pt-8 pb-4 group overflow-hidden md:cursor-crosshair"
+              onMouseMove={handleMouseMove}
+              onMouseLeave={() => { if (imageRef.current) imageRef.current.style.transformOrigin = "50% 50%"; }}
+            >
+              <img ref={imageRef} src={mainImage || product.image} alt={product.name} className="w-[80%] h-[70%] lg:h-[80%] object-contain drop-shadow-2xl transition-transform duration-[400ms] ease-out md:group-hover:scale-[1.8] relative z-10" />
               {product.badge && (
                 <div className="absolute top-5 left-5 px-3 py-1.5 rounded-md text-xs font-black uppercase tracking-wider backdrop-blur-md border bg-black/40 border-white/20 text-white shadow-[0_0_15px_rgba(255,255,255,0.1)]">
                   {product.badge}
@@ -68,9 +102,30 @@ const QuickViewModal = ({ isOpen, onClose, product, categoryColor = '#00f0ff' })
                 Une exclusivité soigneusement sélectionnée par l'équipe Megashop. Ses détails exceptionnels et sa qualité premium en font un choix incontournable pour les connaisseurs.
               </div>
 
+              {product.sizes && (
+                 <motion.div 
+                   animate={showSizeError ? { x: [-5, 5, -5, 5, 0] } : {}}
+                   transition={{ duration: 0.4 }}
+                   className={`mb-8 p-2 rounded-2xl transition-colors ${showSizeError ? 'bg-red-500/20 shadow-[0_0_20px_rgba(255,0,0,0.3)]' : ''}`}
+                 >
+                   <p className="text-xs font-bold text-white/50 uppercase tracking-widest mb-3 px-1">Sélectionnez une taille</p>
+                   <div className="flex gap-2">
+                     {product.sizes.map(size => (
+                       <button
+                         key={size}
+                         onClick={(e) => { e.stopPropagation(); setSelectedSize(size); setShowSizeError(false); }}
+                         className={`flex-1 py-3 md:py-4 rounded-xl text-sm font-black transition-all duration-300 active:scale-95 ${selectedSize === size ? 'bg-white/20 text-white shadow-[0_0_15px_rgba(255,255,255,0.2)]' : 'bg-black/40 text-white/40 hover:bg-white/10 hover:text-white/80'} border ${selectedSize === size ? 'border-white/50' : 'border-white/10'}`}
+                       >
+                         {size}
+                       </button>
+                     ))}
+                   </div>
+                 </motion.div>
+              )}
+
               <div className="flex gap-3">
                 <button 
-                  onClick={() => { addToCart(product); onClose(); }} 
+                  onClick={handleAddToCart} 
                   className="flex-1 py-4 rounded-xl font-bold text-sm uppercase tracking-wide flex items-center justify-center gap-2 transition-all duration-300 bg-white/10 border border-white/20 text-white hover:text-white"
                   style={{ '--hover-color': categoryColor }}
                   onMouseEnter={(e) => {

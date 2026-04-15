@@ -85,7 +85,8 @@ export const categoryData = {
           '/products/streetwear_gris_2.jpg',
           '/products/streetwear_gris_3.jpg'
         ],
-        badge: 'Premium' 
+        badge: 'Premium',
+        sizes: ['S', 'M', 'L', 'XL']
       },
       { 
         name: 'Ensemble Streetwear Noir (Veste + Pantalon)', 
@@ -96,7 +97,8 @@ export const categoryData = {
           '/products/streetwear_noir_2.jpg',
           '/products/streetwear_noir_3.jpg'
         ],
-        badge: 'Nouveau' 
+        badge: 'Nouveau',
+        sizes: ['S', 'M', 'L', 'XL']
       },
       { 
         name: 'Polo Côtelé Premium Noir (Haut)', 
@@ -107,7 +109,8 @@ export const categoryData = {
           '/products/streetwear_polo_noir_2.jpg',
           '/products/streetwear_polo_noir_3.jpg'
         ],
-        badge: 'Bientôt en stock' 
+        badge: 'Bientôt en stock',
+        sizes: ['S', 'M', 'L', 'XL']
       },
       { 
         name: 'Polo Côtelé Premium Blanc (Haut)', 
@@ -118,7 +121,8 @@ export const categoryData = {
           '/products/streetwear_polo_blanc_2.jpg',
           '/products/streetwear_polo_blanc_3.jpg'
         ],
-        badge: 'Bientôt en stock' 
+        badge: 'Bientôt en stock',
+        sizes: ['S', 'M', 'L', 'XL']
       },
       { 
         name: 'Polo Knit Zippé Bleu Ciel (Haut)', 
@@ -129,7 +133,8 @@ export const categoryData = {
           '/products/streetwear_polo_bleu_2.jpg',
           '/products/streetwear_polo_bleu_3.jpg'
         ],
-        badge: 'Bientôt en stock' 
+        badge: 'Bientôt en stock',
+        sizes: ['S', 'M', 'L', 'XL']
       },
       { 
         name: 'Polo Knit Zippé Noir (Haut)', 
@@ -138,7 +143,8 @@ export const categoryData = {
         gallery: [
           '/products/streetwear_polo_zip_noir_1.jpg'
         ],
-        badge: 'Bientôt en stock' 
+        badge: 'Bientôt en stock',
+        sizes: ['S', 'M', 'L', 'XL']
       },
       { 
         name: 'T-Shirt Marin à Rayures (Haut)', 
@@ -149,7 +155,8 @@ export const categoryData = {
           '/products/streetwear_tshirt_marin_2.jpg',
           '/products/streetwear_tshirt_marin_3.jpg'
         ],
-        badge: 'Bientôt en stock' 
+        badge: 'Bientôt en stock',
+        sizes: ['S', 'M', 'L', 'XL']
       },
       { 
         name: 'Ensemble Chemise & Pantalon Texturé Noir', 
@@ -161,7 +168,8 @@ export const categoryData = {
           '/products/streetwear_ensemble_texture_3.jpg',
           '/products/streetwear_ensemble_texture_4.jpg'
         ],
-        badge: 'Bientôt en stock' 
+        badge: 'Bientôt en stock',
+        sizes: ['S', 'M', 'L', 'XL']
       },
       { 
         name: 'Ensemble Chemisette & Short Texturé Blanc', 
@@ -173,7 +181,8 @@ export const categoryData = {
           '/products/streetwear_ensemble_blanc_3.jpg',
           '/products/streetwear_ensemble_blanc_4.jpg'
         ],
-        badge: 'Bientôt en stock' 
+        badge: 'Bientôt en stock',
+        sizes: ['S', 'M', 'L', 'XL']
       },
       { 
         name: 'Ensemble Chemisette & Short Texturé Rose', 
@@ -185,7 +194,8 @@ export const categoryData = {
           '/products/streetwear_ensemble_rose_3.jpg',
           '/products/streetwear_ensemble_rose_4.jpg'
         ],
-        badge: 'Bientôt en stock' 
+        badge: 'Bientôt en stock',
+        sizes: ['S', 'M', 'L', 'XL']
       }
     ],
   }

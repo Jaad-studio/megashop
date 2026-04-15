@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { useParams } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ShoppingCart, Filter, Grid3X3, LayoutGrid, Sparkles } from 'lucide-react';
@@ -9,12 +9,35 @@ import { categoryData } from '../data/products';
 import QuickViewModal from '../components/QuickViewModal';
 
 const ProductCard = ({ item, i, data, viewMode, addToCart }) => {
-  const [selectedFlavor, setSelectedFlavor] = useState(item.flavors ? item.flavors[0] : null);
+  const [selectedSize, setSelectedSize] = useState(null);
+  const [showSizeError, setShowSizeError] = useState(false);
   const [isQuickViewOpen, setIsQuickViewOpen] = useState(false);
+  const imageRef = useRef(null);
+
+  const handleMouseMove = (e) => {
+    if (!imageRef.current) return;
+    const { left, top, width, height } = e.currentTarget.getBoundingClientRect();
+    const x = ((e.clientX - left) / width) * 100;
+    const y = ((e.clientY - top) / height) * 100;
+    imageRef.current.style.transformOrigin = `${x}% ${y}%`;
+  };
 
   const handleAddToCart = (e) => {
     e.preventDefault();
-    addToCart(item);
+    e.stopPropagation();
+
+    // Throw error if item requires size but none selected
+    if (item.sizes && !selectedSize) {
+      setShowSizeError(true);
+      setTimeout(() => setShowSizeError(false), 600);
+      return;
+    }
+
+    if (selectedSize) {
+      addToCart({ ...item, name: `${item.name} (Taille: ${selectedSize})` });
+    } else {
+      addToCart(item);
+    }
   };
 
   return (
@@ -30,12 +53,15 @@ const ProductCard = ({ item, i, data, viewMode, addToCart }) => {
         <div
           className={`relative overflow-hidden bg-[#0e0e0e] cursor-pointer ${viewMode === 'grid' ? 'aspect-[3/4]' : 'aspect-square'}`}
           onClick={() => setIsQuickViewOpen(true)}
+          onMouseMove={handleMouseMove}
+          onMouseLeave={() => { if (imageRef.current) imageRef.current.style.transformOrigin = "50% 50%"; }}
         >
           <img
+            ref={imageRef}
             src={item.image}
             alt={item.name}
             loading="lazy"
-            className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+            className="w-full h-full object-cover transition-transform duration-[400ms] ease-out group-hover:scale-[1.35] md:group-hover:scale-150"
           />
 
           {/* Gradient overlay */}
@@ -78,6 +104,24 @@ const ProductCard = ({ item, i, data, viewMode, addToCart }) => {
             {item.name}
           </h3>
 
+          {item.sizes && (
+             <motion.div 
+               animate={showSizeError ? { x: [-5, 5, -5, 5, 0] } : {}}
+               transition={{ duration: 0.4 }}
+               className={`flex gap-2 mb-3 mt-1 p-1 rounded-xl transition-colors ${showSizeError ? 'bg-red-500/20 shadow-[0_0_15px_rgba(255,0,0,0.3)]' : ''}`}
+             >
+               {item.sizes.map(size => (
+                 <button
+                   key={size}
+                   onClick={(e) => { e.stopPropagation(); setSelectedSize(size); setShowSizeError(false); }}
+                   className={`flex-1 py-1.5 md:py-2 rounded-lg text-xs font-bold transition-all duration-200 active:scale-95 ${selectedSize === size ? 'bg-white/20 text-white shadow-[0_0_10px_rgba(255,255,255,0.2)]' : 'bg-black/40 text-white/50 hover:bg-white/10 hover:text-white/80'} border ${selectedSize === size ? 'border-white/40' : 'border-white/10'}`}
+                 >
+                   {size}
+                 </button>
+               ))}
+             </motion.div>
+          )}
+
           <div className="mt-auto flex items-center justify-between">
             <span
               className={`font-black ${viewMode === 'grid' ? 'text-lg md:text-xl' : 'text-base md:text-lg'}`}
@@ -106,7 +150,7 @@ const ProductCard = ({ item, i, data, viewMode, addToCart }) => {
       <QuickViewModal
         isOpen={isQuickViewOpen}
         onClose={() => setIsQuickViewOpen(false)}
-        product={selectedFlavor ? { ...item, name: `${item.name} - ${selectedFlavor}` } : item}
+        product={item}
         categoryColor={data.color}
       />
     </motion.div>
