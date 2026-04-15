@@ -10,6 +10,7 @@ const Cart = () => {
     setIsCartOpen,
     updateQuantity,
     removeFromCart,
+    addToCart,
     cartTotal,
   } = useCart();
 
@@ -25,6 +26,15 @@ const Cart = () => {
   const handleCheckout = () => {
     window.open(`https://wa.me/33744253215?text=${formatWhatsAppMessage()}`, '_blank');
   };
+
+  const RECOMMENDATIONS = [
+    { name: 'Puff JNR Falcon 30000', price: '30€', image: '/products/puff_user_uploaded.png', categoryColor: '#00f0ff' },
+    { name: 'Salvo Maison Alhambra', price: '30€', image: '/products/salvo_maison_alhambra_processed.png', categoryColor: '#d4af37' },
+    { name: 'Yara Rose Lattafa', price: '30€', image: '/products/yara_rose___eau_de_parfum_femme_lattafa_100ml_processed.png', categoryColor: '#ff5ca1' },
+    { name: 'Ensemble Streetwear Gris', price: '30€', image: '/products/ensemble_streetwear_gris.png', categoryColor: '#ff00ff' }
+  ];
+
+  const availableRecommendations = RECOMMENDATIONS.filter(rec => !cartItems.some(item => item.name === rec.name));
 
   return (
     <AnimatePresence>
@@ -68,15 +78,15 @@ const Cart = () => {
               <div className="px-5 md:px-6 pt-5 pb-2">
                 <div className="flex justify-between items-center mb-2">
                   <span className="text-sm font-medium text-white/70">
-                    {cartTotal >= 50 
+                    {cartTotal >= 60 
                       ? "🎉 Livraison gratuite débloquée !" 
-                      : `Plus que ${(50 - cartTotal).toFixed(2)}€ pour la livraison offerte`}
+                      : `Plus que ${(60 - cartTotal).toFixed(2)}€ pour la livraison offerte`}
                   </span>
                 </div>
                 <div className="h-2 w-full bg-white/10 rounded-full overflow-hidden">
                   <motion.div 
                     initial={{ width: 0 }}
-                    animate={{ width: `${Math.min((cartTotal / 50) * 100, 100)}%` }}
+                    animate={{ width: `${Math.min((cartTotal / 60) * 100, 100)}%` }}
                     transition={{ duration: 0.5, ease: "easeOut" }}
                     className="h-full bg-gradient-to-r from-[#ff00ff] to-[#00f0ff] shadow-[0_0_10px_rgba(255,0,255,0.5)]"
                   />
@@ -142,6 +152,31 @@ const Cart = () => {
                     </div>
                   </div>
                 ))
+              )}
+
+              {/* Cross-Selling Suggestions */}
+              {cartItems.length > 0 && availableRecommendations.length > 0 && (
+                <div className="mt-8 border-t border-white/10 pt-6">
+                  <h3 className="text-xs font-black text-white/50 uppercase tracking-widest mb-4">Complétez votre commande</h3>
+                  <div className="flex gap-4 overflow-x-auto pb-4 snap-x hide-scrollbar">
+                    {availableRecommendations.map((rec) => (
+                      <div key={rec.name} className="flex-shrink-0 w-[140px] glass-card rounded-xl p-2 snap-start flex flex-col">
+                        <div className="w-full h-28 rounded-lg overflow-hidden bg-[#0e0e0e] mb-3 relative">
+                          <img src={rec.image} alt={rec.name} className="w-full h-full object-cover" />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                        </div>
+                        <h4 className="text-xs font-bold text-white/90 leading-tight mb-1 h-8 line-clamp-2">{rec.name}</h4>
+                        <p className="font-black text-[#00f0ff] text-sm mb-3">{rec.price}</p>
+                        <button
+                          onClick={() => addToCart({ ...rec, flavors: null })}
+                          className="mt-auto w-full py-2 rounded-lg bg-white/10 hover:bg-white/20 text-white font-bold text-xs uppercase tracking-wide flex items-center justify-center gap-1 transition-colors"
+                        >
+                          <Plus size={14} /> Ajouter
+                        </button>
+                      </div>
+                    ))}
+                  </div>
+                </div>
               )}
             </div>
 
