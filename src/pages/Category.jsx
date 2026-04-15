@@ -45,10 +45,11 @@ const ProductCard = ({ item, i, data, viewMode, addToCart }) => {
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-30px' }}
-      transition={{ duration: 0.4, delay: Math.min(i * 0.04, 0.3) }}
+      layout
+      initial={{ opacity: 0, scale: 0.9 }}
+      animate={{ opacity: 1, scale: 1 }}
+      exit={{ opacity: 0, scale: 0.9 }}
+      transition={{ layout: { type: "spring", bounce: 0.2, duration: 0.6 } }}
       className="group h-full"
     >
       <div className="glass-card rounded-xl md:rounded-2xl overflow-hidden product-card-shine h-full flex flex-col">
@@ -267,18 +268,25 @@ function Category() {
                 <div className="flex w-full md:w-auto items-center gap-2 overflow-x-auto pb-2 scrollbar-hide snap-x">
                   <button
                     onClick={() => setFilterBadge('all')}
-                    className={`snap-start shrink-0 px-3 py-1.5 text-xs font-bold uppercase rounded-lg border transition-all whitespace-nowrap ${filterBadge === 'all' ? 'bg-white/20 border-white/40 text-white' : 'border-white/10 text-white/40 hover:text-white/80'} `}
+                    className={`relative snap-start shrink-0 px-3 py-1.5 text-xs font-bold uppercase tracking-wider rounded-lg border transition-all whitespace-nowrap ${filterBadge === 'all' ? 'text-white' : 'border-white/10 text-white/40 hover:text-white/80'} `}
+                    style={filterBadge === 'all' ? { borderColor: 'white' } : {}}
                   >
-                    Tout
+                    {filterBadge === 'all' && (
+                      <motion.div layoutId="activeFilter" className="absolute inset-0 rounded-lg bg-white/20 -z-10" />
+                    )}
+                    <span className="relative z-10">Tout</span>
                   </button>
                   {availableBadges.map(badge => (
                     <button
                       key={badge}
                       onClick={() => setFilterBadge(badge)}
-                      className={`snap-start shrink-0 px-3 py-1.5 text-xs font-bold uppercase tracking-wider rounded-lg border transition-all whitespace-nowrap ${filterBadge === badge ? 'bg-white/10 text-white' : 'border-white/10 text-white/40 hover:text-white/80'}`}
+                      className={`relative snap-start shrink-0 px-3 py-1.5 text-xs font-bold uppercase tracking-wider rounded-lg border transition-all whitespace-nowrap ${filterBadge === badge ? 'text-white' : 'border-white/10 text-white/40 hover:text-white/80'}`}
                       style={filterBadge === badge ? { borderColor: data.color, color: data.color } : {}}
                     >
-                      {badge}
+                      {filterBadge === badge && (
+                        <motion.div layoutId="activeFilter" className="absolute inset-0 rounded-lg -z-10 backdrop-blur-sm" style={{ background: `${data.color}20` }} />
+                      )}
+                      <span className="relative z-10">{badge}</span>
                     </button>
                   ))}
                 </div>
@@ -315,16 +323,19 @@ function Category() {
       {/* ═══ PRODUCTS GRID ═══ */}
       <section className="py-10 md:py-16 px-5 md:px-12">
         <div className="max-w-7xl mx-auto">
-          <div
+          <motion.div
+            layout
             className={`grid gap-4 md:gap-6 ${viewMode === 'grid'
                 ? 'grid-cols-2 md:grid-cols-3 lg:grid-cols-4'
                 : 'grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5'
               }`}
           >
-            {filteredItems.map((item, i) => (
-              <ProductCard key={`${item.name}-${i}`} item={item} i={i} data={data} viewMode={viewMode} addToCart={addToCart} />
-            ))}
-          </div>
+            <AnimatePresence mode="popLayout">
+              {filteredItems.map((item, i) => (
+                <ProductCard key={item.name} item={item} i={i} data={data} viewMode={viewMode} addToCart={addToCart} />
+              ))}
+            </AnimatePresence>
+          </motion.div>
         </div>
       </section>
 
