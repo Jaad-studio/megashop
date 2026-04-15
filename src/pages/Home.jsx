@@ -272,10 +272,10 @@ function Home() {
       color: '#00f0ff',
     },
     {
-      title: 'T-Shirts',
-      subtitle: 'Collection streetwear limitée',
-      image: '/fashion_clothes_paris.png',
-      link: '/category/tshirts',
+      title: 'Streetwear',
+      subtitle: 'Collection urbaine limitée',
+      image: '/products/streetwear_ensemble_rose_1.jpg',
+      link: '/category/streetwear',
       color: '#ff00ff',
     },
   ];
@@ -479,10 +479,10 @@ function Home() {
         <div className="section-divider" />
 
         <GallerySection
-          src="/fashion_clothes_paris.png"
-          title="Collection"
-          highlight="Paris"
-          subtitle="La ville de la mode"
+          src="/products/streetwear_ensemble_texture_2.jpg"
+          title="Mode"
+          highlight="Urbaine"
+          subtitle="Ensembles & Surchemises"
         />
       </div>
 
